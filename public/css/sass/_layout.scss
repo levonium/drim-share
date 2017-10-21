@@ -1,0 +1,182 @@
+.ds_wrapper {
+  margin-bottom: 20px;
+
+  &::before,
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+
+  .ds_heading {
+    float: left;
+    margin-right: 6px;
+  }
+
+  .ds_bttn {
+    float: left;
+    margin: 0 2px;
+
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+
+    a {
+      text-decoration: none;
+      box-shadow: none;
+      text-transform: capitalize;
+      border-bottom: 0 none;
+
+      &:hover {
+        text-decoration: none;
+        box-shadow: none;
+        border-bottom: 0 none;
+      }
+    }
+  }
+
+  &.ds_image {
+
+    .ds_bttn {
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 26px;
+      width: 70px;
+      transition: all 1s;
+
+      @each $network in facebook twitter linkedin googleplus pinterest {
+        &.ds_#{$network} {
+          background-image: url('/wp-grid/wp-content/plugins/drim-share/public/assets/ds_#{$network}.png');
+        }
+      }
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      a {
+        display: block;
+        height: 100%;
+
+        span {
+
+          &.ds_network_name {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  &.ds_share {
+
+
+    .ds_bttn {
+      margin: 0 6px;
+      padding: 0 10px;
+      border: 1px solid #c5c5c5;
+      border-radius: 12px;
+      transition: all 1s;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+
+      a {
+
+        i {
+          color: #333;
+        }
+
+        span {
+
+
+          &.ds_network_name {
+            line-height: 20px;
+            font-size: 0.8em;
+          }
+        }
+      }
+    }
+  }
+
+  &.ds_icon {
+
+    .ds_heading {
+      line-height: 28px;
+    }
+
+    .ds_bttn {
+      width: 24px;
+      transition: all 1s;
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      a {
+
+        img {
+          width: 24px;
+        }
+
+        span {
+
+          &.ds_network_name {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  &.ds_text {
+
+    .ds_bttn {
+
+      a {
+        padding: 4px 8px;
+        color: #fff;
+        font-size: 0.9em;
+        transition: all 1s;
+
+        &:hover {
+          color: #000;
+          opacity: 0.8;
+        }
+
+      }
+
+      &.ds_facebook a {
+        background-color: #4367b1;
+      }
+
+      &.ds_twitter a {
+        background-color: #1fa0f3;
+      }
+
+      &.ds_linkedin a {
+        background-color: #0277b5;
+      }
+
+      &.ds_googleplus a {
+        background-color: #da4638;
+      }
+
+      &.ds_pinterest a {
+        background-color: #bd081c;
+      }
+    }
+  }
+}

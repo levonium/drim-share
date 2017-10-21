@@ -114,15 +114,6 @@ class Drim_Share_Options {
 				'drim_share_settings_main' // Section
 			);
 
-      // networks order
-      add_settings_field(
-        'drim_share_networks_order', // ID
-        __( 'Social Networks Order', 'drim-share' ), // Title
-        array( $this, 'drim_share_networks_order_callback' ), // Callback
-        'drim_share_options', // Page
-        'drim_share_settings_main' // Section
-      );
-
 			// buttons positions
 			add_settings_field(
 				'drim_share_position', // ID
@@ -300,42 +291,6 @@ class Drim_Share_Options {
 
 
     /**
-     * Social networks order selection field callback function
-     */
-    function drim_share_networks_order_callback() {
-
-      $ds_networks = [
-        'facebook' => 'Facebook',
-        'twitter' => 'Twitter',
-        'linkedin' => 'LinkedIn',
-        'googleplus' => 'Google Plus',
-        'pinterest' => 'Pinterest'
-      ];
-
-      echo '<ul id="sortable">';
-
-      $n = 0;
-      foreach( $ds_networks as $ds_network => $ds_network_name) {
-        $n++;
-
-          $ds_opt = isset( $this->options['drim_share_networks_order_' . $ds_network] ) ? esc_attr( $this->options['drim_share_networks_order_' . $ds_network]) : '';
-
-          echo '<li id="drim_share_networks_order_' .  $ds_network . '" name="drim_share_settings_options[drim_share_networks_order_' . $ds_network . ']" class="regular-text ui-state-default" data-place="' . $n . '">' . $ds_network_name . '</li>';
-
-      }
-      echo '</ul>'; ?>
-      <script>
-      jQuery( function() {
-        jQuery( "#sortable" ).sortable({
-          placeholder: "ui-state-highlight regular-text"
-        });
-        jQuery( "#sortable" ).disableSelection();
-      });
-  </script>
-      <?php
-    }
-
-    /**
      * Social buttons position selection field callback function
      */
     function drim_share_position_callback() {
@@ -364,6 +319,7 @@ class Drim_Share_Options {
           <option value=""> <?php _e( 'Select the style', 'drim-share' ); ?> </option>
           <option value="ds_image" <?php selected($ds_opt, "ds_image"); ?>> <?php _e( 'Images', 'drim-share' ); ?> </option>
           <option value="ds_icon" <?php selected($ds_opt, "ds_icon"); ?>> <?php _e( 'Icons', 'drim-share' ); ?> </option>
+          <option value="ds_share" <?php selected($ds_opt, "ds_share"); ?>> <?php _e( 'Icons v2', 'drim-share' ); ?> </option>
           <option value="ds_text" <?php selected($ds_opt, "ds_text"); ?>> <?php _e( 'Names', 'drim-share' ); ?> </option>
           <option value="ds_custom" <?php selected($ds_opt, "ds_custom") ?>> <?php _e( 'Custom Images', 'drim-share' ); ?> </option>
         </select>
@@ -384,9 +340,9 @@ class Drim_Share_Options {
       );
       echo '<p class="description">' . __( 'Upload your custom images to any folder on your server and paste the folder URL here.', 'drim-share' ) . '</p>';
       echo '<p class="description">' . __( 'The image names <b>must</b> be <code><u>facebook</u>.png, <u>twitter</u>.png, <u>linkedin</u>.png, <u>googleplus</u>.png, <u>pinterest</u>.png</code>.', 'drim-share' ) . '</p>';
-      echo '<p class="description">' . __( 'You can use any image type, it doesn\'t have to be .png (facebook.jpg would do). They just have to be all the same.', 'drim-share' ) . '</p>';
-      echo '<p class="description">' . __( 'If an image URL is something like this: <code>' . get_home_url() . '/some-directory/images/facebook.png</code>', 'drim-share' ) . '</p>';
-      echo '<p class="description">' . __( 'The value of this field would be something like this: <code>' . get_home_url() . '/some-directory/images/</code>.', 'drim-share' ) . '</p>';
+      echo '<p class="description">' . __( 'You can use any image type, it does not have to be .png (facebook.jpg would do). They just have to be all the same.', 'drim-share' ) . '</p>';
+      echo '<p class="description">' . __( 'If an image URL is something like this: ', 'drim-share' ) . '<code>' . get_home_url() . '/some-directory/images/facebook.png</code></p>';
+      echo '<p class="description">' . __( 'The value of this field would be something like this: ', 'drim-share' ) . '<code>' . get_home_url() . '/some-directory/images/</code>.</p>';
 
     }
 

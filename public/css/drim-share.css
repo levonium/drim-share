@@ -5,6 +5,75 @@
 /***********************************
 ## MAIN STYLES
 ***********************************/
+@font-face {
+  font-family: "fontello";
+  src: url("./font/fontello.eot?") format("eot"), url("./font/fontello.woff2") format("woff2"), url("./font/fontello.woff") format("woff"), url("./font/fontello.ttf") format("truetype"), url("./font/fontello.svg#fontello") format("svg"); }
+.demo-icon {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 20px;
+  margin-right: .2em;
+  text-align: center;
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  font-size: 0.8em;
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */ }
+
+.icon-linkedin-1:before {
+  content: '\e800'; }
+
+.icon-wordpress-1:before {
+  content: '\e801'; }
+
+.icon-facebook-1:before {
+  content: '\e802'; }
+
+.icon-github:before {
+  content: '\e803'; }
+
+.icon-pinterest:before {
+  content: '\e804'; }
+
+.icon-twitter-1:before {
+  content: '\e805'; }
+
+.icon-gplus:before {
+  content: '\e806'; }
+
+.icon-linkedin-1 {
+  *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe800;&nbsp;'); }
+
+.icon-wordpress-1 {
+  *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe801;&nbsp;'); }
+
+.icon-facebook-1 {
+  *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe802;&nbsp;'); }
+
+.icon-github {
+  *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe803;&nbsp;'); }
+
+.icon-pinterest {
+  *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe804;&nbsp;'); }
+
+.icon-twitter-1 {
+  *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe805;&nbsp;'); }
+
+.icon-gplus {
+  *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe806;&nbsp;'); }
+
+/***********************************
+## LAYOUT
+***********************************/
 .ds_wrapper {
   margin-bottom: 20px; }
   .ds_wrapper::before, .ds_wrapper::after {
@@ -24,7 +93,12 @@
     .ds_wrapper .ds_bttn a {
       text-decoration: none;
       box-shadow: none;
-      text-transform: capitalize; }
+      text-transform: capitalize;
+      border-bottom: 0 none; }
+      .ds_wrapper .ds_bttn a:hover {
+        text-decoration: none;
+        box-shadow: none;
+        border-bottom: 0 none; }
   .ds_wrapper.ds_image .ds_bttn {
     background-size: cover;
     background-repeat: no-repeat;
@@ -32,15 +106,15 @@
     width: 70px;
     transition: all 1s; }
     .ds_wrapper.ds_image .ds_bttn.ds_facebook {
-      background-image: url("/wp-grid/wp-content/plugins/drim-share/admin/assets/ds_facebook.png"); }
+      background-image: url("/wp-grid/wp-content/plugins/drim-share/public/assets/ds_facebook.png"); }
     .ds_wrapper.ds_image .ds_bttn.ds_twitter {
-      background-image: url("/wp-grid/wp-content/plugins/drim-share/admin/assets/ds_twitter.png"); }
+      background-image: url("/wp-grid/wp-content/plugins/drim-share/public/assets/ds_twitter.png"); }
     .ds_wrapper.ds_image .ds_bttn.ds_linkedin {
-      background-image: url("/wp-grid/wp-content/plugins/drim-share/admin/assets/ds_linkedin.png"); }
+      background-image: url("/wp-grid/wp-content/plugins/drim-share/public/assets/ds_linkedin.png"); }
     .ds_wrapper.ds_image .ds_bttn.ds_googleplus {
-      background-image: url("/wp-grid/wp-content/plugins/drim-share/admin/assets/ds_googleplus.png"); }
+      background-image: url("/wp-grid/wp-content/plugins/drim-share/public/assets/ds_googleplus.png"); }
     .ds_wrapper.ds_image .ds_bttn.ds_pinterest {
-      background-image: url("/wp-grid/wp-content/plugins/drim-share/admin/assets/ds_pinterest.png"); }
+      background-image: url("/wp-grid/wp-content/plugins/drim-share/public/assets/ds_pinterest.png"); }
     .ds_wrapper.ds_image .ds_bttn:hover {
       opacity: 0.8; }
     .ds_wrapper.ds_image .ds_bttn a {
@@ -48,10 +122,25 @@
       height: 100%; }
       .ds_wrapper.ds_image .ds_bttn a span.ds_network_name {
         display: none; }
+  .ds_wrapper.ds_share .ds_bttn {
+    margin: 0 6px;
+    padding: 0 10px;
+    border: 1px solid #c5c5c5;
+    border-radius: 12px;
+    transition: all 1s; }
+    .ds_wrapper.ds_share .ds_bttn:first-child {
+      margin-left: 0; }
+    .ds_wrapper.ds_share .ds_bttn:last-child {
+      margin-right: 0; }
+    .ds_wrapper.ds_share .ds_bttn a i {
+      color: #333; }
+    .ds_wrapper.ds_share .ds_bttn a span.ds_network_name {
+      line-height: 20px;
+      font-size: 0.8em; }
   .ds_wrapper.ds_icon .ds_heading {
-    line-height: 24px; }
+    line-height: 28px; }
   .ds_wrapper.ds_icon .ds_bttn {
-    width: 32px;
+    width: 24px;
     transition: all 1s; }
     .ds_wrapper.ds_icon .ds_bttn:hover {
       opacity: 0.8; }
