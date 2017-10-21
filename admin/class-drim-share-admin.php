@@ -97,7 +97,36 @@ class Drim_Share_Admin {
 		 */
 
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/drim-share-admin.js', array( 'jquery' ), $this->version, false );
+		// wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/jquery-ui/jquery-ui.min.js', array( 'jquery' ), $this->version, false );
 
 	}
+
+	/**
+	 * Register the JavaScript for the public-facing side of the site.
+	 *
+	 * @since    1.0.0
+	 */
+		public function drim_add_buttons() {
+			require_once( plugin_dir_path( __FILE__ ) . 'partials/drim-share-admin-display.php' );
+		}
+
+	/**
+	 * Register admin options and menu page.
+	 *
+	 * @since    1.0.0
+	 */
+		public function drim_register_admin_options() {
+			require_once( plugin_dir_path( __FILE__ ) . 'partials/drim-share-admin-options.php' );
+		}
+
+	/**
+	 * Main admin functions.
+	 *
+	 * @since    1.0.0
+	 */
+		public function drim_admin_functions() {
+			require_once( plugin_dir_path( __FILE__ ) . 'partials/drim-share-admin-functions.php' );
+		}
+
 
 }

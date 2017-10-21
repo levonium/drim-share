@@ -1,0 +1,81 @@
+/**
+ * Main CSS Styles for Drim Share Plugin
+ *
+ */
+/***********************************
+## MAIN STYLES
+***********************************/
+.ds_wrapper {
+  margin-bottom: 20px; }
+  .ds_wrapper::before, .ds_wrapper::after {
+    content: '';
+    display: table;
+    clear: both; }
+  .ds_wrapper .ds_heading {
+    float: left;
+    margin-right: 6px; }
+  .ds_wrapper .ds_bttn {
+    float: left;
+    margin: 0 2px; }
+    .ds_wrapper .ds_bttn:first-child {
+      margin-left: 0; }
+    .ds_wrapper .ds_bttn:last-child {
+      margin-right: 0; }
+    .ds_wrapper .ds_bttn a {
+      text-decoration: none;
+      box-shadow: none;
+      text-transform: capitalize; }
+  .ds_wrapper.ds_image .ds_bttn {
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 26px;
+    width: 70px;
+    transition: all 1s; }
+    .ds_wrapper.ds_image .ds_bttn.ds_facebook {
+      background-image: url("/wp-grid/wp-content/plugins/drim-share/admin/assets/ds_facebook.png"); }
+    .ds_wrapper.ds_image .ds_bttn.ds_twitter {
+      background-image: url("/wp-grid/wp-content/plugins/drim-share/admin/assets/ds_twitter.png"); }
+    .ds_wrapper.ds_image .ds_bttn.ds_linkedin {
+      background-image: url("/wp-grid/wp-content/plugins/drim-share/admin/assets/ds_linkedin.png"); }
+    .ds_wrapper.ds_image .ds_bttn.ds_googleplus {
+      background-image: url("/wp-grid/wp-content/plugins/drim-share/admin/assets/ds_googleplus.png"); }
+    .ds_wrapper.ds_image .ds_bttn.ds_pinterest {
+      background-image: url("/wp-grid/wp-content/plugins/drim-share/admin/assets/ds_pinterest.png"); }
+    .ds_wrapper.ds_image .ds_bttn:hover {
+      opacity: 0.8; }
+    .ds_wrapper.ds_image .ds_bttn a {
+      display: block;
+      height: 100%; }
+      .ds_wrapper.ds_image .ds_bttn a span.ds_network_name {
+        display: none; }
+  .ds_wrapper.ds_icon .ds_heading {
+    line-height: 24px; }
+  .ds_wrapper.ds_icon .ds_bttn {
+    width: 32px;
+    transition: all 1s; }
+    .ds_wrapper.ds_icon .ds_bttn:hover {
+      opacity: 0.8; }
+    .ds_wrapper.ds_icon .ds_bttn a img {
+      width: 24px; }
+    .ds_wrapper.ds_icon .ds_bttn a span.ds_network_name {
+      display: none; }
+  .ds_wrapper.ds_text .ds_bttn a {
+    padding: 4px 8px;
+    color: #fff;
+    font-size: 0.9em;
+    transition: all 1s; }
+    .ds_wrapper.ds_text .ds_bttn a:hover {
+      color: #000;
+      opacity: 0.8; }
+  .ds_wrapper.ds_text .ds_bttn.ds_facebook a {
+    background-color: #4367b1; }
+  .ds_wrapper.ds_text .ds_bttn.ds_twitter a {
+    background-color: #1fa0f3; }
+  .ds_wrapper.ds_text .ds_bttn.ds_linkedin a {
+    background-color: #0277b5; }
+  .ds_wrapper.ds_text .ds_bttn.ds_googleplus a {
+    background-color: #da4638; }
+  .ds_wrapper.ds_text .ds_bttn.ds_pinterest a {
+    background-color: #bd081c; }
+
+/*# sourceMappingURL=drim-share.css.map */

@@ -2,3 +2,17 @@
  * All of the CSS for your admin-specific functionality should be
  * included in this file.
  */
+
+li.ui-state-default.ui-sortable-handle {
+  padding: 4px 8px;
+  border: 1px solid #c5c5c5;
+  background-color: #f0f8ff;
+  font-weight: 700;
+}
+.ui-state-highlight {
+  border: 1px solid #dad55e;
+	background: #fffa90;
+	color: #777620;
+  height: 1em;
+  padding: 4px 8px;
+}
