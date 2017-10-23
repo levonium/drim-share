@@ -119,13 +119,24 @@ function drim_share_get_buttons(){
 
   $buttons_style = drim_share_get_button_styles();
 
+  $borders = drim_share_get_option_values('drim_share_style_borders');
+  $has_border = ( $borders ) ? $borders : 'ds_no_border';
+
   $heading  = drim_share_get_option_values('drim_share_heading');
+
+  // wpml
+  do_action( 'wpml_register_single_string', 'drim-share', 'Block Heading', $heading );
+  $heading_wpml = apply_filters( 'wpml_translate_single_string',  $heading, 'drim-share', 'Block Heading');
+
   $has_heading =  ( $heading ) ? 'ds_has_heading' : 'ds_no_heading';
 
-  $buttons = '<div class="ds_wrapper ' . $buttons_style . ' ' . $has_heading . '">';
+  $alignment  = drim_share_get_option_values('drim_share_style_align');
+  $ds_align = ( $alignment ) ? $alignment : 'ds_align_left';
+
+  $buttons = '<div class="ds_wrapper ' . $buttons_style . ' ' . $ds_align . ' ' . $has_border . ' ' . $has_heading . '">';
 
   if ( $heading ) {
-    $buttons .= '<div class="ds_heading">' . sanitize_text_field( $heading ) . '</div>';
+    $buttons .= '<div class="ds_heading">' . sanitize_text_field( $heading_wpml ) . '</div>';
   }
 
   foreach ($selected_networks as $network) {
@@ -160,53 +171,52 @@ function network_links( $network ) {
   switch ($network) {
     case 'facebook':
       $url = 'https://www.facebook.com/sharer/sharer.php?u=' . get_permalink( $post );
-      $text = 'facebook';
-      $share = 'Share';
-      $icon = '<i class="demo-icon icon-facebook-1"></i>';
+      $text = 'Facebook';
+      $share = __( 'Share', 'drim-share' );
+      $open = __( 'Share', 'drim-share' );
+      $icon = '<i class="demo-icon ds_icon icon-facebook-1"></i>';
       break;
     case 'twitter':
-      $url = 'https://twitter.com/home?status=' . get_permalink( $post ) . ' ' . $title;
-      $text = 'twitter';
-      $share = 'Tweet';
-      $icon = '<i class="demo-icon icon-twitter-1"></i>';
+      $url = 'https://twitter.com/home?status=' . get_permalink( $post ) . '%20' . $title;
+      $text = 'Twitter';
+      $share = __( 'Tweet', 'drim-share' );
+      $open = __( 'Tweet', 'drim-share' );
+      $icon = '<i class="demo-icon ds_icon icon-twitter-1"></i>';
       break;
     case 'linkedin':
       $url = 'https://www.linkedin.com/shareArticle?mini=true&url='. get_permalink( $post ) .'&title='. get_the_title( $post ) .'&summary=';
       $text = 'LinkedIn';
       $share = '';
-      $icon = '<i class="demo-icon icon-linkedin-1"></i>';
+      $open = __( 'Share', 'drim-share' );
+      $icon = '<i class="demo-icon ds_icon icon-linkedin-1"></i>';
       break;
     case 'pinterest':
       $url = 'https://pinterest.com/pin/create/button/?url=' . get_permalink( $post ) . '&media=' . $thumb . '&description=';
       $text = 'Pinterest';
       $share = '';
-      $icon = '<i class="demo-icon icon-pinterest"></i>';
+      $open = __( 'Pin', 'drim-share' );
+      $icon = '<i class="demo-icon ds_icon icon-pinterest"></i>';
       break;
     case 'googleplus':
       $url = 'https://plus.google.com/share?url=' . get_permalink( $post );
       $text = 'Google Plus';
       $share = '';
-      $icon = '<i class="demo-icon icon-gplus"></i>';
+      $open = __( 'Plus 1', 'drim-share' );
+      $icon = '<i class="demo-icon ds_icon icon-gplus"></i>';
       break;
   }
 
-  $link = '<a target="_blank" rel="nofollow" href="' . $url . '"><span class="ds_network_name">' . $text . '</span></a>';
+  $anchor = $icon . '<span class="ds_network_name">' . $text . '</span>';
 
-  if ( 'ds_share' === $style ) {
-    // $logodir = plugin_dir_url( dirname( dirname( __FILE__ ) ) ) . 'public/assets/';
-    // $logourl = $logodir . $network . '_icon.png';
-    // $logo = '<img src="' . $logourl . '" />';
-
-    $link = '<a target="_blank" rel="nofollow" href="' . $url . '">' . $icon . '<span class="ds_network_name">' . $share . '</span></a>';
+  if ( 'ds_icon_v2' === $style ) {
+    $anchor = $icon . '<span class="ds_network_name">' . $share . '</span>';
   }
 
-  if ( 'ds_icon' === $style ) {
-    // $icondir = plugin_dir_url( dirname( dirname( __FILE__ ) ) ) . 'public/assets/';
-    // $iconurl = $icondir . $network . '.svg';
-    // $icon = '<img src="' . $iconurl . '" />';
-
-    $link = '<a target="_blank" rel="nofollow" href="' . $url . '">' . $icon . '<span class="ds_network_name">' . $text . '</span></a>';
+  if ( 'ds_icon_v3' === $style ) {
+    $anchor = $icon . '<span class="ds_network_name">' . $open . '</span>';
   }
+
+  $link = '<a target="_blank" rel="nofollow" title="Share on ' . $text . '" href="' . $url . '">' . $anchor . '</a>';
 
   return $link;
 }
@@ -240,19 +250,25 @@ function drim_share_get_button_styles(){
 function drim_share_button_positions( $buttons, $content ){
 
   $output = '';
+  $custom_styles = '';
+
+  $brdr_color = drim_share_get_option_values('drim_share_style_border_color');
+  if ( $brdr_color ) {
+    $custom_styles .= '<style> .ds_wrapper.ds_brdr_top, .ds_wrapper.ds_brdr_bottom, .ds_wrapper.ds_brdr_both { border-color: ' . sanitize_text_field( $brdr_color ) . '; } </style>';
+  }
 
   // get the button positions
   $position = drim_share_get_option_values('drim_share_position');
 
   switch ($position) {
     case 'above':
-      $output .= $buttons . $content;
+      $output .= $buttons . $custom_styles . $content;
       break;
     case 'below':
-      $output .= $content . $buttons;
+      $output .= $content . $buttons . $custom_styles;
       break;
    case 'both':
-      $output .= $buttons . $content . $buttons;
+      $output .= $buttons . $content . $buttons . $custom_styles;
       break;
    default:
       $output .= $content;

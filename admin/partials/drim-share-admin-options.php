@@ -41,44 +41,57 @@ class Drim_Share_Options {
 
        <div class="wrap">
          <h1 class="wp-heading">
-           <?php esc_html_e( 'Drim Share Options', 'drim-share' ); ?>
+           <?php esc_html_e( 'Drim Share', 'drim-share' ); ?>
          </h1>
-         <p> <?php _e( 'Adjust the plugin settings here.', 'drim-share' ); ?> </p>
 
-         <form method="post" action="options.php">
-           <?php
-           // This prints out all hidden setting fields
-           settings_fields( 'drim_share_settings' );
-           do_settings_sections( 'drim_share_options' );
+         <div class="ds_grid">
+           <div class="ds_wrap ds_left_half">
 
-           submit_button();
-           ?>
-         </form>
+             <form method="post" action="options.php">
+               <?php
+               // This prints out all hidden setting fields
+               settings_fields( 'drim_share_settings' );
+               do_settings_sections( 'drim_share_options' );
 
-         <style>
-         .hidden-field {
-           display: none;
-         }
-         </style>
-         <script>
-         /*
-         jQuery(document).ready(function(){
-           if (jQuery("#drim_share_style").val() != 'ds_custom') {
-             jQuery(".form-table tr:nth-child(4)").addClass("hidden-field");
-             jQuery(".form-table tr:nth-child(5)").addClass("hidden-field");
-           }
-         });
-         jQuery("#drim_share_style").change(function(){
-           if( jQuery(this).val() == 'ds_custom' ) {
-             jQuery(".form-table tr:nth-child(4)").show();
-             jQuery(".form-table tr:nth-child(5)").show();
-           } else {
-             jQuery(".form-table tr:nth-child(4)").hide();
-             jQuery(".form-table tr:nth-child(5)").hide();
-           }
-         });
-         */
-         </script>
+               submit_button();
+               ?>
+             </form>
+           </div>
+           <div class="ds_wrap ds_right_half">
+             <h2> Drim Share v1.0 </h2>
+             <p><?php _e( 'A simple light-weight social sharing plugin for WP.', 'drim-share' ); ?></p>
+             <p>
+               <?php _e( 'Author: ', 'drim-share' ); ?> <a href="https://drim.io" target="_blank">Levon Avetyan</a>
+               <a class="no_decoration" href="https://drim.io/drim-share" target="_blank"><i class="demo-icon icon-wordpress-1"></i></a>
+               <a class="no_decoration" href="https://github.com/levonium/drim_share" target="_blank"><i class="demo-icon icon-github"></i></a>
+             </p>
+             <hr />
+             <h3> <?php _e( 'Social Icons Style Examples:', 'drim-share' ); ?> </h3>
+             <p> <?php _e( 'Images', 'drim-share' ); ?>: <br />
+             <img src="<?php echo plugin_dir_url( dirname( __FILE__ ) ) . '/assets/ds_images.png'; ?>" /></p>
+             <p> <?php _e( 'Images v2', 'drim-share' ); ?>: <br />
+             <img src="<?php echo plugin_dir_url( dirname( __FILE__ ) ) . '/assets/ds_images_v2.png'; ?>" /></p>
+             <p> <?php _e( 'Icons', 'drim-share' ); ?>: <br />
+             <img src="<?php echo plugin_dir_url( dirname( __FILE__ ) ) . '/assets/ds_icons.png'; ?>" /></p>
+             <p> <?php _e( 'Icons v2', 'drim-share' ); ?>: <br />
+             <img src="<?php echo plugin_dir_url( dirname( __FILE__ ) ) . '/assets/ds_icons_v2.png'; ?>" /></p>
+             <p> <?php _e( 'Icons v3', 'drim-share' ); ?>: <br />
+             <img src="<?php echo plugin_dir_url( dirname( __FILE__ ) ) . '/assets/ds_icons_v3.png'; ?>" /></p>
+             <p> <?php _e( 'Names', 'drim-share' ); ?>: <br />
+             <img src="<?php echo plugin_dir_url( dirname( __FILE__ ) ) . '/assets/ds_names.png'; ?>" /></p>
+             <p> <?php _e( 'Buttons with Heading', 'drim-share' ); ?>: <br />
+             <img src="<?php echo plugin_dir_url( dirname( __FILE__ ) ) . '/assets/ds_heading.png'; ?>" /></p>
+             <p> <?php _e( 'Buttons aligned to center and bordered', 'drim-share' ); ?>: <br />
+             <img src="<?php echo plugin_dir_url( dirname( __FILE__ ) ) . '/assets/ds_borders.png'; ?>" /></p>
+
+             <hr />
+
+             <p>
+               <?php _e( 'Thank you for using ', 'drim-share' ); ?>
+               <a href="https://drim.io/drim-share" target="_blank"> Drim Share </a>
+             </p>
+           </div>
+         </div>
 
        </div><!-- .wrap -->
 
@@ -132,23 +145,32 @@ class Drim_Share_Options {
 				'drim_share_settings_main' // Section
 			);
 
-      // custom button images
-			add_settings_field(
-				'drim_share_custom_images', // ID
-				__( 'Custom Image Directory URL', 'drim-share' ), // Title
-				array( $this, 'drim_share_custom_images_callback' ), // Callback
-				'drim_share_options', // Page
-				'drim_share_settings_main' // Section
-			);
+      // block top/bottom borders
+      add_settings_field(
+        'drim_share_style_borders', // ID
+        __( 'Block Borders', 'drim-share' ), // Title
+        array( $this, 'drim_share_style_borders_callback' ), // Callback
+        'drim_share_options', // Page
+        'drim_share_settings_main' // Section
+      );
 
-      // custom button image width
-			add_settings_field(
-				'drim_share_custom_image_width', // ID
-				__( 'Custom Image Width', 'drim-share' ), // Title
-				array( $this, 'drim_share_custom_image_width_callback' ), // Callback
-				'drim_share_options', // Page
-				'drim_share_settings_main' // Section
-			);
+      // block border color
+      add_settings_field(
+        'drim_share_style_border_color', // ID
+        __( 'Border Color', 'drim-share' ), // Title
+        array( $this, 'drim_share_style_border_color_callback' ), // Callback
+        'drim_share_options', // Page
+        'drim_share_settings_main' // Section
+      );
+
+      // block alignmebt
+      add_settings_field(
+        'drim_share_style_align', // ID
+        __( 'Alignment', 'drim-share' ), // Title
+        array( $this, 'drim_share_style_align_callback' ), // Callback
+        'drim_share_options', // Page
+        'drim_share_settings_main' // Section
+      );
 
       // heading text
 			add_settings_field(
@@ -185,15 +207,23 @@ class Drim_Share_Options {
       );
 
 
-      // other custom post types
-      add_settings_field(
-          'drim_share_post_types__',  // ID
-          __( 'Include in Custom Post Types', 'drim-share' ), // Title
-          // array( $this, 'drim_share_post_type_'.$ds_post_type.'_callback' ), // Callback
-          array( $this, 'drim_share_post_types__callback'), // Callback
-          'drim_share_options', // Page
-          'drim_share_settings_post_types' // Section
-      );
+      // if there are custom post types registered
+      $ds_pt_args = [ 'public'   => true, '_builtin' => false ];
+      $ds_pt_output = 'names';
+      $ds_pt_operator = 'and';
+      $ds_post_types = get_post_types( $ds_pt_args, $ds_pt_output, $ds_pt_operator );
+
+      if ( $ds_post_types ) {
+        // other custom post types
+        add_settings_field(
+            'drim_share_post_types__',  // ID
+            __( 'Include in Custom Post Types', 'drim-share' ), // Title
+            // array( $this, 'drim_share_post_type_'.$ds_post_type.'_callback' ), // Callback
+            array( $this, 'drim_share_post_types__callback'), // Callback
+            'drim_share_options', // Page
+            'drim_share_settings_post_types' // Section
+        );
+      }
 
 
       // page: front_page
@@ -250,8 +280,9 @@ class Drim_Share_Options {
      * Print the MAIN Section Content
      */
     function print_drim_share_settings_main_section_info() {
-      _e( 'Plugin settings', 'drim-share' );
-			echo '<br><br>';
+      echo '<p>';
+      _e( 'Adjust the plugin settings here.', 'drim-share' );
+      echo '</p>';
     }
 
 
@@ -259,8 +290,9 @@ class Drim_Share_Options {
      * Print the Post Types Section Content
      */
     function print_drim_share_settings_post_types_section_info() {
+      echo '<p>';
       _e( 'Choose in which post types to include the sharing buttons.', 'drim-share' );
-      echo '<br><br>';
+      echo '</p>';
     }
 
 
@@ -287,6 +319,7 @@ class Drim_Share_Options {
         echo $ds_check;
 
       }
+      echo '<p class="description">' . __( 'Choose which network buttons to display', 'drim-share' ) . '</p>';
     }
 
 
@@ -299,8 +332,8 @@ class Drim_Share_Options {
         ?>
         <select class="regular-text" id="drim_share_position" name="drim_share_settings_options[drim_share_position]">
           <option value=""> <?php _e( 'Select the position', 'drim-share' ); ?> </option>
-          <option value="above" <?php selected($ds_opt, "above"); ?>> <?php _e( 'Above', 'drim-share' ); ?> </option>
-          <option value="below" <?php selected($ds_opt, "below"); ?>> <?php _e( 'Below', 'drim-share' ); ?> </option>
+          <option value="above" <?php selected($ds_opt, "above"); ?>> <?php _e( 'Above the content', 'drim-share' ); ?> </option>
+          <option value="below" <?php selected($ds_opt, "below"); ?>> <?php _e( 'Below the content', 'drim-share' ); ?> </option>
           <option value="both" <?php selected($ds_opt, "both") ?>> <?php _e( 'Both', 'drim-share' ); ?> </option>
         </select>
         <?php
@@ -318,46 +351,62 @@ class Drim_Share_Options {
         <select class="regular-text" id="drim_share_style" name="drim_share_settings_options[drim_share_style]">
           <option value=""> <?php _e( 'Select the style', 'drim-share' ); ?> </option>
           <option value="ds_image" <?php selected($ds_opt, "ds_image"); ?>> <?php _e( 'Images', 'drim-share' ); ?> </option>
+          <option value="ds_image_v2" <?php selected($ds_opt, "ds_image_v2"); ?>> <?php _e( 'Images v2', 'drim-share' ); ?> </option>
           <option value="ds_icon" <?php selected($ds_opt, "ds_icon"); ?>> <?php _e( 'Icons', 'drim-share' ); ?> </option>
-          <option value="ds_share" <?php selected($ds_opt, "ds_share"); ?>> <?php _e( 'Icons v2', 'drim-share' ); ?> </option>
+          <option value="ds_icon_v2" <?php selected($ds_opt, "ds_icon_v2"); ?>> <?php _e( 'Icons v2', 'drim-share' ); ?> </option>
+          <option value="ds_icon_v3" <?php selected($ds_opt, "ds_icon_v3"); ?>> <?php _e( 'Icons v3', 'drim-share' ); ?> </option>
           <option value="ds_text" <?php selected($ds_opt, "ds_text"); ?>> <?php _e( 'Names', 'drim-share' ); ?> </option>
-          <option value="ds_custom" <?php selected($ds_opt, "ds_custom") ?>> <?php _e( 'Custom Images', 'drim-share' ); ?> </option>
         </select>
         <?php
         echo '<p class="description">' . __( 'Choose the button styles.', 'drim-share' ) . '</p>';
     }
 
 
+    /**
+     * Sharing block borders callback function
+     */
+    function drim_share_style_borders_callback() {
+
+        $ds_opt = isset( $this->options['drim_share_style_borders'] ) ? esc_attr( $this->options['drim_share_style_borders']) : '';
+        ?>
+        <select class="regular-text" id="drim_share_style_borders" name="drim_share_settings_options[drim_share_style_borders]">
+          <option value=""> <?php _e( 'No Border', 'drim-share' ); ?> </option>
+          <option value="ds_brdr_top" <?php selected($ds_opt, "ds_brdr_top"); ?>> <?php _e( 'Top Border', 'drim-share' ); ?> </option>
+          <option value="ds_brdr_bottom" <?php selected($ds_opt, "ds_brdr_bottom"); ?>> <?php _e( 'Bottom Border', 'drim-share' ); ?> </option>
+          <option value="ds_brdr_both" <?php selected($ds_opt, "ds_brdr_both"); ?>> <?php _e( 'Top & Bottom Borders', 'drim-share' ); ?> </option>
+        </select>
+        <?php
+        echo '<p class="description">' . __( 'Choose the block borders.', 'drim-share' ) . '</p>';
+    }
 
     /**
-     * Social buttons custom image directory field callback function
+     * Sharing block borders callback function
      */
-    function drim_share_custom_images_callback() {
+    function drim_share_style_border_color_callback() {
 
       printf(
-          '<input type="url" class="regular-text" id="drim_share_custom_images" name="drim_share_settings_options[drim_share_custom_images]" value="%s" />',
-          isset( $this->options['drim_share_custom_images'] ) ? esc_url( $this->options['drim_share_custom_images'] ) : ''
+          '<input type="text" class="regular-text" id="drim_share_style_border_color" name="drim_share_settings_options[drim_share_style_border_color]" value="%s" />',
+          isset( $this->options['drim_share_style_border_color'] ) ? sanitize_text_field( $this->options['drim_share_style_border_color'] ) : '#c5c5c5'
       );
-      echo '<p class="description">' . __( 'Upload your custom images to any folder on your server and paste the folder URL here.', 'drim-share' ) . '</p>';
-      echo '<p class="description">' . __( 'The image names <b>must</b> be <code><u>facebook</u>.png, <u>twitter</u>.png, <u>linkedin</u>.png, <u>googleplus</u>.png, <u>pinterest</u>.png</code>.', 'drim-share' ) . '</p>';
-      echo '<p class="description">' . __( 'You can use any image type, it does not have to be .png (facebook.jpg would do). They just have to be all the same.', 'drim-share' ) . '</p>';
-      echo '<p class="description">' . __( 'If an image URL is something like this: ', 'drim-share' ) . '<code>' . get_home_url() . '/some-directory/images/facebook.png</code></p>';
-      echo '<p class="description">' . __( 'The value of this field would be something like this: ', 'drim-share' ) . '<code>' . get_home_url() . '/some-directory/images/</code>.</p>';
+      echo '<p class="description">' . __( 'Border color (RGB, HEX values or color names). Leave empty to use your theme colors.', 'drim-share' ) . '</p>';
 
     }
 
 
     /**
-     * Social buttons custom image width field callback function
+     * Sharing block alignment callback function
      */
-    function drim_share_custom_image_width_callback() {
+    function drim_share_style_align_callback() {
 
-      printf(
-          '<input type="number" class="regular-text" id="drim_share_custom_image_width" name="drim_share_settings_options[drim_share_custom_image_width]" value="%s" />',
-          isset( $this->options['drim_share_custom_image_width'] ) ? intval( $this->options['drim_share_custom_image_width'] ) : ''
-      );
-      echo '<p class="description">' . __( 'The width of the custom image (in pixels).', 'drim-share' ) . '</p>';
-
+        $ds_opt = isset( $this->options['drim_share_style_align'] ) ? esc_attr( $this->options['drim_share_style_align']) : '';
+        ?>
+        <select class="regular-text" id="drim_share_style_align" name="drim_share_settings_options[drim_share_style_align]">
+          <option value=""> <?php _e( 'Left', 'drim-share' ); ?> </option>
+          <option value="ds_align_center" <?php selected($ds_opt, "ds_align_center"); ?>> <?php _e( 'Center', 'drim-share' ); ?> </option>
+          <option value="ds_align_right" <?php selected($ds_opt, "ds_align_right"); ?>> <?php _e( 'Right', 'drim-share' ); ?> </option>
+        </select>
+        <?php
+        echo '<p class="description">' . __( 'Choose the block alignment.', 'drim-share' ) . '</p>';
     }
 
 
@@ -451,15 +500,18 @@ class Drim_Share_Options {
 
       $ds_post_types = get_post_types( $ds_pt_args, $ds_pt_output, $ds_pt_operator );
 
-      foreach( $ds_post_types as $ds_post_type ) {
+      if ( $ds_post_types ) {
+        foreach( $ds_post_types as $ds_post_type ) {
 
-        $ds_opt = isset( $this->options['drim_share_post_type_' . $ds_post_type] ) ? esc_attr( $this->options['drim_share_post_type_' . $ds_post_type]) : '';
+          $ds_opt = isset( $this->options['drim_share_post_type_' . $ds_post_type] ) ? esc_attr( $this->options['drim_share_post_type_' . $ds_post_type]) : '';
 
-        $ds_check = '<p><input type="checkbox" id="drim_share_post_type_' .  $ds_post_type . '" name="drim_share_settings_options[drim_share_post_type_' . $ds_post_type . ']" value="1"' . checked( 1, $ds_opt, false ) . '/>
-          <label for="drim_share_post_type_' . $ds_post_type . '">'. __( ucfirst($ds_post_type), 'drim-share' ) . '</label></p>';
+          $ds_check = '<p><input type="checkbox" id="drim_share_post_type_' .  $ds_post_type . '" name="drim_share_settings_options[drim_share_post_type_' . $ds_post_type . ']" value="1"' . checked( 1, $ds_opt, false ) . '/>
+            <label for="drim_share_post_type_' . $ds_post_type . '">'. __( ucfirst($ds_post_type), 'drim-share' ) . '</label></p>';
 
-        echo $ds_check;
-
+          echo $ds_check;
+        }
+      } else {
+          _e( 'It seems you do not have any custom post types.', 'drim-share' );
       }
 
     }

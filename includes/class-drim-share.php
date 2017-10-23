@@ -153,9 +153,9 @@ class Drim_Share {
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
-		// $this->loader->add_action( 'init', $plugin_admin, 'drim_add_buttons' );
 		$this->loader->add_action( 'init', $plugin_admin, 'drim_register_admin_options' );
 		$this->loader->add_action( 'init', $plugin_admin, 'drim_admin_functions' );
+		$this->loader->add_action( 'init', $plugin_admin, 'drim_share_admin_settings_link' );
 
 	}
 

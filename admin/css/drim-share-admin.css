@@ -3,6 +3,29 @@
  * included in this file.
  */
 
+ /*** Drim Share admin options page ***/
+
+ .ds_grid {
+   display: grid;
+   grid-gap: 20px;
+   grid-template-columns: auto 320px;
+ }
+
+ @media screen and (max-width: 960px) {
+   .ds_grid {
+     grid-template-columns: 1fr;
+   }
+ }
+
+ .ds_wrap img {
+   width: 100%;
+ }
+
+ .no_decoration,
+ .no_decoration:hover {
+   text-decoration: none;
+ }
+
 /*** Fontello Icons ***/
 @font-face {
   font-family: "fontello";

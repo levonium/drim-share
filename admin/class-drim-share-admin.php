@@ -101,15 +101,6 @@ class Drim_Share_Admin {
 	}
 
 	/**
-	 * Register the JavaScript for the public-facing side of the site.
-	 *
-	 * @since    1.0.0
-	 */
-		public function drim_add_buttons() {
-			require_once( plugin_dir_path( __FILE__ ) . 'partials/drim-share-admin-display.php' );
-		}
-
-	/**
 	 * Register admin options and menu page.
 	 *
 	 * @since    1.0.0
@@ -126,6 +117,15 @@ class Drim_Share_Admin {
 		public function drim_admin_functions() {
 			require_once( plugin_dir_path( __FILE__ ) . 'partials/drim-share-admin-functions.php' );
 		}
+
+		/**
+		 * Plugin Settings Links
+		 *
+		 * @since 1.0.0
+		 */
+		 public function drim_share_admin_settings_link() {
+			 require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/drim-share-settings-link.php';
+		 }
 
 
 }
