@@ -58,31 +58,46 @@ class Drim_Share_Options {
              </form>
            </div>
            <div class="ds_wrap ds_right_half">
-             <h2> Drim Share v1.0 </h2>
-             <p><?php _e( 'A simple light-weight social sharing plugin for WP.', 'drim-share' ); ?></p>
+             <h2> Drim Share </h2>
+             <p><?php _e( 'A simple light-weight and mobile-friendly social sharing plugin for WordPress.', 'drim-share' ); ?></p>
              <p>
                <?php _e( 'Author: ', 'drim-share' ); ?> <a href="https://drim.io" target="_blank">Levon Avetyan</a>
                <a class="no_decoration" href="https://drim.io/drim-share" target="_blank"><i class="demo-icon icon-wordpress-1"></i></a>
-               <a class="no_decoration" href="https://github.com/levonium/drim_share" target="_blank"><i class="demo-icon icon-github"></i></a>
+               <a class="no_decoration" href="https://github.com/levonium/drim-share" target="_blank"><i class="demo-icon icon-github"></i></a>
              </p>
+
              <hr />
-             <h3> <?php _e( 'Social Icons Style Examples:', 'drim-share' ); ?> </h3>
-             <p> <?php _e( 'Images', 'drim-share' ); ?>: <br />
-             <img src="<?php echo plugin_dir_url( dirname( __FILE__ ) ) . '/assets/ds_images.png'; ?>" /></p>
-             <p> <?php _e( 'Images v2', 'drim-share' ); ?>: <br />
-             <img src="<?php echo plugin_dir_url( dirname( __FILE__ ) ) . '/assets/ds_images_v2.png'; ?>" /></p>
-             <p> <?php _e( 'Icons', 'drim-share' ); ?>: <br />
-             <img src="<?php echo plugin_dir_url( dirname( __FILE__ ) ) . '/assets/ds_icons.png'; ?>" /></p>
-             <p> <?php _e( 'Icons v2', 'drim-share' ); ?>: <br />
-             <img src="<?php echo plugin_dir_url( dirname( __FILE__ ) ) . '/assets/ds_icons_v2.png'; ?>" /></p>
-             <p> <?php _e( 'Icons v3', 'drim-share' ); ?>: <br />
-             <img src="<?php echo plugin_dir_url( dirname( __FILE__ ) ) . '/assets/ds_icons_v3.png'; ?>" /></p>
-             <p> <?php _e( 'Names', 'drim-share' ); ?>: <br />
-             <img src="<?php echo plugin_dir_url( dirname( __FILE__ ) ) . '/assets/ds_names.png'; ?>" /></p>
-             <p> <?php _e( 'Buttons with Heading', 'drim-share' ); ?>: <br />
-             <img src="<?php echo plugin_dir_url( dirname( __FILE__ ) ) . '/assets/ds_heading.png'; ?>" /></p>
-             <p> <?php _e( 'Buttons aligned to center and bordered', 'drim-share' ); ?>: <br />
-             <img src="<?php echo plugin_dir_url( dirname( __FILE__ ) ) . '/assets/ds_borders.png'; ?>" /></p>
+
+             <p>
+               <?php _e( 'Share this plugin:', 'drim-share' ); ?>
+             </p>
+
+             <div class="ds_wrapper ds_icon_v4 ds_align_left ds_no_brdr ds_no_heading">
+               <div class="ds_bttn ds_facebook">
+                 <a target="_blank" rel="nofollow" title="Share on Facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://drim.io/drim-share/">
+                   <i class="demo-icon ds_icon icon-facebook-1"></i>
+                   <span class="ds_network_name">Facebook</span>
+                 </a>
+               </div>
+               <div class="ds_bttn ds_twitter">
+                 <a target="_blank" rel="nofollow" title="Share on Twitter" href="https://twitter.com/home?status=https://drim.io/drim-share/%20DRIM%20SHARE:%20a%20simple%20social%20sharing%20plugin%20for%20WP">
+                   <i class="demo-icon ds_icon icon-twitter-1"></i>
+                   <span class="ds_network_name">Twitter</span>
+                 </a>
+               </div>
+               <div class="ds_bttn ds_linkedin">
+                 <a target="_blank" rel="nofollow" title="Share on LinkedIn" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://drim.io/drim-share/&amp;title=DRIM%20SHARE&amp;summary=DRIM%20SHARE:%20a%20simple%20social%20sharing%20plugin%20for%20WP">
+                   <i class="demo-icon ds_icon icon-linkedin-1"></i>
+                   <span class="ds_network_name">LinkedIn</span>
+                 </a>
+               </div>
+               <div class="ds_bttn ds_googleplus">
+                 <a target="_blank" rel="nofollow" title="Share on Google Plus" href="https://plus.google.com/share?url=https://drim.io/drim-share/">
+                   <i class="demo-icon ds_icon icon-gplus"></i>
+                   <span class="ds_network_name">Google Plus</span>
+                 </a>
+               </div>
+             </div>
 
              <hr />
 
@@ -118,6 +133,15 @@ class Drim_Share_Options {
 				'drim_share_options' // Page
 			);
 
+      // enable/disaple
+			add_settings_field(
+				'drim_share_enable_buttons', // ID
+				__( 'Drim Share Buttons', 'drim-share' ), // Title
+				array( $this, 'drim_share_enable_buttons_callback' ), // Callback
+				'drim_share_options', // Page
+				'drim_share_settings_main' // Section
+			);
+
       // networks
 			add_settings_field(
 				'drim_share_networks', // ID
@@ -148,7 +172,7 @@ class Drim_Share_Options {
       // block top/bottom borders
       add_settings_field(
         'drim_share_style_borders', // ID
-        __( 'Block Borders', 'drim-share' ), // Title
+        __( 'Borders', 'drim-share' ), // Title
         array( $this, 'drim_share_style_borders_callback' ), // Callback
         'drim_share_options', // Page
         'drim_share_settings_main' // Section
@@ -295,6 +319,22 @@ class Drim_Share_Options {
       echo '</p>';
     }
 
+    // drim_share_enable_buttons_callback
+
+    /**
+     * Enable/Disable Drim Share Buttons callback function
+     */
+    function drim_share_enable_buttons_callback() {
+
+      $ds_opt = isset( $this->options['drim_share_enable_buttons'] ) ? esc_attr( $this->options['drim_share_enable_buttons']) : '';
+
+      $ds_check = '<input type="checkbox" id="drim_share_enable_buttons" name="drim_share_settings_options[drim_share_enable_buttons]" value="1"' . checked( 1, $ds_opt, false ) . '/>
+        <label for="drim_share_enable_buttons">'. __( 'Enable', 'drim-share' ) . '</label>';
+
+      echo $ds_check;
+
+      echo '<p class="description">' . __( 'Check the box to enable the plugin.', 'drim-share' ) . '</p>';
+    }
 
     /**
      * Social networks selection field callback function
@@ -319,7 +359,7 @@ class Drim_Share_Options {
         echo $ds_check;
 
       }
-      echo '<p class="description">' . __( 'Choose which network buttons to display', 'drim-share' ) . '</p>';
+      echo '<p class="description">' . __( 'Choose the social network buttons to display.', 'drim-share' ) . '</p>';
     }
 
 
@@ -349,16 +389,66 @@ class Drim_Share_Options {
         $ds_opt = isset( $this->options['drim_share_style'] ) ? esc_attr( $this->options['drim_share_style']) : '';
         ?>
         <select class="regular-text" id="drim_share_style" name="drim_share_settings_options[drim_share_style]">
-          <option value=""> <?php _e( 'Select the style', 'drim-share' ); ?> </option>
-          <option value="ds_image" <?php selected($ds_opt, "ds_image"); ?>> <?php _e( 'Images', 'drim-share' ); ?> </option>
-          <option value="ds_image_v2" <?php selected($ds_opt, "ds_image_v2"); ?>> <?php _e( 'Images v2', 'drim-share' ); ?> </option>
-          <option value="ds_icon" <?php selected($ds_opt, "ds_icon"); ?>> <?php _e( 'Icons', 'drim-share' ); ?> </option>
+          <option value="ds_icon_v1" <?php selected($ds_opt, "ds_icon_v1"); ?>> <?php _e( 'Icons v1', 'drim-share' ); ?> </option>
           <option value="ds_icon_v2" <?php selected($ds_opt, "ds_icon_v2"); ?>> <?php _e( 'Icons v2', 'drim-share' ); ?> </option>
           <option value="ds_icon_v3" <?php selected($ds_opt, "ds_icon_v3"); ?>> <?php _e( 'Icons v3', 'drim-share' ); ?> </option>
-          <option value="ds_text" <?php selected($ds_opt, "ds_text"); ?>> <?php _e( 'Names', 'drim-share' ); ?> </option>
+          <option value="ds_icon_v4" <?php selected($ds_opt, "ds_icon_v4"); ?>> <?php _e( 'Icons v4', 'drim-share' ); ?> </option>
+          <option value="ds_icon_v5" <?php selected($ds_opt, "ds_icon_v5"); ?>> <?php _e( 'Icons v5', 'drim-share' ); ?> </option>
+          <option value="ds_icon_v6" <?php selected($ds_opt, "ds_icon_v6"); ?>> <?php _e( 'Icons v6', 'drim-share' ); ?> </option>
+          <option value="ds_icon_v7" <?php selected($ds_opt, "ds_icon_v7"); ?>> <?php _e( 'Icons v7', 'drim-share' ); ?> </option>
+          <option value="ds_icon_v8" <?php selected($ds_opt, "ds_icon_v8"); ?>> <?php _e( 'Icons v8', 'drim-share' ); ?> </option>
+          <option value="ds_image_v1" <?php selected($ds_opt, "ds_image_v1"); ?>> <?php _e( 'Images v1', 'drim-share' ); ?> </option>
+          <option value="ds_image_v2" <?php selected($ds_opt, "ds_image_v2"); ?>> <?php _e( 'Images v2', 'drim-share' ); ?> </option>
+          <option value="ds_image_v3" <?php selected($ds_opt, "ds_image_v3"); ?>> <?php _e( 'Images v3', 'drim-share' ); ?> </option>
+          <option value="ds_image_v4" <?php selected($ds_opt, "ds_image_v4"); ?>> <?php _e( 'Images v4', 'drim-share' ); ?> </option>
+          <option value="ds_image_v5" <?php selected($ds_opt, "ds_image_v5"); ?>> <?php _e( 'Images v5', 'drim-share' ); ?> </option>
+          <option value="ds_image_v6" <?php selected($ds_opt, "ds_image_v6"); ?>> <?php _e( 'Images v6', 'drim-share' ); ?> </option>
+          <option value="ds_image_v7" <?php selected($ds_opt, "ds_image_v7"); ?>> <?php _e( 'Images v7', 'drim-share' ); ?> </option>
+          <option value="ds_image_v8" <?php selected($ds_opt, "ds_image_v8"); ?>> <?php _e( 'Images v8', 'drim-share' ); ?> </option>
+          <option value="ds_text_v1" <?php selected($ds_opt, "ds_text_v1"); ?>> <?php _e( 'Names v1', 'drim-share' ); ?> </option>
+          <option value="ds_text_v2" <?php selected($ds_opt, "ds_text_v2"); ?>> <?php _e( 'Names v2', 'drim-share' ); ?> </option>
         </select>
         <?php
         echo '<p class="description">' . __( 'Choose the button styles.', 'drim-share' ) . '</p>';
+
+        ?>
+
+        <div class="separator"></div>
+
+        <div class="ds_wrapper <?php echo $ds_opt; ?> ds_align_left ds_no_brdr ds_no_heading">
+          <div class="ds_bttn ds_facebook">
+            <a target="_blank" rel="nofollow" title="Share on Facebook" href="#">
+              <i class="demo-icon ds_icon icon-facebook-1"></i>
+              <span class="ds_network_name">Facebook</span>
+            </a>
+          </div>
+          <div class="ds_bttn ds_twitter">
+            <a target="_blank" rel="nofollow" title="Share on Twitter" href="#">
+              <i class="demo-icon ds_icon icon-twitter-1"></i>
+              <span class="ds_network_name">Twitter</span>
+            </a>
+          </div>
+          <div class="ds_bttn ds_linkedin">
+            <a target="_blank" rel="nofollow" title="Share on LinkedIn" href="#">
+              <i class="demo-icon ds_icon icon-linkedin-1"></i>
+              <span class="ds_network_name">LinkedIn</span>
+            </a>
+          </div>
+          <div class="ds_bttn ds_googleplus">
+            <a target="_blank" rel="nofollow" title="Share on Google Plus" href="#">
+              <i class="demo-icon ds_icon icon-gplus"></i>
+              <span class="ds_network_name">Google Plus</span>
+            </a>
+          </div>
+          <div class="ds_bttn ds_pinterest">
+            <a target="_blank" rel="nofollow" title="Share on Pinterest" href="#">
+              <i class="demo-icon ds_icon icon-pinterest"></i>
+              <span class="ds_network_name">Pinterest</span>
+            </a>
+          </div>
+        </div>
+
+        <?php
     }
 
 
@@ -376,7 +466,7 @@ class Drim_Share_Options {
           <option value="ds_brdr_both" <?php selected($ds_opt, "ds_brdr_both"); ?>> <?php _e( 'Top & Bottom Borders', 'drim-share' ); ?> </option>
         </select>
         <?php
-        echo '<p class="description">' . __( 'Choose the block borders.', 'drim-share' ) . '</p>';
+        echo '<p class="description">' . __( 'Choose if you want to separate the buttons from the content with borders.', 'drim-share' ) . '</p>';
     }
 
     /**
@@ -406,7 +496,7 @@ class Drim_Share_Options {
           <option value="ds_align_right" <?php selected($ds_opt, "ds_align_right"); ?>> <?php _e( 'Right', 'drim-share' ); ?> </option>
         </select>
         <?php
-        echo '<p class="description">' . __( 'Choose the block alignment.', 'drim-share' ) . '</p>';
+        echo '<p class="description">' . __( 'Choose the buttons alignment.', 'drim-share' ) . '</p>';
     }
 
 
@@ -420,7 +510,7 @@ class Drim_Share_Options {
           '<input type="text" class="regular-text" id="drim_share_heading" name="drim_share_settings_options[drim_share_heading]" value="%s" />',
           isset( $this->options['drim_share_heading'] ) ? sanitize_text_field( $this->options['drim_share_heading'] ) : ''
       );
-      echo '<p class="description">' . __( 'Heading before the buttons. Leave empty for no heading.', 'drim-share' ) . '</p>';
+      echo '<p class="description">' . __( 'Heading for the buttons. Leave empty for no heading.', 'drim-share' ) . '</p>';
 
     }
 

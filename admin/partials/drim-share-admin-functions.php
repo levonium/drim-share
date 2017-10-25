@@ -173,47 +173,38 @@ function network_links( $network ) {
       $url = 'https://www.facebook.com/sharer/sharer.php?u=' . get_permalink( $post );
       $text = 'Facebook';
       $share = __( 'Share', 'drim-share' );
-      $open = __( 'Share', 'drim-share' );
       $icon = '<i class="demo-icon ds_icon icon-facebook-1"></i>';
       break;
     case 'twitter':
       $url = 'https://twitter.com/home?status=' . get_permalink( $post ) . '%20' . $title;
       $text = 'Twitter';
       $share = __( 'Tweet', 'drim-share' );
-      $open = __( 'Tweet', 'drim-share' );
       $icon = '<i class="demo-icon ds_icon icon-twitter-1"></i>';
       break;
     case 'linkedin':
       $url = 'https://www.linkedin.com/shareArticle?mini=true&url='. get_permalink( $post ) .'&title='. get_the_title( $post ) .'&summary=';
       $text = 'LinkedIn';
-      $share = '';
-      $open = __( 'Share', 'drim-share' );
+      $share = __( 'Share', 'drim-share' );
       $icon = '<i class="demo-icon ds_icon icon-linkedin-1"></i>';
       break;
     case 'pinterest':
       $url = 'https://pinterest.com/pin/create/button/?url=' . get_permalink( $post ) . '&media=' . $thumb . '&description=';
       $text = 'Pinterest';
-      $share = '';
-      $open = __( 'Pin', 'drim-share' );
+      $share = __( 'Pin', 'drim-share' );
       $icon = '<i class="demo-icon ds_icon icon-pinterest"></i>';
       break;
     case 'googleplus':
       $url = 'https://plus.google.com/share?url=' . get_permalink( $post );
       $text = 'Google Plus';
-      $share = '';
-      $open = __( 'Plus 1', 'drim-share' );
+      $share = __( 'Plus 1', 'drim-share' );
       $icon = '<i class="demo-icon ds_icon icon-gplus"></i>';
       break;
   }
 
   $anchor = $icon . '<span class="ds_network_name">' . $text . '</span>';
 
-  if ( 'ds_icon_v2' === $style ) {
+  if ( 'ds_icon_v2' === $style || 'ds_icon_v3' === $style ) {
     $anchor = $icon . '<span class="ds_network_name">' . $share . '</span>';
-  }
-
-  if ( 'ds_icon_v3' === $style ) {
-    $anchor = $icon . '<span class="ds_network_name">' . $open . '</span>';
   }
 
   $link = '<a target="_blank" rel="nofollow" title="Share on ' . $text . '" href="' . $url . '">' . $anchor . '</a>';
@@ -318,4 +309,18 @@ function ds_display_social_buttons( $content ) {
   return $output;
 
 }
-add_filter( 'the_content', 'ds_display_social_buttons' );
+
+/**
+ * Enable/Disable the plugin
+ *
+ * @since   1.0.0.
+ *
+ * @return
+ *
+ */
+ add_filter( 'the_content', function($c){
+
+   $enabled = drim_share_get_option_values('drim_share_enable_buttons');
+   return ( 1 == $enabled ) ? ds_display_social_buttons($c) : $c;
+
+ });

@@ -1,6 +1,6 @@
 === Drim Share ===
 
-A simple light-weight social sharing plugin for WordPress.
+A simple light-weight and mobile-friendly social sharing plugin for WordPress.
 
 == Description ==
 

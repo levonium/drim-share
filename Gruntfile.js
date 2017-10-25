@@ -25,7 +25,8 @@ module.exports = function(grunt) {
                 ]
             },
             dist: {
-                'public/css/drim-share.css' : 'public/css/drim-share.css'
+                src: 'public/css/drim-share.css',
+                dest: 'public/css/drim-share.min.css'
             }
         },
 
