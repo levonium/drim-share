@@ -7,6 +7,10 @@ A simple light-weight and mobile-friendly social sharing plugin for WordPress.
 This plugin adds social sharing buttons to your WP posts, pages and custom post types.
 You can choose what page types you want to add the buttons to, choose their position and style.
 
+There 18 button styles to choose from.
+
+Read more about this plugin here: https://drim.io/drim-share/
+
 == Installation ==
 
 1. Upload `drim-share-master` directory to the `/wp-content/plugins/` directory

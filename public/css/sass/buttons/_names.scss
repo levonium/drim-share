@@ -1,0 +1,114 @@
+.ds_wrapper {
+
+  &.ds_text_v1 {
+
+    .ds_bttn {
+      width: auto;
+
+      a {
+        display: inline;
+        padding: 4px 8px;
+        color: #fff;
+        font-size: $ds_font__smaller;
+        transition: $ds__bttn_transition;
+
+        &:hover {
+          color: #000;
+          opacity: $ds__bttn_opacity;
+        }
+
+        i {
+          display: none;
+        }
+
+      }
+
+
+      &.ds_facebook a {
+        background-color: $ds_color__facebook;
+      }
+
+      &.ds_twitter a {
+        background-color: $ds_color__twitter;
+      }
+
+      &.ds_linkedin a {
+        background-color: $ds_color__linkedin;
+      }
+
+      &.ds_googleplus a {
+        background-color: $ds_color__googleplus;
+      }
+
+      &.ds_pinterest a {
+        background-color: $ds_color__pinterest;
+      }
+    }
+  }
+
+  &.ds_text_v2 {
+
+    .ds_bttn {
+      width: auto;
+
+      a {
+        display: inline;
+        padding: 4px 8px;
+        color: #000;
+        background-color: #c5c5c5;
+        font-size: $ds_font__smaller;
+        transition: $ds__bttn_transition;
+
+        &:hover {
+          color: #fff;
+          opacity: $ds__bttn_opacity;
+        }
+
+        i {
+          display: none;
+        }
+
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: $ds_screen__small) {
+  .ds_wrapper {
+
+    &.ds_text_v1 {
+
+      .ds_bttn {
+
+        a {
+
+          i {
+            display: inherit;
+          }
+
+          span {
+            display: none;
+          }
+        }
+      }
+    }
+
+    &.ds_text_v2 {
+
+      .ds_bttn {
+
+        a {
+
+          i {
+            display: inherit;
+          }
+
+          span {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

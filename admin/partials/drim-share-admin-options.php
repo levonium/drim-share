@@ -160,6 +160,15 @@ class Drim_Share_Options {
 				'drim_share_settings_main' // Section
 			);
 
+      // foxed buttons on mobile
+      add_settings_field(
+        'drim_share_position_mobile', // ID
+        __( 'Buttons on Mobile Browsers', 'drim-share' ), // Title
+        array( $this, 'drim_share_position_mobile_callback' ), // Callback
+        'drim_share_options', // Page
+        'drim_share_settings_main' // Section
+      );
+
       // button styles
 			add_settings_field(
 				'drim_share_style', // ID
@@ -319,8 +328,6 @@ class Drim_Share_Options {
       echo '</p>';
     }
 
-    // drim_share_enable_buttons_callback
-
     /**
      * Enable/Disable Drim Share Buttons callback function
      */
@@ -378,6 +385,21 @@ class Drim_Share_Options {
         </select>
         <?php
 				echo '<p class="description">' . __( 'Choose where the buttons should appear.', 'drim-share' ) . '</p>';
+    }
+
+    /**
+     * Mobile Fixed Buttons callback function
+     */
+    function drim_share_position_mobile_callback() {
+
+      $ds_opt = isset( $this->options['drim_share_position_mobile'] ) ? esc_attr( $this->options['drim_share_position_mobile']) : '';
+
+      $ds_check = '<input type="checkbox" id="drim_share_position_mobile" name="drim_share_settings_options[drim_share_position_mobile]" value="1"' . checked( 1, $ds_opt, false ) . '/>
+        <label for="drim_share_position_mobile">'. __( 'Fixed Buttons at the Bottom.', 'drim-share' ) . '</label>';
+
+      echo $ds_check;
+
+      echo '<p class="description">' . __( 'Check the box to fix the buttons to bottom on mobile browsers.', 'drim-share' ) . '</p>';
     }
 
 

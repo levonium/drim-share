@@ -69,7 +69,7 @@ class Drim_Share {
 	public function __construct() {
 
 		$this->plugin_name = 'drim-share';
-		$this->version = '1.0.0';
+		$this->version = '1.0.1';
 
 		$this->load_dependencies();
 		$this->set_locale();

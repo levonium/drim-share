@@ -43,6 +43,45 @@ function drim_share_get_option_values( $ds_option ){
 
 
 /**
+* Check if it is a mobile browser
+*
+* @since 1.0.1
+*
+* @return bool
+*/
+function ds_is_mobile(){
+
+  include_once dirname( dirname(__FILE__) ) . '/inc/Mobile_Detect.php';
+  $is_mobile = new Mobile_Detect();
+
+  // Check for any mobile device.
+  if ( $is_mobile->isMobile() ) {
+    return true;
+  }
+
+  return false;
+}
+
+
+/**
+* Check if to have a fix bar on mobile browsers
+*
+* @since 1.0.1
+*
+* @return bool
+*/
+function ds_fixed_on_mobile() {
+
+  $fixed_on_mobile = drim_share_get_option_values('drim_share_position_mobile');
+  if ( 1 == $fixed_on_mobile ) {
+    return true;
+  }
+
+  return false;
+
+}
+
+/**
  * Get the post types allowed
  *
  * @since   1.0.0
@@ -133,7 +172,9 @@ function drim_share_get_buttons(){
   $alignment  = drim_share_get_option_values('drim_share_style_align');
   $ds_align = ( $alignment ) ? $alignment : 'ds_align_left';
 
-  $buttons = '<div class="ds_wrapper ' . $buttons_style . ' ' . $ds_align . ' ' . $has_border . ' ' . $has_heading . '">';
+  $fixed_on_mobile = ( ds_fixed_on_mobile() === true && ds_is_mobile() === true ) ? 'ds_wrapper_fixed ' : '';
+
+  $buttons = '<div class="ds_wrapper ' . $fixed_on_mobile . $buttons_style . ' ' . $ds_align . ' ' . $has_border . ' ' . $has_heading . '">';
 
   if ( $heading ) {
     $buttons .= '<div class="ds_heading">' . sanitize_text_field( $heading_wpml ) . '</div>';
@@ -266,6 +307,11 @@ function drim_share_button_positions( $buttons, $content ){
       break;
   }
 
+  // if is mobile browser and fixed mobile buttons option is selected
+  if ( ds_is_mobile() === true && ds_fixed_on_mobile() === true ) {
+    $output = $content . $buttons . $custom_styles;
+  }
+
   return $output;
 
 }
@@ -305,6 +351,9 @@ function ds_display_social_buttons( $content ) {
   if ( is_front_page() && ( 1 != $homepage_allowed ) ) {
     $output = $content;
   }
+
+  // $fixed_on_mobile = drim_share_get_option_values('drim_share_position_mobile');
+  // if ( 1 == $fixed_on_mobile ) {}
 
   return $output;
 
