@@ -45,7 +45,7 @@ class Drim_Share_Options {
          </h1>
 
          <div class="ds_grid">
-           <div class="ds_wrap ds_left_half">
+           <div class="ds_wrap ds_part_left">
 
              <form method="post" action="options.php">
                <?php
@@ -57,54 +57,8 @@ class Drim_Share_Options {
                ?>
              </form>
            </div>
-           <div class="ds_wrap ds_right_half">
-             <h2> Drim Share </h2>
-             <p><?php _e( 'A simple light-weight and mobile-friendly social sharing plugin for WordPress.', 'drim-share' ); ?></p>
-             <p>
-               <?php _e( 'Author: ', 'drim-share' ); ?> <a href="https://drim.io" target="_blank">Levon Avetyan</a>
-               <a class="no_decoration" href="https://drim.io/drim-share" target="_blank"><i class="demo-icon icon-wordpress-1"></i></a>
-               <a class="no_decoration" href="https://github.com/levonium/drim-share" target="_blank"><i class="demo-icon icon-github"></i></a>
-             </p>
-
-             <hr />
-
-             <p>
-               <?php _e( 'Share this plugin:', 'drim-share' ); ?>
-             </p>
-
-             <div class="ds_wrapper ds_icon_v4 ds_align_left ds_no_brdr ds_no_heading">
-               <div class="ds_bttn ds_facebook">
-                 <a target="_blank" rel="nofollow" title="Share on Facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://drim.io/drim-share/">
-                   <i class="demo-icon ds_icon icon-facebook-1"></i>
-                   <span class="ds_network_name">Facebook</span>
-                 </a>
-               </div>
-               <div class="ds_bttn ds_twitter">
-                 <a target="_blank" rel="nofollow" title="Share on Twitter" href="https://twitter.com/home?status=https://drim.io/drim-share/%20DRIM%20SHARE:%20a%20simple%20social%20sharing%20plugin%20for%20WP">
-                   <i class="demo-icon ds_icon icon-twitter-1"></i>
-                   <span class="ds_network_name">Twitter</span>
-                 </a>
-               </div>
-               <div class="ds_bttn ds_linkedin">
-                 <a target="_blank" rel="nofollow" title="Share on LinkedIn" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://drim.io/drim-share/&amp;title=DRIM%20SHARE&amp;summary=DRIM%20SHARE:%20a%20simple%20social%20sharing%20plugin%20for%20WP">
-                   <i class="demo-icon ds_icon icon-linkedin-1"></i>
-                   <span class="ds_network_name">LinkedIn</span>
-                 </a>
-               </div>
-               <div class="ds_bttn ds_googleplus">
-                 <a target="_blank" rel="nofollow" title="Share on Google Plus" href="https://plus.google.com/share?url=https://drim.io/drim-share/">
-                   <i class="demo-icon ds_icon icon-gplus"></i>
-                   <span class="ds_network_name">Google Plus</span>
-                 </a>
-               </div>
-             </div>
-
-             <hr />
-
-             <p>
-               <?php _e( 'Thank you for using ', 'drim-share' ); ?>
-               <a href="https://drim.io/drim-share" target="_blank"> Drim Share </a>
-             </p>
+           <div class="ds_wrap ds_part_right">
+             <?php include_once 'drim-share-admin-display-part-right.php'; ?>
            </div>
          </div>
 
@@ -160,15 +114,6 @@ class Drim_Share_Options {
 				'drim_share_settings_main' // Section
 			);
 
-      // foxed buttons on mobile
-      add_settings_field(
-        'drim_share_position_mobile', // ID
-        __( 'Buttons on Mobile Browsers', 'drim-share' ), // Title
-        array( $this, 'drim_share_position_mobile_callback' ), // Callback
-        'drim_share_options', // Page
-        'drim_share_settings_main' // Section
-      );
-
       // button styles
 			add_settings_field(
 				'drim_share_style', // ID
@@ -213,6 +158,42 @@ class Drim_Share_Options {
 				'drim_share_options', // Page
 				'drim_share_settings_main' // Section
 			);
+
+      add_settings_section(
+        'drim_share_settings_mobile', // ID
+        __( 'Mobile Settings', 'drim-share' ), // Title
+        array( $this, 'print_drim_share_settings_mobile_section_info' ), // Callback
+        'drim_share_options' // Page
+      );
+
+      // fixed buttons on mobile
+      add_settings_field(
+        'drim_share_position_mobile', // ID
+        __( 'Buttons on Mobile Browsers', 'drim-share' ), // Title
+        array( $this, 'drim_share_position_mobile_callback' ), // Callback
+        'drim_share_options', // Page
+        'drim_share_settings_mobile' // Section
+      );
+
+      // whatssapp button on mobiles
+      add_settings_field(
+          'drim_share_mobile_whatsapp',  // ID
+          __( 'WhatsApp Button on Mobile', 'drim-share' ), // Title
+          array( $this, 'drim_share_mobile_whatsapp_callback' ), // Callback
+          'drim_share_options', // Page
+          'drim_share_settings_mobile' // Section
+      );
+
+      // mobile button styles
+      add_settings_field(
+        'drim_share_style_mobile', // ID
+        __( 'Mobile Button Styles', 'drim-share' ), // Title
+        array( $this, 'drim_share_style_mobile_callback' ), // Callback
+        'drim_share_options', // Page
+        'drim_share_settings_mobile' // Section
+      );
+
+
 
       add_settings_section(
 				'drim_share_settings_post_types', // ID
@@ -262,7 +243,7 @@ class Drim_Share_Options {
       // page: front_page
       add_settings_field(
           'drim_share_post_type_page_home',  // ID
-          __( 'Include in HomePage', 'drim-share' ), // Title
+          __( 'Include in Homepage', 'drim-share' ), // Title
       		array( $this, 'drim_share_post_type_page_home_callback' ), // Callback
           'drim_share_options', // Page
           'drim_share_settings_post_types' // Section
@@ -320,23 +301,15 @@ class Drim_Share_Options {
 
 
     /**
-     * Print the Post Types Section Content
-     */
-    function print_drim_share_settings_post_types_section_info() {
-      echo '<p>';
-      _e( 'Choose in which post types to include the sharing buttons.', 'drim-share' );
-      echo '</p>';
-    }
-
-    /**
      * Enable/Disable Drim Share Buttons callback function
      */
     function drim_share_enable_buttons_callback() {
 
       $ds_opt = isset( $this->options['drim_share_enable_buttons'] ) ? esc_attr( $this->options['drim_share_enable_buttons']) : '';
+      $label_class = ( $ds_opt ) ? 'ds_enabled' : 'ds_disabled';
 
       $ds_check = '<input type="checkbox" id="drim_share_enable_buttons" name="drim_share_settings_options[drim_share_enable_buttons]" value="1"' . checked( 1, $ds_opt, false ) . '/>
-        <label for="drim_share_enable_buttons">'. __( 'Enable', 'drim-share' ) . '</label>';
+        <label class="onoff ' . $label_class . '" for="drim_share_enable_buttons">'. __( 'Enable', 'drim-share' ) . '</label>';
 
       echo $ds_check;
 
@@ -348,13 +321,8 @@ class Drim_Share_Options {
      */
     function drim_share_networks_callback() {
 
-      $ds_networks = [
-        'facebook' => 'Facebook',
-        'twitter' => 'Twitter',
-        'linkedin' => 'LinkedIn',
-        'googleplus' => 'Google Plus',
-        'pinterest' => 'Pinterest'
-      ];
+      // this function is declared in drim_share-admin-functions.php file
+      $ds_networks = ds_get_available_social_networks();
 
       foreach( $ds_networks as $ds_network => $ds_network_name) {
 
@@ -384,22 +352,7 @@ class Drim_Share_Options {
           <option value="both" <?php selected($ds_opt, "both") ?>> <?php _e( 'Both', 'drim-share' ); ?> </option>
         </select>
         <?php
-				echo '<p class="description">' . __( 'Choose where the buttons should appear.', 'drim-share' ) . '</p>';
-    }
-
-    /**
-     * Mobile Fixed Buttons callback function
-     */
-    function drim_share_position_mobile_callback() {
-
-      $ds_opt = isset( $this->options['drim_share_position_mobile'] ) ? esc_attr( $this->options['drim_share_position_mobile']) : '';
-
-      $ds_check = '<input type="checkbox" id="drim_share_position_mobile" name="drim_share_settings_options[drim_share_position_mobile]" value="1"' . checked( 1, $ds_opt, false ) . '/>
-        <label for="drim_share_position_mobile">'. __( 'Fixed Buttons at the Bottom.', 'drim-share' ) . '</label>';
-
-      echo $ds_check;
-
-      echo '<p class="description">' . __( 'Check the box to fix the buttons to bottom on mobile browsers.', 'drim-share' ) . '</p>';
+        echo '<p class="description">' . __( 'Choose where the buttons should appear.', 'drim-share' ) . '</p>';
     }
 
 
@@ -410,7 +363,7 @@ class Drim_Share_Options {
 
         $ds_opt = isset( $this->options['drim_share_style'] ) ? esc_attr( $this->options['drim_share_style']) : '';
         ?>
-        <select class="regular-text" id="drim_share_style" name="drim_share_settings_options[drim_share_style]">
+        <select class="regular-text drim_share_style_select" id="drim_share_style" name="drim_share_settings_options[drim_share_style]">
           <option value="ds_icon_v1" <?php selected($ds_opt, "ds_icon_v1"); ?>> <?php _e( 'Icons v1', 'drim-share' ); ?> </option>
           <option value="ds_icon_v2" <?php selected($ds_opt, "ds_icon_v2"); ?>> <?php _e( 'Icons v2', 'drim-share' ); ?> </option>
           <option value="ds_icon_v3" <?php selected($ds_opt, "ds_icon_v3"); ?>> <?php _e( 'Icons v3', 'drim-share' ); ?> </option>
@@ -433,44 +386,7 @@ class Drim_Share_Options {
         <?php
         echo '<p class="description">' . __( 'Choose the button styles.', 'drim-share' ) . '</p>';
 
-        ?>
-
-        <div class="separator"></div>
-
-        <div class="ds_wrapper <?php echo $ds_opt; ?> ds_align_left ds_no_brdr ds_no_heading">
-          <div class="ds_bttn ds_facebook">
-            <a target="_blank" rel="nofollow" title="Share on Facebook" href="#">
-              <i class="demo-icon ds_icon icon-facebook-1"></i>
-              <span class="ds_network_name">Facebook</span>
-            </a>
-          </div>
-          <div class="ds_bttn ds_twitter">
-            <a target="_blank" rel="nofollow" title="Share on Twitter" href="#">
-              <i class="demo-icon ds_icon icon-twitter-1"></i>
-              <span class="ds_network_name">Twitter</span>
-            </a>
-          </div>
-          <div class="ds_bttn ds_linkedin">
-            <a target="_blank" rel="nofollow" title="Share on LinkedIn" href="#">
-              <i class="demo-icon ds_icon icon-linkedin-1"></i>
-              <span class="ds_network_name">LinkedIn</span>
-            </a>
-          </div>
-          <div class="ds_bttn ds_googleplus">
-            <a target="_blank" rel="nofollow" title="Share on Google Plus" href="#">
-              <i class="demo-icon ds_icon icon-gplus"></i>
-              <span class="ds_network_name">Google Plus</span>
-            </a>
-          </div>
-          <div class="ds_bttn ds_pinterest">
-            <a target="_blank" rel="nofollow" title="Share on Pinterest" href="#">
-              <i class="demo-icon ds_icon icon-pinterest"></i>
-              <span class="ds_network_name">Pinterest</span>
-            </a>
-          </div>
-        </div>
-
-        <?php
+        include_once 'drim-share-admin-display-icons.php';
     }
 
 
@@ -536,6 +452,90 @@ class Drim_Share_Options {
 
     }
 
+
+    /**
+     * Print the Mobile Section Content
+     */
+    function print_drim_share_settings_mobile_section_info() {
+      echo '<p>';
+      _e( 'Adjust the mobile settings here.', 'drim-share' );
+      echo '</p>';
+    }
+
+
+    /**
+     * Mobile Fixed Buttons callback function
+     */
+    function drim_share_position_mobile_callback() {
+
+      $ds_opt = isset( $this->options['drim_share_position_mobile'] ) ? esc_attr( $this->options['drim_share_position_mobile']) : '';
+
+      $ds_check = '<input type="checkbox" id="drim_share_position_mobile" name="drim_share_settings_options[drim_share_position_mobile]" value="1"' . checked( 1, $ds_opt, false ) . '/>
+        <label for="drim_share_position_mobile">'. __( 'Fixed Buttons at the Bottom.', 'drim-share' ) . '</label>';
+
+      echo $ds_check;
+
+      echo '<p class="description">' . __( 'Check the box to fix the buttons to bottom on mobile browsers.', 'drim-share' ) . '</p>';
+
+      $ds_opt_f = isset( $this->options['drim_share_position_mobile_full'] ) ? esc_attr( $this->options['drim_share_position_mobile_full']) : '';
+
+      echo '<div class="separator"></div>';
+
+      $ds_check_f = '<input type="checkbox" id="drim_share_position_mobile_full" name="drim_share_settings_options[drim_share_position_mobile_full]" value="1"' . checked( 1, $ds_opt_f, false ) . '/>
+        <label for="drim_share_position_mobile_full">'. __( '100% width for Buttons Area.', 'drim-share' ) . '</label>';
+
+      echo $ds_check_f;
+
+      echo '<p class="description">' . __( 'Check the box to make the buttons area 100% wide.', 'drim-share' ) . '</p>';
+    }
+
+
+    /**
+     * Whatsapp button on mobile devices callback function
+     */
+    function drim_share_mobile_whatsapp_callback() {
+
+        $ds_opt = isset( $this->options['drim_share_mobile_icons_whatsapp'] ) ? esc_attr( $this->options['drim_share_mobile_icons_whatsapp']) : '';
+
+        $ds_check = '<input type="checkbox" id="drim_share_mobile_icons_whatsapp" name="drim_share_settings_options[drim_share_mobile_icons_whatsapp]" value="1"' . checked( 1, $ds_opt, false ) . '/>
+          <label for="drim_share_mobile_icons_whatsapp"> <i class="demo-icon ds_icon icon-whatsapp content-icon"></i> '. __( 'Include', 'drim-share' ) . '</label>';
+
+        echo $ds_check;
+
+    }
+
+    /**
+     * Social buttons styles selection field callback function
+     */
+    function drim_share_style_mobile_callback() {
+
+        $ds_opt = isset( $this->options['drim_share_style_mobile'] ) ? esc_attr( $this->options['drim_share_style_mobile']) : '';
+        ?>
+        <select class="regular-text drim_share_style_select" id="drim_share_style_mobile" name="drim_share_settings_options[drim_share_style_mobile]">
+          <option value="ds_icon_v1" <?php // selected($ds_opt, "ds_icon_v1"); ?>> <?php _e( 'Icons v1', 'drim-share' ); ?> </option>
+          <option value="ds_icon_v2" <?php // selected($ds_opt, "ds_icon_v2"); ?>> <?php _e( 'Icons v2', 'drim-share' ); ?> </option>
+          <option value="ds_icon_v3" <?php selected($ds_opt, "ds_icon_v3"); ?>> <?php _e( 'Icons v3', 'drim-share' ); ?> </option>
+          <option value="ds_icon_v4" <?php selected($ds_opt, "ds_icon_v4"); ?>> <?php _e( 'Icons v4', 'drim-share' ); ?> </option>
+          <option value="ds_icon_v5" <?php selected($ds_opt, "ds_icon_v5"); ?>> <?php _e( 'Icons v5', 'drim-share' ); ?> </option>
+          <option value="ds_icon_v6" <?php selected($ds_opt, "ds_icon_v6"); ?>> <?php _e( 'Icons v6', 'drim-share' ); ?> </option>
+          <option value="ds_icon_v7" <?php selected($ds_opt, "ds_icon_v7"); ?>> <?php _e( 'Icons v7', 'drim-share' ); ?> </option>
+          <option value="ds_icon_v8" <?php selected($ds_opt, "ds_icon_v8"); ?>> <?php _e( 'Icons v8', 'drim-share' ); ?> </option>
+        </select>
+        <?php
+        echo '<p class="description">' . __( 'Choose the button styles.', 'drim-share' ) . '</p>';
+
+        include_once 'drim-share-admin-display-icons-mobile.php';
+    }
+
+
+    /**
+     * Print the Post Types Section Content
+     */
+    function print_drim_share_settings_post_types_section_info() {
+      echo '<p>';
+      _e( 'Choose in which post types to include the sharing buttons.', 'drim-share' );
+      echo '</p>';
+    }
 
     /**
      * Post types: post field callback function
@@ -627,7 +627,6 @@ class Drim_Share_Options {
       }
 
     }
-
 }
 
 		if ( is_admin() ) $drim_share_settings_settings = new Drim_Share_Options();

@@ -4,25 +4,7 @@
 
     .ds_bttn {
 
-      &.ds_facebook {
-        background-color: $ds_color__facebook;
-      }
-
-      &.ds_twitter {
-        background-color: $ds_color__twitter;
-      }
-
-      &.ds_linkedin {
-        background-color: $ds_color__linkedin;
-      }
-
-      &.ds_googleplus {
-        background-color: $ds_color__googleplus;
-      }
-
-      &.ds_pinterest {
-        background-color: $ds_color__pinterest;
-      }
+      @include set_bg_colors($networks);
 
       &:hover {
         opacity: $ds__bttn_opacity;
@@ -51,32 +33,14 @@
       border-radius: 4px;
       width: auto;
 
-      &.ds_facebook {
-        background-color: $ds_color__facebook;
-      }
-
-      &.ds_twitter {
-        background-color: $ds_color__twitter;
-      }
-
-      &.ds_linkedin {
-        background-color: $ds_color__linkedin;
-      }
-
-      &.ds_googleplus {
-        background-color: $ds_color__googleplus;
-      }
-
-      &.ds_pinterest {
-        background-color: $ds_color__pinterest;
-      }
+      @include set_bg_colors($networks);
 
       a {
         transition: $ds__bttn_transition;
 
         i {
           color: #fff;
-          width: 30px;
+          width: 24px;
         }
 
         span {
@@ -106,25 +70,7 @@
     .ds_bttn {
       border-radius: 100%;
 
-      &.ds_facebook {
-        background-color: $ds_color__facebook;
-      }
-
-      &.ds_twitter {
-        background-color: $ds_color__twitter;
-      }
-
-      &.ds_linkedin {
-        background-color: $ds_color__linkedin;
-      }
-
-      &.ds_googleplus {
-        background-color: $ds_color__googleplus;
-      }
-
-      &.ds_pinterest {
-        background-color: $ds_color__pinterest;
-      }
+      @include set_bg_colors($networks);
 
       &:hover {
         opacity: $ds__bttn_opacity;
@@ -156,55 +102,7 @@
         opacity: $ds__bttn_opacity;
       }
 
-      &.ds_facebook {
-
-        a {
-
-          i {
-            color: $ds_color__facebook;
-          }
-        }
-      }
-
-      &.ds_twitter {
-
-        a {
-
-          i {
-            color: $ds_color__twitter;
-          }
-        }
-      }
-
-      &.ds_linkedin {
-
-        a {
-
-          i {
-            color: $ds_color__linkedin;
-          }
-        }
-      }
-
-      &.ds_googleplus {
-
-        a {
-
-          i {
-            color: $ds_color__googleplus;
-          }
-        }
-      }
-
-      &.ds_pinterest {
-
-        a {
-
-          i {
-            color: $ds_color__pinterest;
-          }
-        }
-      }
+      @include set_icon_colors($networks);
 
       a {
 
@@ -229,55 +127,7 @@
         opacity: $ds__bttn_opacity;
       }
 
-      &.ds_facebook {
-
-        a {
-
-          i {
-            color: $ds_color__facebook;
-          }
-        }
-      }
-
-      &.ds_twitter {
-
-        a {
-
-          i {
-            color: $ds_color__twitter;
-          }
-        }
-      }
-
-      &.ds_linkedin {
-
-        a {
-
-          i {
-            color: $ds_color__linkedin;
-          }
-        }
-      }
-
-      &.ds_googleplus {
-
-        a {
-
-          i {
-            color: $ds_color__googleplus;
-          }
-        }
-      }
-
-      &.ds_pinterest {
-
-        a {
-
-          i {
-            color: $ds_color__pinterest;
-          }
-        }
-      }
+      @include set_icon_colors($networks);
 
       a {
 
@@ -361,6 +211,7 @@
 
         i {
           color: #333;
+          width: 24px;
         }
 
         span {
@@ -376,6 +227,8 @@
     }
   }
 }
+
+
 
 
 @media screen and (max-width: $ds_screen__small) {

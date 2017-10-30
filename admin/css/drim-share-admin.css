@@ -5,89 +5,101 @@
 
  /*** Drim Share admin options page ***/
 
- .ds_grid {
-   display: grid;
-   grid-gap: 20px;
-   grid-template-columns: 900px 320px auto;
- }
-
- @media screen and (max-width: 1220px) {
-   .ds_grid {
-     grid-template-columns: 600px 320px auto;
-   }
- }
-
- @media screen and (max-width: 1080px) {
-   .ds_grid {
-     grid-template-columns: 1fr;
-   }
- }
-
- .ds_wrap img {
-   width: 100%;
- }
-
- .no_decoration,
- .no_decoration:hover {
-   text-decoration: none;
- }
-
-
- .ds_wrapper {
-   font-size: 16px;
- }
-
- .separator {
-   margin-top: 40px;
-   margin-bottom: 20px;
- }
-
-/*** Fontello Icons ***/
-@font-face {
-  font-family: "fontello";
-  src: url("./font/fontello.eot?") format("eot"), url("./font/fontello.woff2") format("woff2"), url("./font/fontello.woff") format("woff"), url("./font/fontello.ttf") format("truetype"), url("./font/fontello.svg#fontello") format("svg"); }
-
-.demo-icon
-{
-  font-family: "fontello";
-  font-style: normal;
-  font-weight: normal;
-  speak: none;
-
-  display: inline-block;
-  text-decoration: inherit;
-  width: 20px;
-  margin-right: .2em;
-  text-align: center;
-
-  /* For safety - reset parent styles, that can break glyph codes*/
-  font-variant: normal;
-  text-transform: none;
-
-  /* fix buttons height, for twitter bootstrap */
-  line-height: 1em;
-
-  font-size: 0.8em;
-
-  /* Font smoothing. That was taken from TWBS */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+.ds_part_left > form > p:not(.submit) {
+ box-sizing: border-box;
+ background-color: #23282e;
+ color: #fff;
+ font-weight: 700;
+ margin-bottom: 0;
+ padding: 10px 20px;
+ max-width: 700px;
+ border-bottom: 2px solid #fff;
+}
+.ds_part_left .form-table {
+ background-color: #23282e;
+ color: #fff;
+ max-width: 700px;
+ margin-top: 0;
+}
+.ds_part_left .form-table tr {
+ border-bottom: 1px solid #fff;
+}
+.ds_part_left .form-table tr th {
+ padding-left: 20px;
+ color: #fff;
+}
+.ds_part_left p.description {
+ color: #999;
+}
+.ds_part_left h2 {
+margin-top: 60px;
+}
+.ds_part_left h2:first-of-type {
+margin-top: 1em;
+}
+@media screen and (max-width: 782px) {
+  .ds_part_left .form-table td {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
-.icon-linkedin-1:before { content: '\e800'; }
-.icon-wordpress-1:before { content: '\e801'; }
-.icon-facebook-1:before { content: '\e802'; }
-.icon-github:before { content: '\e803'; }
-.icon-pinterest:before { content: '\e804'; }
-.icon-twitter-1:before { content: '\e805'; }
-.icon-gplus:before { content: '\e806'; }
+.ds_part_right {
+max-width: 300px;
+background: #fff;
+padding: 20px;
+z-index: 2;
+}
+@media screen and (min-width: 1260px) {
+ .ds_part_right {
+   position: fixed;
+   top: 60px;
+   right: 20px;
+ }
+}
+.highlight_red {
+ color: #ff0000;
+}
+i.demo-icon.highlight_big {
+ font-size: 1.5em;
+}
+i.content-icon.ds_icon.icon-whatsapp {
+ font-size: 1.25em;
+ font-weight: 700;
+ color: #06e676;
+}
+.no_decoration,
+.no_decoration:hover {
+ text-decoration: none;
+}
 
-.icon-linkedin-1 { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe800;&nbsp;'); }
-.icon-wordpress-1 { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe801;&nbsp;'); }
-.icon-facebook-1 { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe802;&nbsp;'); }
-.icon-github { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe803;&nbsp;'); }
-.icon-pinterest { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe804;&nbsp;'); }
-.icon-twitter-1 { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe805;&nbsp;'); }
-.icon-gplus { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe806;&nbsp;'); }
+.separator {
+ margin-top: 40px;
+ margin-bottom: 20px;
+}
+.no_margin_bottom {
+ margin-bottom: 0;
+}
+.ds_hidden {
+ display: none;
+}
+.ds_hidden.ds_active {
+ display: inherit;
+}
+.onoff {
+font-weight: 700;
+}
+.ds_disabled {
+color: #f00;
+}
+.ds_enabled {
+color: #008000;
+}
+
+.ds_wrapper {
+font-size: 16px;
+}
+#ds_example,
+#ds_example_mobile {
+grid-template-columns: repeat(6,auto);
+}

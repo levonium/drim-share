@@ -3,17 +3,6 @@
   display: grid;
   grid-gap: 6px;
 
-  &.ds_wrapper_fixed {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    margin-bottom: 0;
-    border-bottom-width: 0;
-    background-color: #fff;
-    z-index: 9999;
-  }
-
   &.ds_has_heading {
     grid-template-columns: repeat(6, auto);
   }

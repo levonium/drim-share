@@ -1,4 +1,47 @@
 // =============================================================================
+// social network button background colors, icon coors and backgrond images
+// =============================================================================
+
+$networks: facebook twitter linkedin googleplus pinterest whatsapp;
+$network-colors: (
+	facebook: #4367b1,
+	twitter: #1fa0f3,
+	linkedin: #0277b5,
+	googleplus: #da4638,
+	pinterest: #bd081c,
+	whatsapp: #06e676
+);
+
+@mixin set_bg_colors($network) {
+	@each $network in $networks {
+		&.ds_#{$network} {
+			background-color: map-get($network-colors, $network);
+		}
+	}
+}
+
+@mixin set_icon_colors($network) {
+	@each $network in $networks {
+		&.ds_#{$network} {
+			a {
+				i {
+					color: map-get($network-colors, $network);
+				}
+			}
+		}
+	}
+}
+
+@mixin set_bg_images($suffix, $extension) {
+	@each $network in facebook twitter linkedin googleplus pinterest {
+		&.ds_#{$network} {
+			background-image: url('/wp-content/plugins/drim-share/public/assets/ds_#{$network}_#{$suffix}.#{$extension}');
+		}
+	}
+}
+
+
+// =============================================================================
 // String Replace
 // =============================================================================
 

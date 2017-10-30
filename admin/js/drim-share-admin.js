@@ -1,32 +1,45 @@
 (function( $ ) {
 	'use strict';
 
-	/**
-	 * All of the code for your admin-facing JavaScript source
-	 * should reside in this file.
-	 *
-	 * Note: It has been assumed you will write jQuery code here, so the
-	 * $ function reference has been prepared for usage within the scope
-	 * of this function.
-	 *
-	 * This enables you to define handlers, for when the DOM is ready:
-	 *
-	 * $(function() {
-	 *
-	 * });
-	 *
-	 * When the window is loaded:
-	 *
-	 * $( window ).load(function() {
-	 *
-	 * });
-	 *
-	 * ...and/or other possibilities.
-	 *
-	 * Ideally, it is not considered best practise to attach more than a
-	 * single DOM-ready or window-load handler for a particular page.
-	 * Although scripts in the WordPress core, Plugins and Themes may be
-	 * practising this, we should strive to set a better example in our own work.
-	 */
+	$(document).ready(function(){
+		// change the button styles on select change
+		$(".drim_share_style_select").change(function(){
+			var changeClass = "ds_wrapper ds_align_left ds_no_brdr ds_no_heading " + $(this).val();
+			$(this).parent().parent().find(".ds_wrapper").attr( "class", changeClass );
+		});
+
+		// show/hide whatsapp icon on checkbox change
+		$("#drim_share_mobile_icons_whatsapp").change(function(){
+			var check = $(this).prop( "checked" );
+			if ( true === check ) {
+				$(".ds_whatsapp").addClass("ds_active");
+			} else {
+				$(".ds_whatsapp").removeClass("ds_active");
+			}
+		});
+
+		// change text color on plugin enable/dispale
+		$("#drim_share_enable_buttons").change(function(){
+			var enabled = $(this).prop( "checked" );
+			if ( true === enabled ) {
+				$(".onoff").attr("class", "onoff ds_enabled");
+			} else {
+				$(".onoff").attr("class", "onoff ds_disabled");
+			}
+		});
+
+
+/*
+		// add classes to .foem-table tables
+		var tables = $(".form-table");
+		var i = 0;
+		tables.each(function(){
+			i++;
+			$(this).addClass("table_" + i);
+		});
+*/
+
+	});
+
 
 })( jQuery );

@@ -23,26 +23,8 @@
 
       }
 
+      @include set_bg_colors($networks);
 
-      &.ds_facebook a {
-        background-color: $ds_color__facebook;
-      }
-
-      &.ds_twitter a {
-        background-color: $ds_color__twitter;
-      }
-
-      &.ds_linkedin a {
-        background-color: $ds_color__linkedin;
-      }
-
-      &.ds_googleplus a {
-        background-color: $ds_color__googleplus;
-      }
-
-      &.ds_pinterest a {
-        background-color: $ds_color__pinterest;
-      }
     }
   }
 
@@ -50,12 +32,12 @@
 
     .ds_bttn {
       width: auto;
+      background-color: #c5c5c5;
 
       a {
         display: inline;
         padding: 4px 8px;
         color: #000;
-        background-color: #c5c5c5;
         font-size: $ds_font__smaller;
         transition: $ds__bttn_transition;
 
@@ -72,7 +54,6 @@
     }
   }
 }
-
 
 @media screen and (max-width: $ds_screen__small) {
   .ds_wrapper {
