@@ -17,7 +17,7 @@
           opacity: $ds__bttn_opacity;
         }
 
-        i {
+        svg {
           display: none;
         }
 
@@ -29,6 +29,35 @@
   }
 
   &.ds_text_v2 {
+
+    .ds_bttn {
+      width: auto;
+      background-color: #fff;
+      box-shadow: 1px 1px 1px 1px #c5c5c5;
+
+      a {
+        display: inline;
+        padding: 4px 8px;
+        color: #000;
+        font-size: $ds_font__smaller;
+        transition: $ds__bttn_transition;
+
+        svg {
+          display: none;
+        }
+
+      }
+
+      &:hover {
+        background-color: #c5c5c5;
+        opacity: $ds__bttn_opacity;
+      }
+
+      @include set_text_colors($networks);
+    }
+  }
+
+  &.ds_text_v3 {
 
     .ds_bttn {
       width: auto;
@@ -46,11 +75,122 @@
           opacity: $ds__bttn_opacity;
         }
 
-        i {
+        svg {
           display: none;
         }
 
       }
+    }
+  }
+
+  &.ds_text_v4 {
+
+    .ds_bttn {
+      width: auto;
+
+      a {
+        color: #fff;
+
+        .anchor-grid {
+          display: grid;
+          grid-template-columns: 2em minmax( 100px, auto);
+          grid-template-rows: 2em;
+
+          span {
+
+            &.anchor-item {
+
+              span {
+
+                &.ds_network_name {
+                  font-size: $ds_font__smaller;
+                  color: #fff;
+                }
+              }
+
+              &:nth-child(2) {
+                background-color: rgba(255,255,255,.1);
+                transition: $ds__bttn_transition;
+                padding: 0 4px;
+              }
+            }
+          }
+        }
+
+        &:hover {
+
+          .anchor-grid {
+
+            span {
+
+              &.anchor-item {
+
+                &:nth-child(2) {
+                  opacity: $ds__bttn_opacity_str;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      @include set_bg_colors($networks);
+    }
+  }
+
+  &.ds_text_v5 {
+
+    .ds_bttn {
+      width: auto;
+      border-radius: 6px;
+
+      a {
+        color: #fff;
+
+        .anchor-grid {
+          display: grid;
+          grid-template-columns: 2em minmax( 100px, auto);
+          grid-template-rows: 2em;
+
+          span {
+
+            &.anchor-item {
+
+              span {
+
+                &.ds_network_name {
+                  font-size: $ds_font__smaller;
+                  color: #fff;
+                }
+              }
+
+              &:nth-child(2) {
+                background-color: rgba(255,255,255,.1);
+                transition: $ds__bttn_transition;
+                padding: 0 6px;
+              }
+            }
+          }
+        }
+
+        &:hover {
+
+          .anchor-grid {
+
+            span {
+
+              &.anchor-item {
+
+                &:nth-child(2) {
+                  opacity: $ds__bttn_opacity_str;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      @include set_bg_colors($networks);
     }
   }
 }
@@ -63,8 +203,9 @@
       .ds_bttn {
 
         a {
+          font-size: 1em;
 
-          i {
+          svg {
             display: inherit;
           }
 
@@ -80,14 +221,208 @@
       .ds_bttn {
 
         a {
+          font-size: 1em;
 
-          i {
+          svg {
             display: inherit;
           }
 
           span {
             display: none;
           }
+        }
+      }
+    }
+
+    &.ds_text_v3 {
+
+      .ds_bttn {
+
+        a {
+          font-size: 1em;
+
+          svg {
+            display: inherit;
+          }
+
+          span {
+            display: none;
+          }
+        }
+      }
+    }
+
+    &.ds_text_v4 {
+
+      .ds_bttn {
+
+        a {
+
+          .anchor-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+
+            span {
+
+              &.anchor-item {
+
+                &:nth-child(2) {
+                  display: none;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.ds_text_v5 {
+
+      .ds_bttn {
+
+        a {
+
+          .anchor-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+
+            span {
+
+              &.anchor-item {
+
+                &:nth-child(2) {
+                  display: none;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.ds_container {
+
+  .ds_wrapper {
+
+    &.ds_text_v1 {
+
+      .ds_bttn {
+
+        a {
+          font-size: 1em;
+
+          svg {
+            display: inherit;
+          }
+
+          span {
+            display: none;
+          }
+        }
+      }
+    }
+
+    &.ds_text_v2 {
+
+      .ds_bttn {
+
+        a {
+          font-size: 1em;
+
+          svg {
+            display: inherit;
+          }
+
+          span {
+            display: none;
+          }
+        }
+      }
+    }
+
+    &.ds_text_v3 {
+
+      .ds_bttn {
+
+        a {
+          font-size: 1em;
+
+          svg {
+            display: inherit;
+          }
+
+          span {
+            display: none;
+          }
+        }
+      }
+    }
+
+    &.ds_text_v4 {
+
+      .ds_bttn {
+
+        a {
+
+          .anchor-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+
+            span {
+
+              &.anchor-item {
+
+                &:nth-child(2) {
+                  display: none;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.ds_text_v5 {
+
+      .ds_bttn {
+
+        a {
+
+          .anchor-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+
+            span {
+
+              &.anchor-item {
+
+                &:nth-child(2) {
+                  display: none;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.ds_wrapper {
+
+  &.ds_wrapper_mobile {
+
+    @for $i from 1 through 5 {
+      &.ds_text_v#{$i} {
+
+        .ds_bttn {
+          width: 2em;
         }
       }
     }

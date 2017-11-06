@@ -3,7 +3,12 @@
  * included in this file.
  */
 
- /*** Drim Share admin options page ***/
+ /*** Drim Share admin options page styles ***/
+
+ #adminmenu .toplevel_page_drim_share_options .dashicons-before:before {
+   color: #0173a9;
+   transform: rotate(90deg);
+ }
 
 .ds_part_left > form > p:not(.submit) {
  box-sizing: border-box;
@@ -43,6 +48,38 @@ margin-top: 1em;
     padding-right: 20px;
   }
 }
+.set_open {
+  cursor: pointer;
+}
+.ds_icon_set {
+  position: fixed;
+  top: 32px;
+  left: 160px;
+  height: calc( 100% - 32px );
+  padding: 40px 20px;
+  background-color: #c5c5c5;
+  overflow: scroll;
+  z-index: 40;
+}
+.ds_icon_set img {
+  max-width: 100%;
+}
+.set_close {
+  position: fixed;
+  top: 60px;
+  right: 0;
+  padding: 10px;
+  background-color: #23282e;
+  cursor: pointer;
+}
+.set_close svg {
+  fill: #fff;
+}
+.set_open.small-icon svg,
+.set_close.small-icon svg {
+  width: 2em;
+  height: 2em;
+}
 
 .ds_part_right {
 max-width: 300px;
@@ -60,10 +97,10 @@ z-index: 2;
 .highlight_red {
  color: #ff0000;
 }
-i.demo-icon.highlight_big {
+.demo-icon.highlight_big {
  font-size: 1.5em;
 }
-i.content-icon.ds_icon.icon-whatsapp {
+.content-icon.ds_icon.icon-whatsapp {
  font-size: 1.25em;
  font-weight: 700;
  color: #06e676;
@@ -76,6 +113,18 @@ i.content-icon.ds_icon.icon-whatsapp {
 .separator {
  margin-top: 40px;
  margin-bottom: 20px;
+}
+.small-icon svg {
+  width: 1em;
+  height: 1em;
+  margin: 0 5px;
+  vertical-align: middle;
+}
+.medium-icon svg {
+  width: 3em;
+  height: 3em;
+  margin: 0 10px;
+  vertical-align: middle;
 }
 .no_margin_bottom {
  margin-bottom: 0;
@@ -98,6 +147,9 @@ color: #008000;
 
 .ds_wrapper {
 font-size: 16px;
+}
+#ds_example.ds_type_image {
+  display: none;
 }
 #ds_example,
 #ds_example_mobile {

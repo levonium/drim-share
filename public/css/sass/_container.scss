@@ -1,0 +1,61 @@
+.ds_container {
+
+  .ds_wrapper {
+    z-index: 9;
+
+    .ds_heading {
+      display: none;
+    }
+  }
+
+  &:not(.ds_container_mobile) {
+    position: fixed;
+    top: calc( ( 100% - 10em ) / 2 );
+    margin: 0;
+
+    .ds_wrapper {
+      grid-template-columns: 1fr;
+      grid-gap: 0;
+      padding: 0;
+      border: 0 none;
+      padding: 0;
+
+      .ds_bttn {
+        width: 2em;
+
+        a {
+
+          svg {
+
+            &.icon {
+              display: inline;
+            }
+          }
+
+          span {
+
+            &.ds_network_name {
+              display: none;
+            }
+
+            &.anchor-item {
+
+              &:nth-child(2) {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+
+    }
+
+    &.sticky_left {
+      left: 0;
+    }
+
+    &.sticky_right {
+      right: 0;
+    }
+  }
+}

@@ -12,10 +12,6 @@
 
       a {
 
-        i {
-          color: #fff;
-        }
-
         span {
 
           &.ds_network_name {
@@ -29,6 +25,29 @@
   &.ds_icon_v2 {
 
     .ds_bttn {
+      border-radius: 100%;
+
+      @include set_bg_colors($networks);
+
+      &:hover {
+        opacity: $ds__bttn_opacity;
+      }
+
+      a {
+
+        span {
+
+          &.ds_network_name {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  &.ds_icon_v3 {
+
+    .ds_bttn {
       padding: 0 10px;
       border-radius: 4px;
       width: auto;
@@ -37,11 +56,6 @@
 
       a {
         transition: $ds__bttn_transition;
-
-        i {
-          color: #fff;
-          width: 24px;
-        }
 
         span {
 
@@ -54,6 +68,10 @@
 
         &:hover {
 
+          svg {
+            margin-right: 5px;
+          }
+
           span {
 
             &.ds_network_name {
@@ -65,36 +83,10 @@
     }
   }
 
-  &.ds_icon_v3 {
-
-    .ds_bttn {
-      border-radius: 100%;
-
-      @include set_bg_colors($networks);
-
-      &:hover {
-        opacity: $ds__bttn_opacity;
-      }
-
-      a {
-
-        i {
-          color: #fff;
-        }
-
-        span {
-
-          &.ds_network_name {
-            display: none;
-          }
-        }
-      }
-    }
-  }
-
   &.ds_icon_v4 {
 
     .ds_bttn {
+      background-color: #fff;
       box-shadow: 1px 1px 1px 1px #c5c5c5;
 
       &:hover {
@@ -102,9 +94,12 @@
         opacity: $ds__bttn_opacity;
       }
 
-      @include set_icon_colors($networks);
-
       a {
+
+        svg {
+
+          @include set_svg_colors($networks);
+        }
 
         span {
 
@@ -119,6 +114,7 @@
   &.ds_icon_v5 {
 
     .ds_bttn {
+      background-color: #fff;
       box-shadow: inset 1px 1px 1px 1px #c5c5c5;
       border-radius: 100%;
 
@@ -127,9 +123,12 @@
         opacity: $ds__bttn_opacity;
       }
 
-      @include set_icon_colors($networks);
-
       a {
+
+        svg {
+
+          @include set_svg_colors($networks);
+        }
 
         span {
 
@@ -144,31 +143,46 @@
   &.ds_icon_v6 {
 
     .ds_bttn {
-      border-radius: 100%;
-      background-color: #c5c5c5;
+      background-color: #fff;
+      box-shadow: 1px 1px 1px 1px #c5c5c5;
+      border-radius: 4px;
+      width: auto;
 
       &:hover {
-        background-color: #f7f7f7;
-
-        a {
-
-          i {
-            color: #000;
-            transition: $ds__bttn_transition;
-          }
-        }
+        background-color: #c5c5c5;
+        opacity: $ds__bttn_opacity;
       }
 
       a {
+        padding: 0 10px;
+        transition: $ds__bttn_transition;
 
-        i {
-          color: #fff;
+        svg {
+
+          @include set_svg_colors($networks);
         }
 
         span {
 
           &.ds_network_name {
-            display: none;
+            font-size: 0;
+            color: #fff;
+            transition: $ds__bttn_transition;
+          }
+        }
+
+        &:hover {
+
+          svg {
+            margin-right: 5px;
+          }
+
+          span {
+
+            &.ds_network_name {
+              font-size: $ds_font__smaller;
+              color: #333;
+            }
           }
         }
       }
@@ -178,9 +192,20 @@
   &.ds_icon_v7 {
 
     .ds_bttn {
+      background-color: #c5c5c5;
 
       &:hover {
-        opacity: $ds__bttn_opacity;
+        background-color: #f7f7f7;
+
+        a {
+
+          svg {
+
+            &.icon {
+              fill: #333;
+            }
+          }
+        }
       }
 
       a {
@@ -197,30 +222,81 @@
 
   &.ds_icon_v8 {
 
-    .ds_heading {
-      line-height: 2em;
-    }
-
     .ds_bttn {
-      padding: 0 10px;
-      border: 1px solid #c5c5c5;
-      border-radius: 12px;
-      width: auto;
+      border-radius: 100%;
+      background-color: #c5c5c5;
+
+      &:hover {
+        background-color: #f7f7f7;
+
+        a {
+
+          svg {
+
+            &.icon {
+              fill: #333;
+            }
+          }
+        }
+      }
 
       a {
 
-        i {
-          color: #333;
-          width: 24px;
+        span {
+
+          &.ds_network_name {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  &.ds_icon_v9 {
+
+    .ds_bttn {
+
+      &:hover {
+        opacity: $ds__bttn_opacity;
+      }
+
+      a {
+
+        svg {
+
+          &.icon {
+            fill: #333;
+          }
         }
 
         span {
 
+          &.ds_network_name {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  &.ds_icon_v10 {
+
+    .ds_bttn {
+
+      &:hover {
+        opacity: $ds__bttn_opacity;
+      }
+
+      a {
+
+        svg {
+          @include set_svg_colors($networks);
+        }
+
+        span {
 
           &.ds_network_name {
-            line-height: 20px;
-            font-size: $ds_font__smaller;
-            margin-left: .4em;
+            display: none;
           }
         }
       }
@@ -234,17 +310,6 @@
 @media screen and (max-width: $ds_screen__small) {
   .ds_wrapper {
 
-    &.ds_icon_v8 {
 
-      .ds_bttn {
-
-        a {
-
-          span {
-            display: none;
-          }
-        }
-      }
-    }
   }
 }

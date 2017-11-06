@@ -20,68 +20,45 @@ $network-colors: (
 	}
 }
 
-@mixin set_icon_colors($network) {
+@mixin set_text_colors($network) {
 	@each $network in $networks {
 		&.ds_#{$network} {
 			a {
-				i {
-					color: map-get($network-colors, $network);
+				span {
+					&.ds_network_name {
+						color: map-get($network-colors, $network);
+					}
 				}
 			}
 		}
 	}
 }
 
-@mixin set_bg_images($suffix, $extension) {
-	@each $network in facebook twitter linkedin googleplus pinterest {
+@mixin set_svg_colors($network) {
+	@each $network in $networks {
 		&.ds_#{$network} {
-			background-image: url('/wp-content/plugins/drim-share/public/assets/ds_#{$network}_#{$suffix}.#{$extension}');
+			svg {
+				&.icon {
+					fill: map-get($network-colors, $network);
+				}
+			}
 		}
 	}
 }
 
+@mixin make_this_color($color) {
 
-// =============================================================================
-// String Replace
-// =============================================================================
+	svg {
 
-@function str-replace($string, $search, $replace: "") {
-	$index: str-index($string, $search);
-
-	@if $index {
-		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+		&.icon {
+			fill: $color;
+		}
 	}
 
-	@return $string;
-}
+	span {
 
-// =============================================================================
-// Font Face
-// =============================================================================
-
-@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
-	$src: null;
-
-	$extmods: (
-		eot: "?",
-		svg: "#" + str-replace($name, " ", "_")
-	);
-
-	$formats: (
-		otf: "opentype",
-		ttf: "truetype"
-	);
-
-	@each $ext in $exts {
-		$extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
-		$format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
-		$src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
-	}
-
-	@font-face {
-		font-family: quote($name);
-		font-style: $style;
-		font-weight: $weight;
-		src: $src;
+		&.ds_network_name {
+			color: $color;
+		}
 	}
 }

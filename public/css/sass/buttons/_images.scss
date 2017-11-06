@@ -3,27 +3,25 @@
   &.ds_image_v1 {
 
     .ds_heading {
-      line-height: 26px;
+      line-height: 2em;
     }
 
     .ds_bttn {
-      background-size: cover;
-      background-repeat: no-repeat;
-      height: 26px;
-      width: 70px;
-
-      @include set_bg_images('v1', 'png');
+      width: 2em;
+      height: 2em;
 
       &:hover {
         opacity: $ds__bttn_opacity;
       }
 
       a {
-        display: block;
-        height: 100%;
 
-        i {
-          display: none;
+        svg {
+
+          &.icon {
+            width: 2em;
+            height: 2em;
+          }
         }
 
         span {
@@ -39,21 +37,31 @@
   &.ds_image_v2 {
 
     .ds_heading {
-      line-height: 24px;
+      line-height: 2em;
     }
 
     .ds_bttn {
-      width: 24px;
-      height: 24px;
-      background-size: cover;
-      background-repeat: no-repeat;
+      width: 2em;
+      height: 2em;
 
-      @include set_bg_images('v2', 'svg');
+      &:hover {
+        opacity: $ds__bttn_opacity;
+      }
 
       a {
 
-        i {
-          display: none;
+        svg {
+
+          &.icon {
+            width: 2em;
+            height: 2em;
+            fill: none;
+            stroke: #000;
+            stroke-width: 4;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-miterlimit: 10;
+          }
         }
 
         span {
@@ -69,25 +77,32 @@
   &.ds_image_v3 {
 
     .ds_heading {
-      line-height: 24px;
+      line-height: 2em;
     }
 
     .ds_bttn {
-      width: 24px;
-      height: 24px;
-      background-size: cover;
-      background-repeat: no-repeat;
+      width: 2em;
+      height: 2em;
 
       &:hover {
         opacity: $ds__bttn_opacity;
       }
 
-      @include set_bg_images('v3', 'svg');
-
       a {
 
-        i {
-          display: none;
+        svg {
+
+          &.icon {
+            width: 2em;
+            height: 2em;
+            fill: none;
+            stroke-width: 4;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-miterlimit: 10;
+
+            @include set_svg_skroke_colors($networks);
+          }
         }
 
         span {
@@ -103,59 +118,25 @@
   &.ds_image_v4 {
 
     .ds_heading {
-      line-height: 24px;
-    }
-
-    .ds_bttn {
-      width: 24px;
-      height: 24px;
-      background-size: cover;
-      background-repeat: no-repeat;
-
-      &:hover {
-        opacity: $ds__bttn_opacity;
-      }
-
-      @include set_bg_images('v4', 'svg');
-
-      a {
-
-        i {
-          display: none;
-        }
-
-        span {
-
-          &.ds_network_name {
-            display: none;
-          }
-        }
-      }
-    }
-  }
-
-  &.ds_image_v5 {
-
-    .ds_heading {
       line-height: 2em;
     }
 
     .ds_bttn {
       width: 2em;
       height: 2em;
-      background-size: cover;
-      background-repeat: no-repeat;
 
       &:hover {
         opacity: $ds__bttn_opacity;
       }
 
-      @include set_bg_images('v5', 'svg');
-
       a {
 
-        i {
-          display: none;
+        svg {
+
+          &.icon {
+            width: 2em;
+            height: 2em;
+          }
         }
 
         span {
@@ -168,125 +149,4 @@
     }
   }
 
-  &.ds_image_v6 {
-
-    .ds_heading {
-      line-height: 2em;
-    }
-
-    .ds_bttn {
-      width: 2em;
-      height: 2em;
-      background-size: cover;
-      background-repeat: no-repeat;
-
-      &:hover {
-        opacity: $ds__bttn_opacity;
-      }
-
-      @include set_bg_images('v6', 'svg');
-
-      a {
-
-        i {
-          display: none;
-        }
-
-        span {
-
-          &.ds_network_name {
-            display: none;
-          }
-        }
-      }
-    }
-  }
-
-  &.ds_image_v7 {
-
-    .ds_heading {
-      line-height: 2em;
-    }
-
-    .ds_bttn {
-      width: 2em;
-      height: 2em;
-      background-size: cover;
-      background-repeat: no-repeat;
-
-      &:hover {
-        opacity: $ds__bttn_opacity;
-      }
-
-      @include set_bg_images('v7', 'svg');
-
-      a {
-
-        i {
-          display: none;
-        }
-
-        span {
-
-          &.ds_network_name {
-            display: none;
-          }
-        }
-      }
-    }
-  }
-
-  &.ds_image_v8 {
-
-    .ds_heading {
-      line-height: 2em;
-    }
-
-    .ds_bttn {
-      width: 2em;
-      height: 2em;
-      background-size: cover;
-      background-repeat: no-repeat;
-
-      &:hover {
-        opacity: $ds__bttn_opacity;
-      }
-
-      @include set_bg_images('v8', 'png');
-
-      a {
-
-        i {
-          display: none;
-        }
-
-        span {
-
-          &.ds_network_name {
-            display: none;
-          }
-        }
-      }
-    }
-  }
-}
-
-
-@media screen and (max-width: $ds_screen__small) {
-  .ds_wrapper {
-
-    &.ds_image_v1 {
-
-      .ds_bttn {
-        height: 24px;
-        width: 24px;
-
-        @each $network in facebook twitter linkedin googleplus pinterest whatsapp {
-          &.ds_#{$network} {
-            background-image: url('/wp-content/plugins/drim-share/public/assets/ds_#{$network}.svg');
-          }
-        }
-      }
-    }
-  }
 }

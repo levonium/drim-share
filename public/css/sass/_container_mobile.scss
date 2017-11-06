@@ -1,0 +1,71 @@
+/***********************************
+## LAYOUT MOBILE
+***********************************/
+
+.ds_container_mobile {
+
+  .ds_wrapper {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    margin-bottom: 0;
+    border-bottom-width: 0;
+    padding: 6px;
+    background-color: #fff;
+    z-index: 9999;
+    grid-gap: 6px;
+    grid-template-columns: repeat(6, auto);
+
+  }
+
+  &.ds_container_full {
+
+    .ds_wrapper {
+      grid-template-columns: repeat(6, 1fr);
+      grid-gap: 0;
+      padding: 0;
+      border-top-width: 0;
+      border-bottom-width: 0;
+
+      .ds_bttn {
+        width: auto;
+        border-radius: 0;
+
+        &.ds_text {
+
+          a {
+
+            svg {
+
+              &.icon {
+                display: inherit;
+              }
+            }
+
+            span {
+
+              &.ds_network_name {
+                display: none;
+              }
+            }
+          }
+        }
+
+        &.ds_mixed {
+
+          a {
+
+            div {
+
+              &.anchor-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
