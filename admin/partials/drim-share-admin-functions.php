@@ -299,7 +299,7 @@ function ds_get_heading_options() {
 function ds_get_button_type(){
 
   $icon_type = ds_get_option_values('ds_button_type');
-  return 'ds_' . $icon_type;
+  return ( '' != $icon_type ) ? 'ds_' . $icon_type : '';
 
 }
 
@@ -314,7 +314,7 @@ function ds_get_button_type(){
 function ds_get_button_shape(){
 
   $icon_shape = ds_get_option_values('ds_shape');
-  return 'ds_' . $icon_shape;
+  return ( '' != $icon_shape ) ? 'ds_' . $icon_shape : '';
 
 }
 
@@ -328,7 +328,7 @@ function ds_get_button_shape(){
 function ds_get_button_styles(){
 
   $icon_set = ds_get_option_values('ds_icon_set');
-  return $icon_set;
+  return ( '' != $icon_set ) ? $icon_set : '';
 
 }
 

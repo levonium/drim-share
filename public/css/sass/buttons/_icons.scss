@@ -1,315 +1,81 @@
-.ds_wrapper {
+.ds_bttn {
 
-  &.ds_icon_v1 {
+  // themes: icon and background colors
+  &.ds_default {
 
-    .ds_bttn {
+    @include make_this_color(#fff);
+    @include set_bg_colors(networks);
+  }
 
-      @include set_bg_colors($networks);
+  &.ds_shadow {
+    @include set_svg_colors(networks);
+    @include set_text_colors($networks);
+    background-color: #fff;
+    box-shadow: 1px 1px 1px 1px #c5c5c5;
+  }
 
-      &:hover {
-        opacity: $ds__bttn_opacity;
-      }
+  &.ds_shadow_inset {
+    @include set_svg_colors(networks);
+    @include set_text_colors($networks);
+    background-color: #fff;
+    box-shadow: inset 1px 1px 1px 1px #c5c5c5;
+  }
 
-      a {
+  &.ds_grey {
+    background-color: #c5c5c5;
+  }
 
-        span {
+  &.ds_grey_default {
+    @extend .ds_grey;
+    @include set_svg_colors(networks);
+    @include set_text_colors($networks);
+  }
 
-          &.ds_network_name {
-            display: none;
-          }
-        }
-      }
+  &.ds_grey_white {
+    @extend .ds_grey;
+
+    svg.icon {
+      fill: #fff;
+    }
+
+    span.ds_network_name {
+      color: #fff;
     }
   }
 
-  &.ds_icon_v2 {
-
-    .ds_bttn {
-      border-radius: 100%;
-
-      @include set_bg_colors($networks);
-
-      &:hover {
-        opacity: $ds__bttn_opacity;
-      }
-
-      a {
-
-        span {
-
-          &.ds_network_name {
-            display: none;
-          }
-        }
-      }
-    }
+  &.ds_grey_black {
+    @extend .ds_grey;
+    @include make_this_color(#fff);
   }
 
-  &.ds_icon_v3 {
-
-    .ds_bttn {
-      padding: 0 10px;
-      border-radius: 4px;
-      width: auto;
-
-      @include set_bg_colors($networks);
-
-      a {
-        transition: $ds__bttn_transition;
-
-        span {
-
-          &.ds_network_name {
-            font-size: 0;
-            color: #fff;
-            transition: $ds__bttn_transition;
-          }
-        }
-
-        &:hover {
-
-          svg {
-            margin-right: 5px;
-          }
-
-          span {
-
-            &.ds_network_name {
-              font-size: $ds_font__smaller;
-            }
-          }
-        }
-      }
-    }
+  &.ds_black {
+    @include make_this_color(#fff);
+    background-color: #000;
   }
 
-  &.ds_icon_v4 {
-
-    .ds_bttn {
-      background-color: #fff;
-      box-shadow: 1px 1px 1px 1px #c5c5c5;
-
-      &:hover {
-        background-color: #c5c5c5;
-        opacity: $ds__bttn_opacity;
-      }
-
-      a {
-
-        svg {
-
-          @include set_svg_colors($networks);
-        }
-
-        span {
-
-          &.ds_network_name {
-            display: none;
-          }
-        }
-      }
-    }
+  &.ds_white {
+    @include make_this_color(#000);
+    background-color: #fff;
   }
 
-  &.ds_icon_v5 {
-
-    .ds_bttn {
-      background-color: #fff;
-      box-shadow: inset 1px 1px 1px 1px #c5c5c5;
-      border-radius: 100%;
-
-      &:hover {
-        background-color: #c5c5c5;
-        opacity: $ds__bttn_opacity;
-      }
-
-      a {
-
-        svg {
-
-          @include set_svg_colors($networks);
-        }
-
-        span {
-
-          &.ds_network_name {
-            display: none;
-          }
-        }
-      }
-    }
+  &.ds_nobg {
+    background-color: transparent;
   }
 
-  &.ds_icon_v6 {
-
-    .ds_bttn {
-      background-color: #fff;
-      box-shadow: 1px 1px 1px 1px #c5c5c5;
-      border-radius: 4px;
-      width: auto;
-
-      &:hover {
-        background-color: #c5c5c5;
-        opacity: $ds__bttn_opacity;
-      }
-
-      a {
-        padding: 0 10px;
-        transition: $ds__bttn_transition;
-
-        svg {
-
-          @include set_svg_colors($networks);
-        }
-
-        span {
-
-          &.ds_network_name {
-            font-size: 0;
-            color: #fff;
-            transition: $ds__bttn_transition;
-          }
-        }
-
-        &:hover {
-
-          svg {
-            margin-right: 5px;
-          }
-
-          span {
-
-            &.ds_network_name {
-              font-size: $ds_font__smaller;
-              color: #333;
-            }
-          }
-        }
-      }
-    }
+  &.ds_nobg_default {
+    @extend .ds_nobg;
+    @include set_svg_colors($networks);
+    @include set_text_colors($networks);
   }
 
-  &.ds_icon_v7 {
-
-    .ds_bttn {
-      background-color: #c5c5c5;
-
-      &:hover {
-        background-color: #f7f7f7;
-
-        a {
-
-          svg {
-
-            &.icon {
-              fill: #333;
-            }
-          }
-        }
-      }
-
-      a {
-
-        span {
-
-          &.ds_network_name {
-            display: none;
-          }
-        }
-      }
-    }
+  &.ds_nobg_white {
+    @extend .ds_nobg;
+    @include make_this_color(#fff);
   }
 
-  &.ds_icon_v8 {
-
-    .ds_bttn {
-      border-radius: 100%;
-      background-color: #c5c5c5;
-
-      &:hover {
-        background-color: #f7f7f7;
-
-        a {
-
-          svg {
-
-            &.icon {
-              fill: #333;
-            }
-          }
-        }
-      }
-
-      a {
-
-        span {
-
-          &.ds_network_name {
-            display: none;
-          }
-        }
-      }
-    }
+  &.ds_nobg_black {
+    @extend .ds_nobg;
+    @include make_this_color(#000);
   }
 
-  &.ds_icon_v9 {
-
-    .ds_bttn {
-
-      &:hover {
-        opacity: $ds__bttn_opacity;
-      }
-
-      a {
-
-        svg {
-
-          &.icon {
-            fill: #333;
-          }
-        }
-
-        span {
-
-          &.ds_network_name {
-            display: none;
-          }
-        }
-      }
-    }
-  }
-
-  &.ds_icon_v10 {
-
-    .ds_bttn {
-
-      &:hover {
-        opacity: $ds__bttn_opacity;
-      }
-
-      a {
-
-        svg {
-          @include set_svg_colors($networks);
-        }
-
-        span {
-
-          &.ds_network_name {
-            display: none;
-          }
-        }
-      }
-    }
-  }
-}
-
-
-
-
-@media screen and (max-width: $ds_screen__small) {
-  .ds_wrapper {
-
-
-  }
 }

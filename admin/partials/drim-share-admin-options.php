@@ -64,7 +64,7 @@ class Drim_Share_Options {
              </form>
            </div>
            <div class="ds_wrap ds_part_right">
-             <?php include_once 'drim-share-admin-options-part-fixed.php'; ?>
+             <?php include_once 'drim-share-admin-display-fixed-bar.php'; ?>
            </div>
          </div>
 
@@ -109,6 +109,15 @@ class Drim_Share_Options {
   			);
 
       }
+
+      // examples settings section
+      add_settings_section(
+				$drim_share_icon_examples_section[0], // ID
+				__( $drim_share_icon_examples_section[1], 'drim-share' ), // Title
+				array( $this, 'print_' . $drim_share_icon_examples_section[0] . '_section_info' ), // Callback
+				'drim_share_options' // Page
+			);
+
 
 
       // position settings section
@@ -301,6 +310,7 @@ class Drim_Share_Options {
         </select>
         <?php
         echo '<p class="description">' . __( 'Choose the button shape.', 'drim-share' ) . '</p>';
+
     }
 
     /**
@@ -342,11 +352,23 @@ class Drim_Share_Options {
           <option value="ds_nobg_default" <?php selected($ds_opt, "ds_nobg_default"); ?>> <?php _e( 'Simple Colorful', 'drim-share' ); ?> </option>
           <option value="ds_nobg_white" <?php selected($ds_opt, "ds_nobg_white"); ?>> <?php _e( 'Simple White', 'drim-share' ); ?> </option>
           <option value="ds_nobg_black" <?php selected($ds_opt, "ds_nobg_black"); ?>> <?php _e( 'Simple Black', 'drim-share' ); ?> </option>
-        </select> <span class="set_open small-icon"> <?php echo ds_get_svg( array( 'icon' => 'question' ) ); ?> </span>
+        </select>
         <?php
         echo '<p class="description">' . __( 'Choose the button style.', 'drim-share' ) . '</p>';
+    }
 
-        include_once 'drim-share-admin-display-icons.php';
+
+
+    /******
+    ************************************************************
+    ******/
+
+
+    /**
+     * Print the Examples Section Content
+     */
+    function print_ds_icon_examples_section_info() {
+      include_once 'drim-share-admin-display-icons.php';
     }
 
 
@@ -377,7 +399,7 @@ class Drim_Share_Options {
           <option value="above" <?php selected($ds_opt, "above"); ?>> <?php _e( 'Above the content', 'drim-share' ); ?> </option>
           <option value="below" <?php selected($ds_opt, "below"); ?>> <?php _e( 'Below the content', 'drim-share' ); ?> </option>
           <option value="both" <?php selected($ds_opt, "both") ?>> <?php _e( 'Both', 'drim-share' ); ?> </option>
-        </select>
+        </select> <span class="q_open" data-open="in_content"> <?php echo ds_get_svg( array( 'icon' => 'question' ) ); ?> </span>
         <?php
     }
 
@@ -392,7 +414,7 @@ class Drim_Share_Options {
           <option value="none" <?php selected($ds_opt, "none") ?>> <?php _e( 'None', 'drim-share' ); ?> </option>
           <option value="left" <?php selected($ds_opt, "left"); ?>> <?php _e( 'Left', 'drim-share' ); ?> </option>
           <option value="right" <?php selected($ds_opt, "right"); ?>> <?php _e( 'Right', 'drim-share' ); ?> </option>
-        </select>
+        </select> <span class="q_open" data-open="fixed"> <?php echo ds_get_svg( array( 'icon' => 'question' ) ); ?> </span>
         <?php
     }
 
@@ -428,7 +450,7 @@ class Drim_Share_Options {
 
 
     /**
-     * Mobile Fixed Buttons callback function
+     * Mobile In Content Buttons callback function
      */
     function ds_position_content_mobile_callback() {
 
@@ -438,7 +460,9 @@ class Drim_Share_Options {
         <label for="ds_position_content_mobile">'. __( 'Display buttons inside the content on mobile devices.', 'drim-share' ) . '</label>';
 
       echo $ds_check;
-
+      ?>
+      <span class="q_open" data-open="in_content_mobile"> <?php echo ds_get_svg( array( 'icon' => 'question' ) ); ?> </span>
+      <?php
     }
 
     /**
@@ -452,25 +476,13 @@ class Drim_Share_Options {
         <label for="ds_position_sticky_mobile">'. __( 'Display buttons in sticky bar on mobile devices.', 'drim-share' ) . '</label>';
 
       echo $ds_check;
-
+      ?>
+      <span class="q_open" data-open="fixed_mobile"> <?php echo ds_get_svg( array( 'icon' => 'question' ) ); ?> </span>
+      <?php
     }
 
     /**
-     * Mobile Fixed Buttons callback function
-     */
-    function ds_position_content_sticky_mobile_callback() {
-
-      $ds_opt = isset( $this->options['ds_position_content_sticky_mobile'] ) ? esc_attr( $this->options['ds_position_content_sticky_mobile']) : '';
-
-      $ds_check = '<input type="checkbox" id="ds_position_content_sticky_mobile" name="drim_share_settings_options[ds_position_content_sticky_mobile]" value="1"' . checked( 1, $ds_opt, false ) . '/>
-        <label for="ds_position_content_sticky_mobile">'. __( 'Enable sharing buttons both in content and sticky bar.', 'drim-share' ) . '</label>';
-
-      echo $ds_check;
-
-    }
-
-    /**
-     * Mobile Fixed Buttons callback function
+     * Mobile Fixed & Full Buttons callback function
      */
     function ds_position_sticky_mobile_full_callback() {
 
@@ -480,9 +492,10 @@ class Drim_Share_Options {
         <label for="ds_position_sticky_mobile_full">'. __( '100% Sticky Bar buttons.', 'drim-share' ) . '</label>';
 
       echo $ds_check;
-
+      ?>
+      <span class="q_open" data-open="full_mobile"> <?php echo ds_get_svg( array( 'icon' => 'question' ) ); ?> </span>
+      <?php
       echo '<p class="description">' . __( 'Check the box to display 100% Sticky Bar buttons.', 'drim-share' ) . '</p>';
-
     }
 
 

@@ -7,6 +7,10 @@
     text-align: center;
     transition: $ds__bttn_transition;
 
+    &:hover {
+      opacity: $ds__bttn_opacity;
+    }
+
 
     a {
       text-decoration: none;
@@ -16,35 +20,27 @@
       display: block;
       width: 100%;
       height: 100%;
+      transition: $ds__bttn_transition;
 
       svg {
         position: relative;
+        width: 1em;
+        height: 1em;
+        vertical-align: middle;
+      }
+
+      span {
+
+        &.ds_network_name {
+          display: none;
+          font-size: $ds_font__smaller;
+        }
       }
 
       &:hover {
         text-decoration: none;
         box-shadow: none;
         border-bottom: 0 none;
-      }
-
-    }
-  }
-
-  @for $i from 1 through 10 {
-    @each $set in _icon, _text {
-      &.ds#{$set}_v#{$i} {
-        .ds_bttn {
-          a {
-            svg {
-              &.icon {
-                width: 1em;
-                height: 1em;
-                vertical-align: middle;
-                fill: #fff;
-              }
-            }
-          }
-        }
       }
     }
   }

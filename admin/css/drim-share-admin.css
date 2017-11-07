@@ -17,13 +17,13 @@
  font-weight: 700;
  margin-bottom: 0;
  padding: 10px 20px;
- max-width: 700px;
+ max-width: 860px;
  border-bottom: 2px solid #fff;
 }
 .ds_part_left .form-table {
  background-color: #23282e;
  color: #fff;
- max-width: 700px;
+ max-width: 860px;
  margin-top: 0;
 }
 .ds_part_left .form-table tr {
@@ -37,103 +37,19 @@
  color: #999;
 }
 .ds_part_left h2 {
-margin-top: 60px;
+  margin-top: 60px;
+}
+.ds_part_left h2:nth-of-type(2) {
+  margin-top: 10px;
 }
 .ds_part_left h2:first-of-type {
-margin-top: 1em;
+  margin-top: 1em;
 }
 @media screen and (max-width: 782px) {
   .ds_part_left .form-table td {
     padding-left: 20px;
     padding-right: 20px;
   }
-}
-.set_open {
-  cursor: pointer;
-}
-.ds_icon_set {
-  position: fixed;
-  top: 32px;
-  left: 160px;
-  height: calc( 100% - 32px );
-  padding: 40px 20px;
-  background-color: #c5c5c5;
-  overflow: scroll;
-  z-index: 40;
-}
-.ds_icon_set img {
-  max-width: 100%;
-}
-.set_close {
-  position: fixed;
-  top: 60px;
-  right: 0;
-  padding: 10px;
-  background-color: #23282e;
-  cursor: pointer;
-}
-.set_close svg {
-  fill: #fff;
-}
-.set_open.small-icon svg,
-.set_close.small-icon svg {
-  width: 2em;
-  height: 2em;
-}
-
-.ds_part_right {
-max-width: 300px;
-background: #fff;
-padding: 20px;
-z-index: 2;
-}
-@media screen and (min-width: 1260px) {
- .ds_part_right {
-   position: fixed;
-   top: 60px;
-   right: 20px;
- }
-}
-.highlight_red {
- color: #ff0000;
-}
-.demo-icon.highlight_big {
- font-size: 1.5em;
-}
-.content-icon.ds_icon.icon-whatsapp {
- font-size: 1.25em;
- font-weight: 700;
- color: #06e676;
-}
-.no_decoration,
-.no_decoration:hover {
- text-decoration: none;
-}
-
-.separator {
- margin-top: 40px;
- margin-bottom: 20px;
-}
-.small-icon svg {
-  width: 1em;
-  height: 1em;
-  margin: 0 5px;
-  vertical-align: middle;
-}
-.medium-icon svg {
-  width: 3em;
-  height: 3em;
-  margin: 0 10px;
-  vertical-align: middle;
-}
-.no_margin_bottom {
- margin-bottom: 0;
-}
-.ds_hidden {
- display: none;
-}
-.ds_hidden.ds_active {
- display: inherit;
 }
 .onoff {
 font-weight: 700;
@@ -148,10 +64,116 @@ color: #008000;
 .ds_wrapper {
 font-size: 16px;
 }
-#ds_example.ds_type_image {
-  display: none;
+.ds_examples_container {
+  max-width: 860px;
+  padding: 20px 20px 2px;
+  box-sizing: border-box;
+  background-color: #23282f;
 }
 #ds_example,
 #ds_example_mobile {
 grid-template-columns: repeat(6,auto);
+}
+
+@media screen and (max-width: 1080px) {
+  .ds_examples_container .ds_wrapper#ds_example {
+    grid-template-columns: 1fr;
+  }
+}
+
+.q_open {
+  float: right;
+  cursor: pointer;
+}
+.q_open svg.icon {
+  width: 2em;
+  height: 2em;
+  line-height: 2em;
+  vertical-align: middle;
+}
+.ds_help_popup {
+  position: fixed;
+  top: 32px;
+  left: 160px;
+  padding: 40px;
+  box-sizing: border-box;
+  width: calc( 100% - 160px );
+  height: calc( 100% - 32px );
+  z-index: 10;
+  background: rgba(50, 55, 60, .95);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 9fr;
+  align-items: center;
+  justify-items: center;
+  display: none;
+}
+.ds_help_popup p svg.icon {
+  width: 4em;
+  height: 4em;
+}
+.ds_help_popup img {
+  max-width: 100%;
+}
+@media only screen and (max-width: 960px) {
+  .ds_help_popup {
+    left: 36px;
+    width: calc( 100% - 36px );
+  }
+}
+
+@media screen and (max-width: 782px) {
+  .ds_help_popup {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .q_open {
+    margin: 6px;
+  }
+}
+
+
+.ds_part_right {
+max-width: 280px;
+background: #fff;
+padding: 20px;
+z-index: 2;
+}
+@media screen and (min-width: 1376px) {
+ .ds_part_right {
+   position: fixed;
+   top: 60px;
+   right: 20px;
+ }
+}
+.no_decoration,
+.no_decoration:hover {
+ text-decoration: none;
+}
+.small-icon svg {
+  width: 1em;
+  height: 1em;
+  margin: 0 5px;
+  vertical-align: middle;
+}
+.medium-icon svg {
+  width: 3em;
+  height: 3em;
+  margin: 0 10px;
+  vertical-align: middle;
+}
+
+
+
+.separator {
+ margin-top: 40px;
+ margin-bottom: 20px;
+}
+.ds_hidden {
+ display: none;
+}
+.ds_hidden.ds_active {
+ display: inline;
 }

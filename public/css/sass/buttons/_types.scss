@@ -1,0 +1,87 @@
+.ds_bttn {
+
+  // .ds_text: text only buttons
+  &.ds_text {
+    width: auto;
+
+    a {
+      display: inline;
+      padding: 4px 8px;
+
+      svg {
+
+        &.icon {
+          display: none;
+        }
+      }
+
+      span {
+
+        &.ds_network_name {
+          display: inherit;
+        }
+      }
+    }
+
+    // no circle buttons for long textx, just make it round
+    &.ds_circle {
+      border-radius: 4px;
+    }
+  }
+
+
+  // .ds_mixed: icon + text buttons
+  &.ds_mixed {
+    width: auto;
+
+    a {
+
+      .anchor-grid {
+        display: grid;
+        grid-template-columns: 2em minmax( 100px, auto);
+        grid-template-rows: 2em;
+
+        span {
+
+          &.anchor-item {
+
+            span {
+
+              &.ds_network_name {
+                display: inline;
+              }
+            }
+
+            &:nth-child(2) {
+              background-color: rgba(0,0,0,.1);
+              transition: $ds__bttn_transition;
+              padding: 0 4px;
+            }
+          }
+        }
+      }
+
+      &:hover {
+
+        .anchor-grid {
+
+          span {
+
+            &.anchor-item {
+
+              &:nth-child(2) {
+                opacity: $ds__bttn_opacity_str;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // no circle buttons for long textx, just make it round
+    &.ds_circle {
+      border-radius: 4px;
+    }
+  }
+
+}

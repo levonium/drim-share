@@ -29,13 +29,13 @@ $drim_share_settings_main = array(
   ),
 
   array(
-    'ds_shape',
-    'Button Shape',
+    'ds_button_type',
+    'Button Type',
   ),
 
   array(
-    'ds_button_type',
-    'Button Type',
+    'ds_shape',
+    'Button Shape',
   ),
 
   array(
@@ -43,6 +43,12 @@ $drim_share_settings_main = array(
     'Button Style',
   ),
 
+);
+
+// icon examples section (empty)
+$drim_share_icon_examples_section = array(
+  'ds_icon_examples',
+  'Icons:'
 );
 
 
