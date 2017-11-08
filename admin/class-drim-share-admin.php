@@ -106,7 +106,7 @@ class Drim_Share_Admin {
 	 *
 	 * @since    1.0.0
 	 */
-		public function drim_register_admin_options() {
+		public function drim_share_register_admin_options() {
 			require_once( plugin_dir_path( __FILE__ ) . 'partials/drim-share-admin-options.php' );
 		}
 
@@ -115,7 +115,7 @@ class Drim_Share_Admin {
 	 *
 	 * @since    1.0.0
 	 */
-		public function drim_admin_functions() {
+		public function drim_share_admin_functions() {
 			require_once( plugin_dir_path( __FILE__ ) . 'partials/drim-share-admin-functions.php' );
 		}
 
@@ -127,6 +127,5 @@ class Drim_Share_Admin {
 		 public function drim_share_admin_settings_link() {
 			 require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/drim-share-settings-link.php';
 		 }
-
 
 }

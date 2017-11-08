@@ -64,9 +64,11 @@ class Drim_Share_Options {
              </form>
            </div>
            <div class="ds_wrap ds_part_right">
-             <?php include_once 'drim-share-admin-display-fixed-bar.php'; ?>
+             <?php include_once 'drim-share-admin-display-sidebar.php'; ?>
            </div>
          </div>
+
+         <?php include_once 'drim-share-admin-display-help.php'; ?>
 
        </div><!-- .wrap -->
 

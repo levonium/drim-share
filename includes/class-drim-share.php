@@ -69,7 +69,7 @@ class Drim_Share {
 	public function __construct() {
 
 		$this->plugin_name = 'drim-share';
-		$this->version = '1.0.1';
+		$this->version = '1.0.3';
 
 		$this->load_dependencies();
 		$this->set_locale();
@@ -153,8 +153,8 @@ class Drim_Share {
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
-		$this->loader->add_action( 'init', $plugin_admin, 'drim_register_admin_options' );
-		$this->loader->add_action( 'init', $plugin_admin, 'drim_admin_functions' );
+		$this->loader->add_action( 'init', $plugin_admin, 'drim_share_register_admin_options' );
+		$this->loader->add_action( 'init', $plugin_admin, 'drim_share_admin_functions' );
 		$this->loader->add_action( 'init', $plugin_admin, 'drim_share_admin_settings_link' );
 
 	}

@@ -39,14 +39,14 @@
 			}
 		});
 		$("#ds_shape").change(function(){
-			var shape = $(this).val();
 			$("#ds_example .ds_bttn").removeClass( "ds_square ds_circle ds_round" );
-			$("#ds_example .ds_bttn").addClass( "ds_" + shape );
+			$("#ds_example .ds_bttn").addClass( "ds_" + $(this).val() );
 		});
 
 		$("#ds_icon_set").change(function(){
-			$.each([ "ds_default", "ds_shadow", "ds_shadow_inset", "ds_grey_default", "ds_grey_white", "ds_grey_black", "ds_black", "ds_white", "ds_nobg_default", "ds_nobg_white", "ds_nobg_black" ], function( index, value ) {
-				$("#ds_example .ds_bttn").removeClass( value );
+			var options = $("#ds_icon_set option");
+			options.each(function(){
+				$("#ds_example .ds_bttn").removeClass( $(this).val() );
 			});
 			var style = $(this).val();
 			$("#ds_example .ds_bttn").addClass( style );
@@ -75,7 +75,7 @@
 		$("body").css( "overflow", "inherit" );
 	});
 	$(document).on("click touchstart", function(event) {
-		if(!$(event.target).closest('.q_open').length && !$(event.target).closest('.ds_help_popup').length) {
+		if(!$(event.target).closest('.q_open').length && !$(event.target).closest('.ds_help_popup img').length ) {
 			if($('.ds_help_popup').is(":visible")) {
 				$('.ds_help_popup').fadeOut("slow");
 				$("body").css( "overflow", "inherit" );

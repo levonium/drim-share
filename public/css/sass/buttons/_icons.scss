@@ -34,18 +34,12 @@
   &.ds_grey_white {
     @extend .ds_grey;
 
-    svg.icon {
-      fill: #fff;
-    }
-
-    span.ds_network_name {
-      color: #fff;
-    }
+    @include make_this_color(#fff);
   }
 
   &.ds_grey_black {
     @extend .ds_grey;
-    @include make_this_color(#fff);
+    @include make_this_color(#000);
   }
 
   &.ds_black {

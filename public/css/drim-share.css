@@ -254,9 +254,9 @@
 .ds_bttn.ds_grey_white span.ds_network_name {
   color: #fff; }
 .ds_bttn.ds_grey_black svg.icon {
-  fill: #fff; }
+  fill: #000; }
 .ds_bttn.ds_grey_black span.ds_network_name {
-  color: #fff; }
+  color: #000; }
 .ds_bttn.ds_black {
   background-color: #000; }
   .ds_bttn.ds_black svg.icon {

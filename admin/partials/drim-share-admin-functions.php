@@ -450,38 +450,26 @@ function ds_make_link_tags( $network ) {
     case 'facebook':
       $url = 'https://www.facebook.com/sharer/sharer.php?u=' . get_permalink( $post );
       $text = 'Facebook';
-      $share = __( 'Share', 'drim-share' );
-      // $icon = '<i class="demo-icon ds_icon icon-facebook"></i>';
       break;
     case 'twitter':
       $url = 'https://twitter.com/home?status=' . get_permalink( $post ) . '%20' . $title;
       $text = 'Twitter';
-      $share = __( 'Tweet', 'drim-share' );
-      // $icon = '<i class="demo-icon ds_icon icon-twitter"></i>';
       break;
     case 'linkedin':
       $url = 'https://www.linkedin.com/shareArticle?mini=true&url='. get_permalink( $post ) .'&title='. get_the_title( $post ) .'&summary=';
       $text = 'LinkedIn';
-      $share = __( 'Share', 'drim-share' );
-      // $icon = '<i class="demo-icon ds_icon icon-linkedin"></i>';
       break;
     case 'pinterest':
       $url = 'https://pinterest.com/pin/create/button/?url=' . get_permalink( $post ) . '&media=' . $thumb . '&description=';
       $text = 'Pinterest';
-      $share = __( 'Pin', 'drim-share' );
-      // $icon = '<i class="demo-icon ds_icon icon-pinterest-1"></i>';
       break;
     case 'googleplus':
       $url = 'https://plus.google.com/share?url=' . get_permalink( $post );
       $text = 'Google Plus';
-      $share = __( 'Plus 1', 'drim-share' );
-      // $icon = '<i class="demo-icon ds_icon icon-gplus-1"></i>';
       break;
     case 'whatsapp':
       $url = 'whatsapp://send?text=' . get_permalink( $post );
       $text = 'WhatsApp';
-      $share = __( 'Send', 'drim-share' );
-      // $icon = '<i class="demo-icon ds_icon icon-whatsapp"></i>';
       break;
   }
 
