@@ -8,90 +8,90 @@
 
 // main settings section
 $drim_share_settings_main_section = array(
-  'ds_settings_main',
-  'Main Settings'
+	'ds_settings_main',
+	__( 'Main Settings', 'drim-share' ),
 );
-$drim_share_settings_main = array(
+$drim_share_settings_main         = array(
 
-  array(
-    'ds_plugin_enable',
-    'Drim Share Buttons',
-  ),
+	array(
+		'ds_plugin_enable',
+		__( 'Drim Share Buttons', 'drim-share' ),
+	),
 
-  array(
-    'ds_networks',
-    'Social Networks',
-  ),
+	array(
+		'ds_networks',
+		__( 'Social Networks', 'drim-share' ),
+	),
 
-  array(
-      'ds_network_whatsapp',
-      'WhatsApp for Mobile',
-  ),
+	array(
+		'ds_network_whatsapp',
+		__( 'WhatsApp for Mobile', 'drim-share' ),
+	),
 
-  array(
-    'ds_button_type',
-    'Button Type',
-  ),
+	array(
+		'ds_button_type',
+		__( 'Button Type', 'drim-share' ),
+	),
 
-  array(
-    'ds_shape',
-    'Button Shape',
-  ),
+	array(
+		'ds_shape',
+		__( 'Button Shape', 'drim-share' ),
+	),
 
-  array(
-    'ds_icon_set',
-    'Button Style',
-  ),
+	array(
+		'ds_icon_set',
+		__( 'Button Style', 'drim-share' ),
+	),
 
 );
 
 // icon examples section (empty)
 $drim_share_icon_examples_section = array(
-  'ds_icon_examples',
-  'Icons:'
+	'ds_icon_examples',
+	__( 'Icons:', 'drim-share' ),
 );
 
 
 // position settings section
 $drim_share_settings_position_section = array(
-  'ds_settings_position',
-  'Position Settings'
+	'ds_settings_position',
+	__( 'Position Settings', 'drim-share' ),
 );
-$drim_share_settings_position = array(
+$drim_share_settings_position         = array(
 
-  array(
-    'ds_position_content',
-    'In Content',
-  ),
+	array(
+		'ds_position_content',
+		__( 'In Content', 'drim-share' ),
+	),
 
-  array(
-    'ds_position_sticky',
-    'Side Fixed Bar',
-  ),
+	array(
+		'ds_position_sticky',
+		__( 'Side Fixed Bar', 'drim-share' ),
+	),
 
 );
 
 // mobile settings section
 $drim_share_settings_mobile_section = array(
-  'ds_settings_mobile',
-  'Mobile Settings'
+	'ds_settings_mobile',
+	__( 'Mobile Settings', 'drim-share' ),
 );
-$drim_share_settings_mobile = array(
+$drim_share_settings_mobile         = array(
 
-  array(
-    'ds_position_content_mobile',
-    'In Content',
-  ),
+	array(
+		'ds_position_content_mobile',
+		__( 'In Content', 'drim-share' ),
+	),
 
-  array(
-    'ds_position_sticky_mobile',
-    'Bottom Fixed Bar',
-  ),
+	array(
+		'ds_position_sticky_mobile',
+		__( 'Bottom Fixed Bar', 'drim-share' ),
+	),
 
-  array(
-    'ds_position_sticky_mobile_full',
-    '100% Fixed Bar',
-  ),
+	array(
+		'ds_position_sticky_mobile_full',
+		__( '100% Fixed Bar', 'drim-share' ),
+	),
 
 );
 
@@ -99,63 +99,63 @@ $drim_share_settings_mobile = array(
 
 // post types settings section
 $drim_share_settings_post_types_section = array(
-  'ds_settings_post_types',
-  'Post Types'
+	'ds_settings_post_types',
+	__( 'Post Types', 'drim-share' ),
 );
-$drim_share_settings_post_types = array(
+$drim_share_settings_post_types         = array(
 
-  array(
-    'ds_post_type_post',
-    'Enable in Posts',
-  ),
+	array(
+		'ds_post_type_post',
+		__( 'Enable in Posts', 'drim-share' ),
+	),
 
-  array(
-    'ds_post_type_page',
-    'Enable in Pages',
-  ),
+	array(
+		'ds_post_type_page',
+		__( 'Enable in Pages', 'drim-share' ),
+	),
 
-  array(
-    'ds_post_type_',
-    'Custom Post Types',
-  ),
+	array(
+		'ds_post_type_',
+		__( 'Custom Post Types', 'drim-share' ),
+	),
 
-  array(
-    'ds_post_type_page_home',
-    'Enable in Homepage',
-  ),
+	array(
+		'ds_post_type_page_home',
+		__( 'Enable in Homepage', 'drim-share' ),
+	),
 
-  array(
-    'ds_post_type_page_archive',
-    'Enable in Archive Pages',
-  )
+	array(
+		'ds_post_type_page_archive',
+		__( 'Enable in Archive Pages', 'drim-share' ),
+	),
 
 );
 
 // optional settings section
 $drim_share_settings_optional_section = array(
-  'ds_settings_optional',
-  'Optional Settings'
+	'ds_settings_optional',
+	__( 'Optional Settings', 'drim-share' ),
 );
-$drim_share_settings_optional = array(
+$drim_share_settings_optional         = array(
 
-  array(
-    'ds_style_align',
-    'Alignment',
-  ),
+	array(
+		'ds_style_align',
+		__( 'Alignment', 'drim-share' ),
+	),
 
-  array(
-    'ds_style_borders',
-    'Borders',
-  ),
+	array(
+		'ds_style_borders',
+		__( 'Borders', 'drim-share' ),
+	),
 
-  array(
-    'ds_style_border_color',
-    'Border Color',
-  ),
+	array(
+		'ds_style_border_color',
+		__( 'Border Color', 'drim-share' ),
+	),
 
-  array(
-    'ds_heading',
-    'Heading Text',
-  ),
+	array(
+		'ds_heading',
+		__( 'Heading Text', 'drim-share' ),
+	),
 
 );

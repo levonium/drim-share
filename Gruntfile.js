@@ -40,7 +40,7 @@ module.exports = function(grunt) {
             css: {
                 files: ['public/css/sass/*.scss', 'public/css/sass/**/*.scss'],
                 tasks: ['sass', 'postcss']
-            }
+            },
         }
 
     });

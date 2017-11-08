@@ -5,11 +5,6 @@
 
  /*** Drim Share admin options page styles ***/
 
- #adminmenu .toplevel_page_drim_share_options .dashicons-before:before {
-   color: #0173a9;
-   transform: rotate(90deg);
- }
-
 .ds_part_left > form > p:not(.submit) {
  box-sizing: border-box;
  background-color: #23282e;

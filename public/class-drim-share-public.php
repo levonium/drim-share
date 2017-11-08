@@ -50,7 +50,7 @@ class Drim_Share_Public {
 	public function __construct( $drim_share, $version ) {
 
 		$this->plugin_name = $drim_share;
-		$this->version = $version;
+		$this->version     = $version;
 
 	}
 

@@ -2,8 +2,7 @@
 /**
  * SVG icons related functions and filters
  *
- *** This is from WP Twenty Seventeen theme SVG functions file ***
- *
+ * *** This is from WP Twenty Seventeen theme SVG functions file ***
  * Use SVG:  echo ds_get_svg( array( 'icon' => 'search' ) );
  *
  */
@@ -13,7 +12,7 @@
  */
 function ds_include_svg_icons() {
 	// Define SVG sprite file.
-	$svg_icons =  dirname( dirname( __FILE__ ) ) . '/assets/svg-icons.svg';
+	$svg_icons = dirname( dirname( __FILE__ ) ) . '/assets/svg-icons.svg';
 
 	// If it exists, include it.
 	if ( file_exists( $svg_icons ) ) {
@@ -48,10 +47,10 @@ function ds_get_svg( $args = array() ) {
 
 	// Set defaults.
 	$defaults = array(
-		'icon'        => '',
-		'title'       => '',
-		'desc'        => '',
-		'fallback'    => false,
+		'icon'     => '',
+		'title'    => '',
+		'desc'     => '',
+		'fallback' => false,
 	);
 
 	// Parse args.

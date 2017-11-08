@@ -50,7 +50,7 @@ class Drim_Share_Admin {
 	public function __construct( $drim_share, $version ) {
 
 		$this->plugin_name = $drim_share;
-		$this->version = $version;
+		$this->version     = $version;
 
 	}
 
@@ -61,20 +61,8 @@ class Drim_Share_Admin {
 	 */
 	public function enqueue_styles() {
 
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Drim_Share_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Drim_Share_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/drim-share-admin.css', array(), $this->version, 'all' );
-		wp_enqueue_style( $this->plugin_name . '-public', plugin_dir_url( dirname( __FILE__) ) . 'public/css/drim-share.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name . '-public', plugin_dir_url( dirname( __FILE__ ) ) . 'public/css/drim-share.css', array(), $this->version, 'all' );
 
 	}
 
@@ -85,19 +73,7 @@ class Drim_Share_Admin {
 	 */
 	public function enqueue_scripts() {
 
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Drim_Share_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Drim_Share_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/drim-share-admin.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/ds_admin.js', array( 'jquery' ), $this->version, false );
 
 	}
 
@@ -106,26 +82,26 @@ class Drim_Share_Admin {
 	 *
 	 * @since    1.0.0
 	 */
-		public function drim_share_register_admin_options() {
-			require_once( plugin_dir_path( __FILE__ ) . 'partials/drim-share-admin-options.php' );
-		}
+	public function drim_share_register_admin_options() {
+		require_once( plugin_dir_path( __FILE__ ) . 'partials/class-drim-share-options.php' );
+	}
 
 	/**
 	 * Main admin functions.
 	 *
 	 * @since    1.0.0
 	 */
-		public function drim_share_admin_functions() {
-			require_once( plugin_dir_path( __FILE__ ) . 'partials/drim-share-admin-functions.php' );
-		}
+	public function drim_share_admin_functions() {
+		require_once( plugin_dir_path( __FILE__ ) . 'partials/drim-share-admin-functions.php' );
+	}
 
 		/**
 		 * Plugin Settings Links
 		 *
 		 * @since 1.0.0
 		 */
-		 public function drim_share_admin_settings_link() {
-			 require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/drim-share-settings-link.php';
-		 }
+	public function drim_share_admin_settings_link() {
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/drim-share-settings-link.php';
+	}
 
 }

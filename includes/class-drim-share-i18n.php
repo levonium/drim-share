@@ -24,7 +24,7 @@
  * @subpackage Drim_Share/includes
  *
  */
-class Drim_Share_i18n {
+class Drim_Share_I18n {
 
 
 	/**
