@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Provide a admin area view for the plugin
+ * Buttons preview in admin options page
  *
  * @link       https://drim.io/drim-share/
  * @since      1.0.0
@@ -38,7 +38,7 @@ if ( 'ds_mixed' === $icon_type ) {
 
 <div class="ds_examples_container">
 
-  <div id="ds_example" class="ds_wrapper ds_align_left ds_no_brdr ds_no_heading">
+  <div id="ds_example" class="ds_wrapper ds_align_center ds_no_brdr ds_no_heading">
 	<div class="ds_bttn ds_facebook <?php echo $bttn_class; ?>">
 	  <a target="_blank" rel="nofollow" title="Share on Facebook" href="#">
 		<?php echo $ds_mixed_open_tags; ?>

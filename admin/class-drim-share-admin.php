@@ -44,8 +44,8 @@ class Drim_Share_Admin {
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
-	 * @param      string    $drim_share       The name of this plugin.
-	 * @param      string    $version    The version of this plugin.
+	 * @param    string    $drim_share       The name of this plugin.
+	 * @param    string    $version    The version of this plugin.
 	 */
 	public function __construct( $drim_share, $version ) {
 

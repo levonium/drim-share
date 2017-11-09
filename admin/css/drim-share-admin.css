@@ -1,35 +1,16 @@
-/**
- * All of the CSS for your admin-specific functionality should be
- * included in this file.
- */
-
- /*** Drim Share admin options page styles ***/
+ /**
+  * Drim Share admin options page styles
+  **/
 
 .ds_part_left > form > p:not(.submit) {
- box-sizing: border-box;
- background-color: #23282e;
- color: #fff;
- font-weight: 700;
- margin-bottom: 0;
- padding: 10px 20px;
  max-width: 860px;
- border-bottom: 2px solid #fff;
 }
 .ds_part_left .form-table {
- background-color: #23282e;
- color: #fff;
  max-width: 860px;
  margin-top: 0;
 }
-.ds_part_left .form-table tr {
- border-bottom: 1px solid #fff;
-}
 .ds_part_left .form-table tr th {
  padding-left: 20px;
- color: #fff;
-}
-.ds_part_left p.description {
- color: #999;
 }
 .ds_part_left h2 {
   margin-top: 60px;
@@ -63,7 +44,7 @@ font-size: 16px;
   max-width: 860px;
   padding: 20px 20px 2px;
   box-sizing: border-box;
-  background-color: #23282f;
+  border: 1px solid #23282f;
 }
 #ds_example,
 #ds_example_mobile {
@@ -91,16 +72,12 @@ grid-template-columns: repeat(6,auto);
   top: 32px;
   left: 160px;
   padding: 40px;
+  text-align: center;
   box-sizing: border-box;
   width: calc( 100% - 160px );
   height: calc( 100% - 32px );
   z-index: 10;
   background: rgba(50, 55, 60, .95);
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 9fr;
-  align-items: center;
-  justify-items: center;
   display: none;
 }
 .ds_help_popup p svg.icon {
@@ -145,13 +122,8 @@ grid-template-columns: repeat(6,auto);
  }
 }
 
-.fixed-top,
-.fixed-middle {
-  margin-bottom: 20px;
-  position: relative;
-}
 .ds_notice {
-  border-left: 4px solid #00a0d2;
+  border-left: 4px solid #f00;
   padding-left: 12px;
 }
 
@@ -172,18 +144,6 @@ grid-template-columns: repeat(6,auto);
   vertical-align: middle;
 }
 
-
-
-.separator {
- margin-top: 40px;
- margin-bottom: 20px;
-}
-.separator-big {
-  background-color: #f1f1f1;
-  height: 20px;
-  margin-left: -20px;
-  margin-right: -20px;
-}
 .ds_hidden {
  display: none;
 }

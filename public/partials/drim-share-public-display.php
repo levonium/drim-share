@@ -1,9 +1,7 @@
 <?php
 
 /**
- * Provide a public-facing view for the plugin
- *
- * This file is used to markup the public-facing aspects of the plugin.
+ * Public-facing view for the plugin
  *
  * @link       https://drim.io/drim-share/
  * @since      1.0.0
@@ -12,5 +10,3 @@
  * @subpackage Drim_Share/public/partials
  */
 ?>
-
-<!-- This file should primarily consist of HTML with a little bit of PHP. -->

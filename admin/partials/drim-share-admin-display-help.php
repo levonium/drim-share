@@ -4,7 +4,7 @@
  * Admin area help views
  *
  * @link       https://drim.io/drim-share/
- * @since      1.0.3
+ * @since      1.0.0
  *
  * @package    Drim_Share
  * @subpackage Drim_Share/admin/partials

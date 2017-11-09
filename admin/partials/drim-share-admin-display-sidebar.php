@@ -1,9 +1,9 @@
 <?php
 /**
- * Provide a admin area view for the plugin
+ * Admin area sidebar content view
  *
  * @link       https://drim.io/drim-share/
- * @since      1.0.2
+ * @since      1.0.0
  *
  * @package    Drim_Share
  * @subpackage Drim_Share/admin/partials
@@ -20,43 +20,39 @@ include_once dirname( dirname( __FILE__ ) ) . '/inc/svg-functions.php';
 
 ?>
 
-<div class="fixed-top">
+<h2 class="no_margin_bottom"> <?php _e( 'DR!M SHARE', 'drim-share' ); ?> </h2>
+<p>
+Version <?php echo $drim_version; ?> | <?php _e( 'Author: ', 'drim-share' ); ?> <a href="https://drim.io/" target="_blank">Levon Avetyan</a>
+</p>
 
-  <h2 class="no_margin_bottom"> <?php _e( 'DR!M SHARE', 'drim-share' ); ?> </h2>
-  <p>
-	Version <?php echo $drim_version; ?> | <?php _e( 'Author: ', 'drim-share' ); ?> <a href="https://drim.io/" target="_blank">Levon Avetyan</a>
-  </p>
+<p>
+<?php _e( 'A simple light-weight and mobile-friendly social sharing plugin for WordPress.', 'drim-share' ); ?>
+</p>
 
-  <p class="ds_notice">
-	<?php _e( 'To make the plugin start, please make sure to select the following fields:', 'drim-share' ); ?>
-  </p>
-  <ol>
-	<li>
-		<?php _e( 'Enable the plugin', 'drim-share' ); ?>
-	</li>
-	<li>
-		<?php _e( 'Select Social Networks', 'drim-share' ); ?>
-	</li>
-	<li>
-		<?php _e( 'Select the position', 'drim-share' ); ?>
-	</li>
-	<li>
-		<?php _e( 'Select the post types.', 'drim-share' ); ?>
-	</li>
-  </ol>
+<hr />
 
-</div>
+<p class="ds_notice">
+<?php _e( 'To make the plugin start, please make sure to select the following fields:', 'drim-share' ); ?>
+</p>
+<ol>
+<li>
+	<?php _e( 'Enable the plugin', 'drim-share' ); ?>
+</li>
+<li>
+	<?php _e( 'Select social networks', 'drim-share' ); ?>
+</li>
+<li>
+	<?php _e( 'Select the position', 'drim-share' ); ?>
+</li>
+<li>
+	<?php _e( 'Select the post types.', 'drim-share' ); ?>
+</li>
+</ol>
 
-<div class="separator-big"></div>
+<hr />
 
-<div class="fixed-middle">
-
-  <p>
-	<?php _e( 'A simple light-weight and mobile-friendly social sharing plugin for WordPress.', 'drim-share' ); ?>
-  </p>
-
-  <p>
-	<a class="no_decoration small-icon" href="https://drim.io/drim-share/" target="_blank">  <?php echo ds_get_svg( array( 'icon' => 'wordpress' ) ); ?> Read more </a>
+<p>
+	<a class="no_decoration small-icon" href="https://drim.io/drim-share/" target="_blank">  <?php echo ds_get_svg( array( 'icon' => 'wordpress' ) ); ?> Plugin Homepage </a>
   <br />
 	<a class="no_decoration small-icon" href="https://github.com/levonium/drim-share" target="_blank">  <?php echo ds_get_svg( array( 'icon' => 'github' ) ); ?> View on GitHub </a>
   <br />
@@ -98,5 +94,3 @@ include_once dirname( dirname( __FILE__ ) ) . '/inc/svg-functions.php';
 	<?php _e( 'Thank you for using ', 'drim-share' ); ?>
 	<strong> <?php _e( 'DR!M SHARE', 'drim-share' ); ?></strong>.
   </p>
-
-</div>

@@ -10,7 +10,6 @@
  * @subpackage Drim_Share/admin/partials
  */
 
-  add_filter( 'plugin_action_links', 'drim_share_add_action_plugin', 10, 5 );
 function drim_share_add_action_plugin( $links, $file ) {
 	static $plugin;
 	$pluginfile = dirname( dirname( dirname( __FILE__ ) ) ) . '/drim-share.php';
@@ -26,3 +25,4 @@ function drim_share_add_action_plugin( $links, $file ) {
 
 	return $links;
 }
+add_filter( 'plugin_action_links', 'drim_share_add_action_plugin', 10, 5 );

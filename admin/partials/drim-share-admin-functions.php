@@ -80,7 +80,7 @@ function ds_get_option_values( $option_name ) {
 /**
  * Available social networks
  *
- * @since   1.0.2
+ * @since   1.0.0
  * @return  array
  */
 function ds_get_available_social_networks() {
@@ -108,7 +108,7 @@ function ds_get_selected_social_networks() {
 	$ds_selected_networks = [];
 	$ds_networks          = ds_get_available_social_networks();
 
-	foreach ( $ds_networks as $ds_network => $ds_network_name ) {
+	foreach ( array_keys( $ds_networks ) as $ds_network ) {
 		$network_option = 'ds_networks_' . $ds_network;
 		$use_network    = ds_get_option_values( $network_option );
 
@@ -175,7 +175,7 @@ function ds_get_post_types_allowed() {
 /**
  * Check if it's a mobile browser (excludding tablets)
  *
- * @since 1.0.1
+ * @since 1.0.0
  * @return bool
  */
 function ds_is_mobile_device() {
@@ -194,7 +194,7 @@ function ds_is_mobile_device() {
 /**
  * Is Fixed bar option enabled
  *
- * @since 1.0.3
+ * @since 1.0.0
  * @return mixed
  */
 function ds_fixed_bar() {
@@ -208,7 +208,7 @@ function ds_fixed_bar() {
 /**
  * Check if to have a fixed bar on mobile browsers
  *
- * @since 1.0.1
+ * @since 1.0.0
  * @return bool
  */
 function ds_fixed_bar_mobile() {
@@ -222,7 +222,7 @@ function ds_fixed_bar_mobile() {
 /**
 * Check if it is 100% wide fixed bar
 *
-* @since 1.0.1
+* @since 1.0.0
 * @return bool
 */
 function ds_fixed_bar_mobile_full() {
@@ -299,7 +299,7 @@ function ds_get_heading_options() {
  * Get the button types
  * add ds_ preffix (e.g. ds_icon, etc.)
  *
- * @since 1.0.3
+ * @since 1.0.0
  * @return string $icon_type
  */
 function ds_get_button_type() {
@@ -314,7 +314,7 @@ function ds_get_button_type() {
  * Get the button shapes
  * add ds_ preffix (e.g. ds_square, etc.)
  *
- * @since 1.0.3
+ * @since 1.0.0
  * @return string $icon_shape
  */
 function ds_get_button_shape() {
@@ -343,7 +343,7 @@ function ds_get_button_styles() {
 * Make the ds_container tag
 * a wrapper div for fixed bar buttons only
 *
-* @since 1.0.2
+* @since 1.0.0
 * @return array $ds_container_tag
 */
 function ds_make_container_tag() {
@@ -373,7 +373,7 @@ function ds_make_container_tag() {
  * Make the ds_wrapper tag
  * the main buttons wrapper div tag
  *
- * @since 1.0.2
+ * @since 1.0.0
  * @return array $ds_wrapper_tag
  */
 function ds_make_wrapper_tag() {
@@ -401,7 +401,7 @@ function ds_make_wrapper_tag() {
 /**
 * Make the style tag (user's styles)
 *
-* @since 1.0.2
+* @since 1.0.0
 * @return string
 */
 function ds_make_style_tag() {
@@ -504,7 +504,7 @@ function ds_make_link_tags( $network ) {
 /**
 * Make the individual icons
 *
-* @since 1.0.2
+* @since 1.0.0
 * @return string
 */
 function ds_make_icons( $network ) {
@@ -638,7 +638,7 @@ function ds_display_buttons_in_content( $content ) {
 /**
  * check if the plugin is enabled
  *
- * @since 1.0.1
+ * @since 1.0.0
  * @return void
  */
  add_filter(
@@ -655,7 +655,7 @@ function ds_display_buttons_in_content( $content ) {
 /**
  * Display fixed bar buttons
  *
- * @since 1.0.3
+ * @since 1.0.0
  * @return void
  *
  */

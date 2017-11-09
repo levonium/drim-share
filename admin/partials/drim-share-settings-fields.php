@@ -2,20 +2,20 @@
 /**
 * Drim Share Settings Fields
 *
-* @since 1.0.3
+* @since 1.0.0
 *
 */
 
 // main settings section
 $dss_main_section = array(
 	'ds_settings_main',
-	__( 'Main Settings', 'drim-share' ),
+	__( 'General Settings', 'drim-share' ),
 );
 $dss_main         = array(
 
 	array(
 		'ds_plugin_enable',
-		__( 'Drim Share Buttons', 'drim-share' ),
+		__( 'Enable Plugin', 'drim-share' ),
 	),
 
 	array(
@@ -46,9 +46,9 @@ $dss_main         = array(
 );
 
 // icon examples section (empty)
-$drim_share_icon_examples_section = array(
+$dss_examples_section = array(
 	'ds_icon_examples',
-	__( 'Icons:', 'drim-share' ),
+	__( 'Preview:', 'drim-share' ),
 );
 
 
@@ -61,7 +61,7 @@ $dss_position         = array(
 
 	array(
 		'ds_position_content',
-		__( 'In Content', 'drim-share' ),
+		__( 'In Content Area', 'drim-share' ),
 	),
 
 	array(
@@ -80,7 +80,7 @@ $dss_mobile         = array(
 
 	array(
 		'ds_position_content_mobile',
-		__( 'In Content', 'drim-share' ),
+		__( 'In Content Area', 'drim-share' ),
 	),
 
 	array(
@@ -90,7 +90,7 @@ $dss_mobile         = array(
 
 	array(
 		'ds_position_sticky_mobile_full',
-		__( '100% Fixed Bar', 'drim-share' ),
+		__( 'Stretched Fixed Bar', 'drim-share' ),
 	),
 
 );

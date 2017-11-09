@@ -83,14 +83,14 @@ class Drim_Share_Options {
 		// include settings fileds file
 		require_once 'drim-share-settings-fields.php';
 
-			/*
-		 	* Register Plugin Settings
-			*/
-			register_setting(
-				'drim_share_settings', // Option group
-				'drim_share_settings_options', // Option name
-				array( $this, 'ds_validate_input_fields' ) // Sanitize
-			);
+		/*
+	 	* Register Plugin Settings
+		*/
+		register_setting(
+			'drim_share_settings', // Option group
+			'drim_share_settings_options', // Option name
+			array( $this, 'ds_validate_input_fields' ) // Sanitize
+		);
 
 		// main settings section
 		add_settings_section(
@@ -114,9 +114,9 @@ class Drim_Share_Options {
 
 		// examples settings section
 		add_settings_section(
-			$drim_share_icon_examples_section[0], // ID
-			$drim_share_icon_examples_section[1], // Title
-			array( $this, 'print_' . $drim_share_icon_examples_section[0] . '_section_info' ), // Callback
+			$dss_examples_section[0], // ID
+			$dss_examples_section[1], // Title
+			array( $this, 'print_' . $dss_examples_section[0] . '_section_info' ), // Callback
 			'drim_share_options' // Page
 		);
 
@@ -235,7 +235,7 @@ class Drim_Share_Options {
 	 */
 	function print_ds_settings_main_section_info() {
 		echo '<p>';
-		_e( 'Adjust the main plugin settings here.', 'drim-share' );
+		_e( 'Adjust general plugin settings here.', 'drim-share' );
 		echo '</p>';
 	}
 
@@ -307,7 +307,7 @@ class Drim_Share_Options {
 		</select>
 		<?php
 		echo '<p class="description">' . __( 'Choose the button shape.', 'drim-share' ) . '</p>';
-		echo '<p class="description">' . __( '* Circle icons work only with "Icon Only" type.', 'drim-share' ) . '</p>';
+		echo '<p class="description">' . __( '* Circle icons work only with "Icon Only" button type.', 'drim-share' ) . '</p>';
 
 	}
 
@@ -455,7 +455,7 @@ class Drim_Share_Options {
 		$ds_opt = isset( $this->options['ds_position_content_mobile'] ) ? esc_attr( $this->options['ds_position_content_mobile'] ) : '';
 
 		$ds_check = '<input type="checkbox" id="ds_position_content_mobile" name="drim_share_settings_options[ds_position_content_mobile]" value="1"' . checked( 1, $ds_opt, false ) . '/>
-        <label for="ds_position_content_mobile">' . __( 'Display buttons inside the content on mobile devices.', 'drim-share' ) . '</label>';
+        <label for="ds_position_content_mobile">' . __( 'Display buttons inside the content area on mobile devices.', 'drim-share' ) . '</label>';
 
 		echo $ds_check;
 		?>
@@ -471,7 +471,7 @@ class Drim_Share_Options {
 		$ds_opt = isset( $this->options['ds_position_sticky_mobile'] ) ? esc_attr( $this->options['ds_position_sticky_mobile'] ) : '';
 
 		$ds_check = '<input type="checkbox" id="ds_position_sticky_mobile" name="drim_share_settings_options[ds_position_sticky_mobile]" value="1"' . checked( 1, $ds_opt, false ) . '/>
-        <label for="ds_position_sticky_mobile">' . __( 'Display buttons in sticky bar on mobile devices.', 'drim-share' ) . '</label>';
+        <label for="ds_position_sticky_mobile">' . __( 'Display buttons fixed bar on mobile devices.', 'drim-share' ) . '</label>';
 
 		echo $ds_check;
 		?>
@@ -487,13 +487,12 @@ class Drim_Share_Options {
 		$ds_opt = isset( $this->options['ds_position_sticky_mobile_full'] ) ? esc_attr( $this->options['ds_position_sticky_mobile_full'] ) : '';
 
 		$ds_check = '<input type="checkbox" id="ds_position_sticky_mobile_full" name="drim_share_settings_options[ds_position_sticky_mobile_full]" value="1"' . checked( 1, $ds_opt, false ) . '/>
-        <label for="ds_position_sticky_mobile_full">' . __( '100% Sticky Bar buttons.', 'drim-share' ) . '</label>';
+        <label for="ds_position_sticky_mobile_full">' . __( 'Display stretched fixed bar on mobile devices.', 'drim-share' ) . '</label>';
 
 		echo $ds_check;
 		?>
 	  <span class="q_open" data-open="full_mobile"> <?php echo ds_get_svg( array( 'icon' => 'question' ) ); ?> </span>
 		<?php
-		echo '<p class="description">' . __( 'Check the box to display 100% Sticky Bar buttons.', 'drim-share' ) . '</p>';
 	}
 
 
@@ -510,6 +509,8 @@ class Drim_Share_Options {
 	function print_ds_settings_post_types_section_info() {
 		echo '<p>';
 		_e( 'Choose in which post types to include the sharing buttons in the content area.', 'drim-share' );
+		echo '<br />';
+		_e( '* Fixed Bars are displayed on all post/page types.', 'drim-share' );
 		echo '</p>';
 	}
 
@@ -586,9 +587,11 @@ class Drim_Share_Options {
 		$ds_pt_output   = 'names';
 		$ds_pt_operator = 'and';
 
-		$ds_post_types = get_post_types( $ds_pt_args, $ds_pt_output, $ds_pt_operator );
+		$ds_no_post_types = __( 'It seems you do not have any custom post types.', 'drim-share' );
+		$ds_post_types    = get_post_types( $ds_pt_args, $ds_pt_output, $ds_pt_operator );
 
 		if ( $ds_post_types ) {
+
 			foreach ( $ds_post_types as $ds_post_type ) {
 
 				$ds_opt = isset( $this->options[ 'ds_post_type_' . $ds_post_type ] ) ? esc_attr( $this->options[ 'ds_post_type_' . $ds_post_type ] ) : '';
@@ -598,9 +601,12 @@ class Drim_Share_Options {
 
 				echo $ds_check;
 			}
-		} else {
-			_e( 'It seems you do not have any custom post types.', 'drim-share' );
+
+			$ds_no_post_types = '';
+
 		}
+
+		echo $ds_no_post_types;
 
 	}
 

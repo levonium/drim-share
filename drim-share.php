@@ -3,12 +3,7 @@
 /**
  * The plugin bootstrap file
  *
- * This file is read by WordPress to generate the plugin information in the plugin
- * admin area. This file also includes all of the dependencies used by the plugin,
- * registers the activation and deactivation functions, and defines a function
- * that starts the plugin.
- *
- * @link              http://example.com
+ * @link              https://drim.io/drim-share/
  * @since             1.0.0
  * @package           Drim_Share
  *
@@ -16,7 +11,7 @@
  * Plugin Name:       Drim Share
  * Plugin URI:        https://drim.io/drim-share/
  * Description:       A simple lightweight and mobile friendly social sharing plugin.
- * Version:           1.0.3
+ * Version:           1.0.0
  * Author:            Levon Avetyan
  * Author URI:        https://drim.io/
  * License:           GPL-2.0+
