@@ -417,21 +417,6 @@ class Drim_Share_Options {
 	}
 
 
-	/**
-	 * IN CONTENT + STICKY BAR
-	 */
-	function ds_position_content_sticky_callback() {
-
-		$ds_opt = isset( $this->options['ds_position_content_sticky'] ) ? esc_attr( $this->options['ds_position_content_sticky'] ) : '';
-
-		$ds_check = '<input type="checkbox" id="ds_position_content_sticky" name="drim_share_settings_options[ds_position_content_sticky]" value="1"' . checked( 1, $ds_opt, false ) . '/>
-        <label for="ds_position_content_sticky">' . __( 'Enable sharing buttons both in content and sticky bar.', 'drim-share' ) . '</label>';
-
-		echo $ds_check;
-
-	}
-
-
 	/******
 	************************************************************
 	******/

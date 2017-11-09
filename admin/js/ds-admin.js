@@ -79,8 +79,7 @@
 		"click touchstart", ".q_open", function() {
 			$( ".ds_help_popup" ).fadeIn(
 				"slow", function(){
-					// $( this ).css( "display", "grid" );
-					$(this).fadeIn("slow");
+					$( this ).fadeIn( "slow" );
 				}
 			);
 			$( "body" ).css( "overflow", "hidden" );

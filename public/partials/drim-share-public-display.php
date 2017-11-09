@@ -9,4 +9,3 @@
  * @package    Drim_Share
  * @subpackage Drim_Share/public/partials
  */
-?>

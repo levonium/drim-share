@@ -650,9 +650,7 @@ function ds_display_buttons_in_content( $content ) {
 	 }
  );
 
-
-
-/**
+ /**
  * Display fixed bar buttons
  *
  * @since 1.0.0
@@ -660,11 +658,10 @@ function ds_display_buttons_in_content( $content ) {
  *
  */
  function ds_display_buttons_fixed_bar() {
-
 	 $sticky_bar = ds_fixed_bar();
 	 if ( ( ! $sticky_bar ) && true !== ds_is_mobile_device() ) {
 		 return;
-	 }
+		}
 
 		$sticky_bar_mobile = ds_get_option_values( 'ds_position_sticky_mobile' );
 		if ( true === ds_is_mobile_device() && 1 != $sticky_bar_mobile ) {
