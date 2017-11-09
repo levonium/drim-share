@@ -94,20 +94,20 @@ class Drim_Share_Options {
 
 		// main settings section
 		add_settings_section(
-			$drim_share_settings_main_section[0], // ID
-			$drim_share_settings_main_section[1], // Title
-			array( $this, 'print_' . $drim_share_settings_main_section[0] . '_section_info' ), // Callback
+			$dss_main_section[0], // ID
+			$dss_main_section[1], // Title
+			array( $this, 'print_' . $dss_main_section[0] . '_section_info' ), // Callback
 			'drim_share_options' // Page
 		);
 
-		foreach ( $drim_share_settings_main as $settings_field_main ) {
+		foreach ( $dss_main as $settings_field_main ) {
 
 			add_settings_field(
 				$settings_field_main[0], // ID
 				$settings_field_main[1], // Title
 				array( $this, $settings_field_main[0] . '_callback' ), // Callback
 				'drim_share_options', // Page
-				$drim_share_settings_main_section[0] // Section
+				$dss_main_section[0] // Section
 			);
 
 		}
@@ -122,80 +122,80 @@ class Drim_Share_Options {
 
 		// position settings section
 		add_settings_section(
-			$drim_share_settings_position_section[0], // ID
-			$drim_share_settings_position_section[1], // Title
-			array( $this, 'print_' . $drim_share_settings_position_section[0] . '_section_info' ), // Callback
+			$dss_position_section[0], // ID
+			$dss_position_section[1], // Title
+			array( $this, 'print_' . $dss_position_section[0] . '_section_info' ), // Callback
 			'drim_share_options' // Page
 		);
 
-		foreach ( $drim_share_settings_position as $settings_field_position ) {
+		foreach ( $dss_position as $settings_field_position ) {
 
 			add_settings_field(
 				$settings_field_position[0], // ID
 				$settings_field_position[1], // Title
 				array( $this, $settings_field_position[0] . '_callback' ), // Callback
 				'drim_share_options', // Page
-				$drim_share_settings_position_section[0] // Section
+				$dss_position_section[0] // Section
 			);
 
 		}
 
 		// mobile settings section
 		add_settings_section(
-			$drim_share_settings_mobile_section[0], // ID
-			$drim_share_settings_mobile_section[1], // Title
-			array( $this, 'print_' . $drim_share_settings_mobile_section[0] . '_section_info' ), // Callback
+			$dss_mobile_section[0], // ID
+			$dss_mobile_section[1], // Title
+			array( $this, 'print_' . $dss_mobile_section[0] . '_section_info' ), // Callback
 			'drim_share_options' // Page
 		);
 
-		foreach ( $drim_share_settings_mobile as $settings_field_mobile ) {
+		foreach ( $dss_mobile as $settings_field_mobile ) {
 
 			add_settings_field(
 				$settings_field_mobile[0], // ID
 				$settings_field_mobile[1], // Title
 				array( $this, $settings_field_mobile[0] . '_callback' ), // Callback
 				'drim_share_options', // Page
-				$drim_share_settings_mobile_section[0] // Section
+				$dss_mobile_section[0] // Section
 			);
 
 		}
 
 		// post types settings section
 		add_settings_section(
-			$drim_share_settings_post_types_section[0], // ID
-			$drim_share_settings_post_types_section[1], // Title
-			array( $this, 'print_' . $drim_share_settings_post_types_section[0] . '_section_info' ), // Callback
+			$dss_post_types_section[0], // ID
+			$dss_post_types_section[1], // Title
+			array( $this, 'print_' . $dss_post_types_section[0] . '_section_info' ), // Callback
 			'drim_share_options' // Page
 		);
 
-		foreach ( $drim_share_settings_post_types as $settings_field_post_types ) {
+		foreach ( $dss_post_types as $settings_field_post_types ) {
 
 			add_settings_field(
 				$settings_field_post_types[0], // ID
 				$settings_field_post_types[1], // Title
 				array( $this, $settings_field_post_types[0] . '_callback' ), // Callback
 				'drim_share_options', // Page
-				$drim_share_settings_post_types_section[0] // Section
+				$dss_post_types_section[0] // Section
 			);
 
 		}
 
 		// optional settings section
 		add_settings_section(
-			$drim_share_settings_optional_section[0], // ID
-			$drim_share_settings_optional_section[1], // Title
-			array( $this, 'print_' . $drim_share_settings_optional_section[0] . '_section_info' ), // Callback
+			$dss_optional_section[0], // ID
+			$dss_optional_section[1], // Title
+			array( $this, 'print_' . $dss_optional_section[0] . '_section_info' ), // Callback
 			'drim_share_options' // Page
 		);
 
-		foreach ( $drim_share_settings_optional as $settings_field_optional ) {
+		foreach ( $dss_optional as $settings_field_optional ) {
 
 			add_settings_field(
 				$settings_field_optional[0], // ID
 				$settings_field_optional[1], // Title
 				array( $this, $settings_field_optional[0] . '_callback' ), // Callback
 				'drim_share_options', // Page
-				$drim_share_settings_optional_section[0] // Section
+				$dss_optional_section[0] // Section
 			);
 
 		}

@@ -7,11 +7,11 @@
 */
 
 // main settings section
-$drim_share_settings_main_section = array(
+$dss_main_section = array(
 	'ds_settings_main',
 	__( 'Main Settings', 'drim-share' ),
 );
-$drim_share_settings_main         = array(
+$dss_main         = array(
 
 	array(
 		'ds_plugin_enable',
@@ -53,11 +53,11 @@ $drim_share_icon_examples_section = array(
 
 
 // position settings section
-$drim_share_settings_position_section = array(
+$dss_position_section = array(
 	'ds_settings_position',
 	__( 'Position Settings', 'drim-share' ),
 );
-$drim_share_settings_position         = array(
+$dss_position         = array(
 
 	array(
 		'ds_position_content',
@@ -72,11 +72,11 @@ $drim_share_settings_position         = array(
 );
 
 // mobile settings section
-$drim_share_settings_mobile_section = array(
+$dss_mobile_section = array(
 	'ds_settings_mobile',
 	__( 'Mobile Settings', 'drim-share' ),
 );
-$drim_share_settings_mobile         = array(
+$dss_mobile         = array(
 
 	array(
 		'ds_position_content_mobile',
@@ -98,11 +98,11 @@ $drim_share_settings_mobile         = array(
 
 
 // post types settings section
-$drim_share_settings_post_types_section = array(
+$dss_post_types_section = array(
 	'ds_settings_post_types',
 	__( 'Post Types', 'drim-share' ),
 );
-$drim_share_settings_post_types         = array(
+$dss_post_types         = array(
 
 	array(
 		'ds_post_type_post',
@@ -132,11 +132,11 @@ $drim_share_settings_post_types         = array(
 );
 
 // optional settings section
-$drim_share_settings_optional_section = array(
+$dss_optional_section = array(
 	'ds_settings_optional',
 	__( 'Optional Settings', 'drim-share' ),
 );
-$drim_share_settings_optional         = array(
+$dss_optional         = array(
 
 	array(
 		'ds_style_align',
