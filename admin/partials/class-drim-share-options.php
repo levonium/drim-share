@@ -650,7 +650,7 @@ class Drim_Share_Options {
 		$ds_opt = isset( $this->options['ds_style_align'] ) ? esc_attr( $this->options['ds_style_align'] ) : '';
 		?>
 		<select class="regular-text" id="ds_style_align" name="drim_share_settings_options[ds_style_align]">
-		  <option value=""> <?php _e( 'Left', 'drim-share' ); ?> </option>
+		  <option value="ds_align_left"> <?php _e( 'Left', 'drim-share' ); ?> </option>
 		  <option value="ds_align_center" <?php selected( $ds_opt, 'ds_align_center' ); ?>> <?php _e( 'Center', 'drim-share' ); ?> </option>
 		  <option value="ds_align_right" <?php selected( $ds_opt, 'ds_align_right' ); ?>> <?php _e( 'Right', 'drim-share' ); ?> </option>
 		</select>

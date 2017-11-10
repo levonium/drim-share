@@ -22,7 +22,11 @@ include_once dirname( dirname( __FILE__ ) ) . '/inc/svg-functions.php';
 
 <h2 class="no_margin_bottom"> <?php _e( 'DR!M SHARE', 'drim-share' ); ?> </h2>
 <p>
-Version <?php echo $drim_version; ?> | <?php _e( 'Author: ', 'drim-share' ); ?> <a href="https://drim.io/" target="_blank">Levon Avetyan</a>
+<?php printf( 
+	/* translators: 1. plugin version number. 2. plugin author name. */
+	__( 'Version: %1$s | Author: %2$s', 'drim-share' ),
+	$drim_version,
+	'<a href="https://drim.io/" target="_blank">Levon Avetyan</a>' ); ?>
 </p>
 
 <p>
@@ -52,11 +56,11 @@ Version <?php echo $drim_version; ?> | <?php _e( 'Author: ', 'drim-share' ); ?> 
 <hr />
 
 <p>
-	<a class="no_decoration small-icon" href="https://drim.io/drim-share/" target="_blank">  <?php echo ds_get_svg( array( 'icon' => 'wordpress' ) ); ?> Plugin Homepage </a>
+	<a class="no_decoration small-icon" href="https://drim.io/drim-share/" target="_blank">  <?php echo ds_get_svg( array( 'icon' => 'wordpress' ) ); _e( 'Plugin Homepage', 'drim-share' ); ?> </a>
   <br />
-	<a class="no_decoration small-icon" href="https://github.com/levonium/drim-share" target="_blank">  <?php echo ds_get_svg( array( 'icon' => 'github' ) ); ?> View on GitHub </a>
+	<a class="no_decoration small-icon" href="https://github.com/levonium/drim-share" target="_blank">  <?php echo ds_get_svg( array( 'icon' => 'github' ) ); _e( 'View on GitHub', 'drim-share' ); ?> </a>
   <br />
-	<a class="no_decoration small-icon" href="https://drim.io/contact/" target="_blank">  <?php echo ds_get_svg( array( 'icon' => 'envelope-o' ) ); ?> Any questions? </a>
+	<a class="no_decoration small-icon" href="https://drim.io/contact/" target="_blank">  <?php echo ds_get_svg( array( 'icon' => 'envelope-o' ) ); _e( 'Any questions?', 'drim-share' ); ?> </a>
   </p>
 
   <hr />
@@ -91,6 +95,9 @@ Version <?php echo $drim_version; ?> | <?php _e( 'Author: ', 'drim-share' ); ?> 
 
   <p>
 	<span class="medium-icon"> <?php echo ds_get_svg( array( 'icon' => 'happy' ) ); ?> </span>
-	<?php _e( 'Thank you for using ', 'drim-share' ); ?>
-	<strong> <?php _e( 'DR!M SHARE', 'drim-share' ); ?></strong>.
+	<?php 
+	printf( 
+		/* translators: %s: plugin name. */
+		__( 'Thank you for using %s.', 'drim-share' ), 
+		'<strong> DR!M SHARE </strong>' ); ?>
   </p>

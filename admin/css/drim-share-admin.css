@@ -51,7 +51,7 @@ font-size: 16px;
 grid-template-columns: repeat(6,auto);
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 768px) {
   .ds_examples_container .ds_wrapper#ds_example {
 	grid-template-columns: 1fr;
   }
@@ -109,7 +109,7 @@ grid-template-columns: repeat(6,auto);
 
 
 .ds_part_right {
-  max-width: 280px;
+  max-width: 480px;
   padding: 20px;
   background-color: #fff;
   z-index: 2;
@@ -119,6 +119,7 @@ grid-template-columns: repeat(6,auto);
    position: fixed;
    top: 60px;
    right: 20px;
+   max-width: 280px;
  }
 }
 

@@ -70,12 +70,10 @@ msgid "Post Types"
 msgstr "Tipos de Posts"
 
 # wpml-name: 515a85cca2f32963d58711b0f4b72474
-#, fuzzy
 msgid "Stretched Fixed Bar"
 msgstr "Barra fija y extendida"
 
 # wpml-name: e2aec09ff7bd257528f0f1cd50a1542c
-#, fuzzy
 msgid "Bottom Fixed Bar"
 msgstr "Barra fija"
 
@@ -89,9 +87,8 @@ msgid "Side Fixed Bar"
 msgstr "Barra fija"
 
 # wpml-name: 46fca9d30e2d05555447f02f2bc68316
-#, fuzzy
 msgid "In Content Area"
-msgstr "En el área de contenido"
+msgstr "Área de contenido"
 
 # wpml-name: c5077bcae3f15346cd57e889cd2a1002
 #, fuzzy
@@ -99,7 +96,6 @@ msgid "Position Settings"
 msgstr "Ajustes de posición"
 
 # wpml-name: 3aea427a69e8906b95790872a9ab07cd
-#, fuzzy
 msgid "Preview:"
 msgstr "Vista anticipada:"
 
@@ -116,7 +112,6 @@ msgid "Button Type"
 msgstr "Tipo del botón"
 
 # wpml-name: 00a49db90feae1caf262fb404f03c9ac
-#, fuzzy
 msgid "WhatsApp for Mobile"
 msgstr "WhatsApp para móvil"
 
@@ -428,15 +423,15 @@ msgstr ""
 
 # wpml-name: 441559097f4286e12c0c09424c72e4c2
 msgid "Check the box to enable the plugin."
-msgstr ""
+msgstr "Marcar la casilla para activar el plugin."
 
 # wpml-name: 2faec1f9f8cc7f8f40d521c4dd574f49
 msgid "Enable"
-msgstr ""
+msgstr "Activar"
 
 # wpml-name: 44f33fe26c55a7058c949a56d3b70e69
 msgid "Drim Share"
-msgstr ""
+msgstr "Drim Share"
 
 # wpml-name: 075a156fb2437ad27208a91a79f01ce1
 msgid "Please define an SVG icon filename."
