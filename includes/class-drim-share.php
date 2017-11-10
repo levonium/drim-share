@@ -65,8 +65,9 @@ class Drim_Share {
 	 */
 	public function __construct() {
 
-		$this->plugin_name = 'drim-share';
-		$this->version     = '1.0.0';
+		$this->plugin_name      = 'drim-share';
+		$this->plugin_nice_name = 'DR!M Share';
+		$this->version          = '1.0.0';
 
 		$this->load_dependencies();
 		$this->set_locale();
@@ -189,6 +190,16 @@ class Drim_Share {
 	 */
 	public function get_plugin_name() {
 		return $this->plugin_name;
+	}
+
+
+	/**
+	 *
+	 * @since     1.0.0
+	 * @return    string    The nice name of the plugin.
+	 */
+	public function get_plugin_nice_name() {
+		return $this->plugin_nice_name;
 	}
 
 	/**

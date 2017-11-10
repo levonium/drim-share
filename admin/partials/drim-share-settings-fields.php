@@ -61,7 +61,7 @@ $dss_position         = array(
 
 	array(
 		'ds_position_content',
-		__( 'In Content Area', 'drim-share' ),
+		__( 'Content Area', 'drim-share' ),
 	),
 
 	array(
@@ -80,7 +80,7 @@ $dss_mobile         = array(
 
 	array(
 		'ds_position_content_mobile',
-		__( 'In Content Area', 'drim-share' ),
+		__( 'Content Area', 'drim-share' ),
 	),
 
 	array(

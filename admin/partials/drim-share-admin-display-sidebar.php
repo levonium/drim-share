@@ -11,22 +11,28 @@
 ?>
 
 <?php
-// get plugin version
+// get plugin version and nice name
 $drim         = new Drim_Share();
 $drim_version = $drim->get_version();
+$drim_name    = $drim->get_plugin_nice_name();
 
 // get the svg icons file
 include_once dirname( dirname( __FILE__ ) ) . '/inc/svg-functions.php';
 
 ?>
 
-<h2 class="no_margin_bottom"> <?php _e( 'DR!M SHARE', 'drim-share' ); ?> </h2>
+<h2 class="no_margin_bottom"> 
+	<?php echo $drim_name; ?>
+</h2>
 <p>
-<?php printf( 
+<?php
+printf(
 	/* translators: 1. plugin version number. 2. plugin author name. */
 	__( 'Version: %1$s | Author: %2$s', 'drim-share' ),
 	$drim_version,
-	'<a href="https://drim.io/" target="_blank">Levon Avetyan</a>' ); ?>
+	'<a href="https://drim.io/" target="_blank">Levon Avetyan</a>'
+);
+	?>
 </p>
 
 <p>
@@ -36,7 +42,7 @@ include_once dirname( dirname( __FILE__ ) ) . '/inc/svg-functions.php';
 <hr />
 
 <p class="ds_notice">
-<?php _e( 'To make the plugin start, please make sure to select the following fields:', 'drim-share' ); ?>
+<?php _e( 'In order the plugin to work, please make sure to adjust the following fields:', 'drim-share' ); ?>
 </p>
 <ol>
 <li>
@@ -56,11 +62,26 @@ include_once dirname( dirname( __FILE__ ) ) . '/inc/svg-functions.php';
 <hr />
 
 <p>
-	<a class="no_decoration small-icon" href="https://drim.io/drim-share/" target="_blank">  <?php echo ds_get_svg( array( 'icon' => 'wordpress' ) ); _e( 'Plugin Homepage', 'drim-share' ); ?> </a>
+	<a class="no_decoration small-icon" href="https://drim.io/drim-share/" target="_blank">  
+	<?php
+	echo ds_get_svg( array( 'icon' => 'wordpress' ) );
+	_e( 'Plugin Homepage', 'drim-share' );
+?>
+ </a>
   <br />
-	<a class="no_decoration small-icon" href="https://github.com/levonium/drim-share" target="_blank">  <?php echo ds_get_svg( array( 'icon' => 'github' ) ); _e( 'View on GitHub', 'drim-share' ); ?> </a>
+	<a class="no_decoration small-icon" href="https://github.com/levonium/drim-share" target="_blank">  
+	<?php
+	echo ds_get_svg( array( 'icon' => 'github' ) );
+	_e( 'View on GitHub', 'drim-share' );
+?>
+ </a>
   <br />
-	<a class="no_decoration small-icon" href="https://drim.io/contact/" target="_blank">  <?php echo ds_get_svg( array( 'icon' => 'envelope-o' ) ); _e( 'Any questions?', 'drim-share' ); ?> </a>
+	<a class="no_decoration small-icon" href="https://drim.io/contact/" target="_blank">  
+	<?php
+	echo ds_get_svg( array( 'icon' => 'envelope-o' ) );
+	_e( 'Any questions?', 'drim-share' );
+?>
+ </a>
   </p>
 
   <hr />
@@ -95,9 +116,11 @@ include_once dirname( dirname( __FILE__ ) ) . '/inc/svg-functions.php';
 
   <p>
 	<span class="medium-icon"> <?php echo ds_get_svg( array( 'icon' => 'happy' ) ); ?> </span>
-	<?php 
-	printf( 
+	<?php
+	printf(
 		/* translators: %s: plugin name. */
-		__( 'Thank you for using %s.', 'drim-share' ), 
-		'<strong> DR!M SHARE </strong>' ); ?>
+		__( 'Thank you for using %s.', 'drim-share' ),
+		'<strong>' . $drim_name . '</strong>'
+	);
+		?>
   </p>

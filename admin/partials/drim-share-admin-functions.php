@@ -399,7 +399,7 @@ function ds_make_wrapper_tag() {
 
 
 /**
-* Make the style tag (user's styles)
+* Make the style tag
 *
 * @since 1.0.0
 * @return string
@@ -420,8 +420,8 @@ function ds_make_style_tag() {
 	}
 
 	$fixed_bar = ds_fixed_bar();
-	if ( ( ! $fixed_bar ) && ds_is_mobile_device() !== true ) {
-		$custom_styles .= '.ds_container:not(.ds_container_mobile) { top: calc((100% - ' . $items * 2 . 'em) / 2);}';
+	if ( ( ! $fixed_bar ) && true !== ds_is_mobile_device() ) {
+		$custom_styles       .= '.ds_container:not(.ds_container_mobile) { top: calc((100% - ' . $items * 2 . 'em) / 2);}';
 	}
 
 	if ( true === ds_fixed_bar_mobile_full() ) {
