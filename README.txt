@@ -1,7 +1,7 @@
 === DR!M Share ===
 Contributors: drimio
 Tags: share, share buttons, social buttons, social media
-Requires at least: 2.8
+Requires at least: 3.3
 Tested up to: 4.8.3
 Requires PHP: 5.6
 Stable tag: trunk
@@ -13,6 +13,7 @@ A simple light-weight and mobile-friendly social sharing plugin for WordPress.
 == Description ==
 
 This plugin adds social sharing buttons to your WP website.
+It's optimized for mobile devices, it loads only a small stylesheet and doesn't slow down your website, compatible with custom post types, WPML ready and very easy to configure.
 
 The following networks are currently suported:
 + Facebook
@@ -22,8 +23,6 @@ The following networks are currently suported:
 + Pinterest
 
 + also you can add WhatsApp button for mobile devices.
-
-It's optimized for mobile devices, it loads only a small stylesheet and doesn't slow down your website, compatible with custom post types, WPML ready and very easy to configure.
 
 You can customize it to fit your website.
 
@@ -88,19 +87,18 @@ Some additional options:
 + Add borders to the buttons block and change the border color
 + Add a heading text before the buttons
 
-
 Read more about this plugin [here](https://drim.io/drim-share/).
 
 == Screenshots ==
 
-screenshot-1.png
-screenshot-2.png
-screenshot-3.png
+[screenshot-1.png](https://drim.io/download/drim-share/screenshot-1.png)
+[screenshot-2.png](https://drim.io/download/drim-share/screenshot-2.png)
+[screenshot-3.png](https://drim.io/download/drim-share/screenshot-3.png)
 
 == Frequently Asked Questions ==
 
 == Installation ==
 
-1. Upload `drim-share-master` directory to the `/wp-content/plugins/` directory
+1. Upload `drim-share` directory to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Visit plugin settings page to configure the plugin settings.
