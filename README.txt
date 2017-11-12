@@ -72,7 +72,6 @@ You have the options to choose:
 = Post Types = 
 
 You choose on which types of posts/pages to display the buttons.
-
 + Default post types: Posts and Pages.
 + Custom post types, in case you have them in your website.
 + Homepage (* applies to In Content buttons only).
@@ -82,18 +81,11 @@ You choose on which types of posts/pages to display the buttons.
 = Additional Options =
 
 Some additional options:
-
 + Choose the buttons alignment
 + Add borders to the buttons block and change the border color
 + Add a heading text before the buttons
 
 Read more about this plugin [here](https://drim.io/drim-share/).
-
-== Screenshots ==
-
-[screenshot-1.png](https://drim.io/download/drim-share/screenshot-1.png)
-[screenshot-2.png](https://drim.io/download/drim-share/screenshot-2.png)
-[screenshot-3.png](https://drim.io/download/drim-share/screenshot-3.png)
 
 == Frequently Asked Questions ==
 
