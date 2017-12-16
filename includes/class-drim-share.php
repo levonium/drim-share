@@ -67,7 +67,7 @@ class Drim_Share {
 
 		$this->plugin_name      = 'drim-share';
 		$this->plugin_nice_name = 'DR!M Share';
-		$this->version          = '1.0.0';
+		$this->version          = '1.1.0';
 
 		$this->load_dependencies();
 		$this->set_locale();

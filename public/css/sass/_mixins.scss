@@ -2,14 +2,18 @@
 // social network button background colors, icon coors and backgrond images
 // =============================================================================
 
-$networks: facebook twitter linkedin googleplus pinterest whatsapp;
+$networks: facebook twitter linkedin googleplus pinterest whatsapp reddit stumbleupon vk buffer;
 $network-colors: (
 	facebook: #4367b1,
 	twitter: #1fa0f3,
 	linkedin: #0277b5,
 	googleplus: #da4638,
 	pinterest: #bd081c,
-	whatsapp: #06e676
+	whatsapp: #06e676,
+	reddit: #ff3f19,
+	stumbleupon: #ec4824,
+	vk: #4f82ba,
+	buffer: #363d40,
 );
 
 @mixin set_bg_colors($network) {

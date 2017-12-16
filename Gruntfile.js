@@ -41,6 +41,21 @@ module.exports = function(grunt) {
                 files: ['public/css/sass/*.scss', 'public/css/sass/**/*.scss'],
                 tasks: ['sass', 'postcss']
             },
+        },
+
+        makepot: {
+            target: {
+                options: {
+                    domainPath: 'languages',
+                    exclude: [
+                        'docs/.*',
+                        'node_modules/.*',
+                        'vendor/.*',
+                        'wpcs/.*'
+                    ],
+                    type: 'wp-plugin'
+                }
+            }
         }
 
     });
@@ -48,7 +63,12 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-postcss');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-wp-i18n');
 
     grunt.registerTask('default', ['watch']);
+
+    grunt.registerTask('pot', [
+        'makepot'
+    ]);
 
 }

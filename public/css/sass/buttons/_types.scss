@@ -83,5 +83,33 @@
       border-radius: 4px;
     }
   }
+}
 
+// shorter option
+.shorter {
+
+  .ds_bttn {
+
+    &.ds_mixed {
+
+      &:not(:nth-child(-n+2)) {
+
+        a {
+
+          .anchor-grid {
+            grid-template-columns: 2em;
+
+            span {
+
+              &.anchor-item {
+                &:nth-child(2) {
+                  display: none;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }

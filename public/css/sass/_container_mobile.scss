@@ -1,69 +1,77 @@
-.ds_container_mobile {
+@media screen and (max-width: 720px) {
+  .ds_container {
 
-  .ds_wrapper {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    margin-bottom: 0;
-    border-bottom-width: 0;
-    padding: 6px;
-    background-color: rgba(255,255,255,0.95);
-    z-index: 9999;
-    grid-gap: 6px;
-    grid-template-columns: repeat(6, auto);
-
-    &.ds_brdr_both,
-    &.ds_brdr_top,
-    &.ds_brdr_bottom {
-      border-top: 1px solid rgba(0,0,0,0.05);
-      border-bottom: 0 none;
+    &.hide_on_mobie {
+      display: none;
     }
 
-  }
-
-  &.ds_container_full {
-
     .ds_wrapper {
-      grid-template-columns: repeat(6, 1fr);
-      grid-gap: 0;
-      padding: 0;
-      border-top-width: 0;
-      border-bottom-width: 0;
 
-      .ds_bttn {
-        width: auto;
-        border-radius: 0;
+      &:not(.ds_in_content) {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        margin-bottom: 0;
+        border-bottom-width: 0;
+        padding: 6px;
+        background-color: rgba(255,255,255,0.95);
+        z-index: 9999;
+        grid-gap: 6px;
+        grid-template-columns: repeat(10, auto);
 
-        &.ds_text {
-
-          a {
-
-            svg {
-
-              &.icon {
-                display: inherit;
-              }
-            }
-
-            span {
-
-              &.ds_network_name {
-                display: none;
-              }
-            }
-          }
+        .ds_bttn {
+          margin: 0;
         }
+      }
+    }
 
-        &.ds_mixed {
-          width: auto;
+    &.ds_container_full {
 
-          a {
+      .ds_wrapper {
 
-            div {
+        &:not(.ds_in_content) {
+          grid-template-columns: repeat(10, 1fr);
+          grid-gap: 0;
+          padding: 0;
+          border-top-width: 0;
+          border-bottom-width: 0;
 
-              &.anchor-grid {
-                grid-template-columns: 1fr;
+          .ds_bttn {
+            width: auto;
+            border-radius: 0;
+
+            &.ds_text {
+
+              a {
+
+                svg {
+
+                  &.icon {
+                    display: inline;
+                  }
+                }
+
+                span {
+
+                  &.ds_network_name {
+                    display: none;
+                  }
+                }
+              }
+            }
+
+            &.ds_mixed {
+              width: auto;
+
+              a {
+
+                div {
+
+                  &.anchor-grid {
+                    grid-template-columns: 1fr;
+                  }
+                }
               }
             }
           }

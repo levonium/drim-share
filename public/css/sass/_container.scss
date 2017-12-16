@@ -1,20 +1,13 @@
 .ds_container {
+  position: fixed;
+  top: calc( ( 100% - 22em ) / 2 );
+  margin: 0;
 
   .ds_wrapper {
-    z-index: 9;
 
-    .ds_heading {
-      display: none;
-    }
-  }
-
-  &:not(.ds_container_mobile) {
-    position: fixed;
-    top: calc( ( 100% - 10em ) / 2 );
-    margin: 0;
-
-    .ds_wrapper {
+    &:not(.ds_in_content) {
       grid-template-columns: 1fr;
+      justify-content: center;
       grid-gap: 0;
       padding: 0;
       border: 0 none;
@@ -47,15 +40,19 @@
           }
         }
       }
-
     }
+  }
 
-    &.sticky_left {
-      left: 0;
-    }
+  &.sticky_left {
+    left: 0;
+  }
 
-    &.sticky_right {
-      right: 0;
-    }
+  &.sticky_right {
+    right: 0;
+  }
+
+
+  .ds_wrapper {
+    z-index: 9;
   }
 }

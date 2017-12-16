@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Add a link to admin options page from plugins directory
  *
@@ -10,6 +9,15 @@
  * @subpackage Drim_Share/admin/partials
  */
 
+/**
+ * Add a link to admin options page from plugins directory
+ *
+ * @link       https://drim.io/drim-share/
+ * @since      1.0.0
+ *
+ * @param array  $links seetings link array.
+ * @param string $file plugin filename.
+ */
 function drim_share_add_action_plugin( $links, $file ) {
 	static $plugin;
 	$pluginfile = dirname( dirname( dirname( __FILE__ ) ) ) . '/drim-share.php';
@@ -18,7 +26,7 @@ function drim_share_add_action_plugin( $links, $file ) {
 		$plugin = plugin_basename( $pluginfile );
 	}
 
-	if ( $plugin == $file ) {
+	if ( $plugin === $file ) {
 		$learn_more_link = array( 'settings' => '<a href="admin.php?page=drim_share_options">' . __( 'Settings', 'drim-share' ) . '</a>' );
 		$links           = array_merge( $learn_more_link, $links );
 	}

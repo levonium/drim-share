@@ -11,7 +11,7 @@
  * Plugin Name:       Drim Share
  * Plugin URI:        https://drim.io/drim-share/
  * Description:       A simple lightweight and mobile friendly social sharing plugin.
- * Version:           1.0.0
+ * Version:           1.1.0
  * Author:            Levon Avetyan
  * Author URI:        https://drim.io/
  * License:           GPL-2.0+
