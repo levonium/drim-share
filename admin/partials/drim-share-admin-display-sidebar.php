@@ -19,7 +19,7 @@ require_once dirname( dirname( __FILE__ ) ) . '/inc/svg-functions.php';
 
 ?>
 
-<h2 class="no_margin_bottom"> 
+<h2 class="no_margin_bottom">
 	<?php echo esc_attr( $drim_name ); ?>
 </h2>
 <p>
@@ -40,24 +40,17 @@ require_once dirname( dirname( __FILE__ ) ) . '/inc/svg-functions.php';
 <hr />
 
 <p>
-	<a class="no_decoration small-icon" href="https://drim.io/drim-share/" target="_blank">  
+	<a class="no_decoration small-icon" href="https://wordpress.org/plugins/drim-share/" target="_blank">
 		<?php
 		echo ds_get_svg( array( 'icon' => 'wordpress' ) );
 		esc_attr_e( 'Plugin Homepage', 'drim-share' );
 		?>
 	</a>
 	<br />
-	<a class="no_decoration small-icon" href="https://github.com/levonium/drim-share" target="_blank">  
+	<a class="no_decoration small-icon" href="https://github.com/levonium/drim-share" target="_blank">
 		<?php
 		echo ds_get_svg( array( 'icon' => 'github' ) );
 		esc_attr_e( 'View on GitHub', 'drim-share' );
-		?>
-	</a>
-	<br />
-	<a class="no_decoration small-icon" href="https://drim.io/contact/" target="_blank">  
-		<?php
-		echo ds_get_svg( array( 'icon' => 'envelope-o' ) );
-		esc_attr_e( 'Any questions?', 'drim-share' );
 		?>
 	</a>
 </p>
@@ -75,18 +68,13 @@ require_once dirname( dirname( __FILE__ ) ) . '/inc/svg-functions.php';
 		</a>
 	</div>
 	<div class="ds_bttn ds_square ds_icon ds_default ds_twitter">
-		<a target="_blank" rel="nofollow" title="Share on Twitter" href="https://twitter.com/home?status=https://drim.io/drim-share/%20A%20simple%20light-weight%20and%20mobile-friendly%20social%20sharing%20plugin%20for%20WordPress.">
+		<a target="_blank" rel="nofollow" title="Share on Twitter" href="https://twitter.com/intent/tweet?text=https://drim.io/drim-share/%20A%20simple%20light-weight%20and%20mobile-friendly%20social%20sharing%20plugin%20for%20WordPress.">
 			<?php echo ds_get_svg( array( 'icon' => 'ds_twitter' ) ); ?>
 		</a>
 	</div>
 	<div class="ds_bttn ds_square ds_icon ds_default ds_linkedin">
 		<a target="_blank" rel="nofollow" title="Share on LinkedIn" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://drim.io/drim-share/&amp;title=A simple light-weight and mobile-friendly social sharing plugin for WordPress.&amp;summary=">
 			<?php echo ds_get_svg( array( 'icon' => 'ds_linkedin' ) ); ?>
-		</a>
-	</div>
-	<div class="ds_bttn ds_square ds_icon ds_default ds_googleplus">
-		<a target="_blank" rel="nofollow" title="Share on Google Plus" href="https://plus.google.com/share?url=https://drim.io/drim-share/">
-			<?php echo ds_get_svg( array( 'icon' => 'ds_googleplus' ) ); ?>
 		</a>
 	</div>
 </div>

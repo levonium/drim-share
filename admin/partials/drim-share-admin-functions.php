@@ -49,7 +49,6 @@ function ds_get_available_social_networks() {
 	$_networks = [
 		'facebook'    => __( 'Facebook', 'drim-share' ),
 		'twitter'     => __( 'Twitter', 'drim-share' ),
-		'googleplus'  => __( 'Google Plus', 'drim-share' ),
 		'linkedin'    => __( 'LinkedIn', 'drim-share' ),
 		'pinterest'   => __( 'Pinterest', 'drim-share' ),
 		'stumbleupon' => __( 'StumbleUpon', 'drim-share' ),
@@ -477,7 +476,7 @@ function ds_make_link_tags( $network ) {
 
 	global $post;
 
-	$thumb = ( has_post_thumbnail( $post ) ) ? get_the_post_thumbnail_url( $post ) : '';
+	$thumb = has_post_thumbnail( $post ) ? get_the_post_thumbnail_url( $post ) : '';
 	$title = get_the_title( $post );
 
 	switch ( $network ) {
@@ -486,7 +485,7 @@ function ds_make_link_tags( $network ) {
 			$text = 'Facebook';
 			break;
 		case 'twitter':
-			$url  = 'https://twitter.com/home?status=' . get_permalink( $post ) . '%20' . $title;
+			$url  = 'https://twitter.com/intent/tweet?text=' . get_permalink( $post ) . '%20' . $title;
 			$text = 'Twitter';
 			break;
 		case 'linkedin':
@@ -496,10 +495,6 @@ function ds_make_link_tags( $network ) {
 		case 'pinterest':
 			$url  = 'https://pinterest.com/pin/create/button/?url=' . get_permalink( $post ) . '&media=' . $thumb . '&description=';
 			$text = 'Pinterest';
-			break;
-		case 'googleplus':
-			$url  = 'https://plus.google.com/share?url=' . get_permalink( $post );
-			$text = 'Google Plus';
 			break;
 		case 'reddit':
 			$url  = 'https://reddit.com/submit?url=' . get_permalink( $post ) . '&title=' . get_the_title( $post );
@@ -528,7 +523,7 @@ function ds_make_link_tags( $network ) {
 	$icon = ds_get_svg( array( 'icon' => 'ds_' . $network ) );
 
 	// link data-action attribute.
-	$action = ( 'whatsapp' === $network ) ? ' data-action="share/whatsapp/share"' : '';
+	$action = 'whatsapp' === $network ? ' data-action="share/whatsapp/share"' : '';
 
 	// link anchor.
 	$anchor = $icon . '<span class="ds_network_name">' . $text . '</span>';
