@@ -2,9 +2,9 @@
 Contributors: drimio
 Tags: share, share icons, share buttons, social buttons, social media
 Requires at least: 3.3
-Tested up to: 4.9.1
+Tested up to: 5.4
 Requires PHP: 5.6
-Stable tag: 1.1.0
+Stable tag: 1.2.0
 License: GPL-2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 
@@ -15,7 +15,7 @@ A simple light-weight and mobile-friendly social sharing plugin for WordPress.
 This plugin adds social sharing buttons to your WP website.
 It's optimized for mobile devices, it loads only a small stylesheet and doesn't slow down your website, compatible with custom post types, WPML ready and very easy to configure.
 
-The following networks are currently suported:
+The following networks are currently supported:
 * Facebook
 * Twitter
 * LinkedIn
@@ -86,7 +86,7 @@ You choose on which types of posts/pages to display the in content buttons.
 * Default post types: Posts and Pages.
 * Custom post types, in case you have them in your website.
 * Front page
-* Archive pages 
+* Archive pages
 
 ## Frequently Asked Questions
 
@@ -109,9 +109,13 @@ Read more about this plugin [here](https://drim.io/drim-share/).
 
 ## Changelog
 
+### 1.2.0
+* Removed Google plus
+* Fixed Twitter Link URL
+
 ### 1.1.0
 * Added new social networks (StumbleUpon, Reddit, VK, Buffer)
-* Fixed issue with caching 
+* Fixed issue with caching
 * Added options to change the icon size, padding
 * Other bug fixes and improvements
 
